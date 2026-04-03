@@ -145,6 +145,124 @@ const routes = [
       { requiresGuest: true },
       children: [
       {
+        path: "contentpeoples",
+        name: "Contentpeople-view",
+        component: () => import('../views/closed/ContentPeoples/ContentpeopleView.vue'),
+      },
+      {
+        path: "contentpeoples/add",
+        name: "Contentpeople-add",
+        component: () => import('../views/closed/ContentPeoples/AddContentpeople.vue'),
+      },
+      {
+        path: "contentpeoples/edit/:id",
+        name: "Contentpeople-edit",
+        component: () => import('../views/closed/ContentPeoples/EditContentpeople.vue'),
+        props: true,
+      },
+      {
+        path: "contentpeoples/detail/:id",
+        name: "Contentpeople-detail",
+        component: () => import('../views/closed/ContentPeoples/ContentpeopleDetail.vue'),
+        props: true,
+      },
+
+      {
+        path: "contentcategories",
+        name: "Contentcategories-view",
+        component: () => import('../views/closed/ContentCategories/ContentcategoriesView.vue'),
+      },
+      {
+        path: "contentcategories/add",
+        name: "Contentcategories-add",
+        component: () => import('../views/closed/ContentCategories/AddContentcategories.vue'),
+      },
+      {
+        path: "contentcategories/edit/:id",
+        name: "Contentcategories-edit",
+        component: () => import('../views/closed/ContentCategories/EditContentcategories.vue'),
+        props: true,
+      },
+      {
+        path: "contentcategories/detail/:id",
+        name: "Contentcategories-detail",
+        component: () => import('../views/closed/ContentCategories/ContentcategoriesDetail.vue'),
+        props: true,
+      },
+
+     
+    
+
+      {
+        path: "peoples",
+        name: "People-view",
+        component: () => import('../views/closed/Peoples/PeopleView.vue'),
+      },
+      {
+        path: "peoples/add",
+        name: "People-add",
+        component: () => import('../views/closed/Peoples/AddPeople.vue'),
+      },
+      {
+        path: "peoples/edit/:id",
+        name: "People-edit",
+        component: () => import('../views/closed/Peoples/EditPeople.vue'),
+        props: true,
+      },
+      {
+        path: "peoples/detail/:id",
+        name: "People-detail",
+        component: () => import('../views/closed/Peoples/PeopleDetail.vue'),
+        props: true,
+      },
+
+      {
+        path: "contents",
+        name: "Content-view",
+        component: () => import('../views/closed/Contents/ContentView.vue'),
+      },
+      {
+        path: "contents/add",
+        name: "Content-add",
+        component: () => import('../views/closed/Contents/AddContent.vue'),
+      },
+      {
+        path: "contents/edit/:id",
+        name: "Content-edit",
+        component: () => import('../views/closed/Contents/EditContent.vue'),
+        props: true,
+      },
+      {
+        path: "contents/detail/:id",
+        name: "Content-detail",
+        component: () => import('../views/closed/Contents/ContentDetail.vue'),
+        props: true,
+      },
+
+      {
+        path: "categories",
+        name: "Categories-view",
+        component: () => import('../views/closed/Categories/CategoriesView.vue'),
+      },
+      {
+        path: "categories/add",
+        name: "Categories-add",
+        component: () => import('../views/closed/Categories/AddCategories.vue'),
+      },
+      {
+        path: "categories/edit/:id",
+        name: "Categories-edit",
+        component: () => import('../views/closed/Categories/EditCategories.vue'),
+        props: true,
+      },
+      {
+        path: "categories/detail/:id",
+        name: "Categories-detail",
+        component: () => import('../views/closed/Categories/CategoriesDetail.vue'),
+        props: true,
+      },
+
+      {
         path: "adcampaigns",
         name: "AdCampaign-view",
         component: () => import('../views/closed/AdCampaigns/AdCampaignView.vue'),

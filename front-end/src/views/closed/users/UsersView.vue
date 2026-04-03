@@ -161,7 +161,7 @@ export default {
       this.currentPage = page;
       try {
         const res = await this.$apiGet('/users', { page, page_size: this.pageSize, search: this.searchQuery });
-        this.items = res.data || [];
+        this.items = res.data.data || [];
         this.count = res.count || 0;
         this.nextPage = res.next || null;
         this.previousPage = res.previous || null;

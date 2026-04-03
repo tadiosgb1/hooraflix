@@ -152,14 +152,18 @@ export default {
       this.error = "";
       this.loading = true;
       try {
-        const response = await this.$apiPost("/auth/login", this.form);
-        localStorage.setItem("refresh", response.refreshToken);
-        localStorage.setItem("access", response.accessToken);
-        localStorage.setItem("userId", response.id);
-        localStorage.setItem("email", response.email);
-        localStorage.setItem("name", response.name || response.email);
-        localStorage.setItem("roles", response.roles);
-        localStorage.setItem("permissions", response.permissions);
+        const response = await this.$apiPost("/users/login", this.form);
+
+        console.log("response",response);
+
+      //  localStorage.setItem("refresh", response.refreshToken);
+        localStorage.setItem("access", response.data.access_token);
+
+        localStorage.setItem("userId", response.data.user.id);
+        localStorage.setItem("email", response.data.user.email);
+        localStorage.setItem("name", response.data.user.first_name);
+       // localStorage.setItem("roles", response.roles);
+        //localStorage.setItem("permissions", response.permissions);
         
         this.$refs.toast?.showSuccessToastMessage("Creator Session Authorized.");
     

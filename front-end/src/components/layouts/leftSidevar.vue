@@ -68,6 +68,49 @@ export default {
       is_superuser: false,
       menuItems: [
 
+    {
+      name: "Content Peoples",
+      route: "Contentpeople-view",
+      icon: "fas fa-folder",
+      color: "#22c55e"
+    },
+
+
+    {
+      name: "Content Categories",
+      route: "Contentcategories-view",
+      icon: "fas fa-folder",
+      color: "#22c55e"
+    },
+
+
+ 
+
+
+    {
+      name: "Peoples",
+      route: "People-view",
+      icon: "fas fa-folder",
+      color: "#22c55e"
+    },
+
+
+    {
+      name: "Contents",
+      route: "Content-view",
+      icon: "fas fa-folder",
+      color: "#22c55e"
+    },
+
+
+    {
+      name: "Categories",
+      route: "Categories-view",
+      icon: "fas fa-folder",
+      color: "#22c55e"
+    },
+
+
   
 
   

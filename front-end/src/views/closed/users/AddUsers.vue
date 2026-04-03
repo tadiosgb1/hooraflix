@@ -54,10 +54,10 @@
           </div>
 
           <div class="space-y-1">
-            <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Phone Number</label>
+            <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">phone_number Number</label>
             <div class="relative group">
-              <i class="fas fa-phone absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-dprimary transition-colors text-xs"></i>
-              <input v-model="form.phone" type="text" required placeholder="+1 234 567 890"
+              <i class="fas fa-phone_number absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-dprimary transition-colors text-xs"></i>
+              <input v-model="form.phone_number" type="text" required placeholder="+1 234 567 890"
                 class="w-full pl-11 pr-4 py-3 bg-slate-50 border-2 border-slate-50 rounded-2xl focus:bg-white focus:ring-0 focus:border-primary outline-none transition-all text-sm font-bold text-slate-800 placeholder:text-slate-300" />
             </div>
           </div>
@@ -103,7 +103,7 @@ export default {
         middle_name: this.data?.middle_name || '',
         last_name: this.data?.last_name || '',
         email: this.data?.email || '',
-        phone: this.data?.phone || '',
+        phone_number: this.data?.phone_number || '',
         password: this.data?.password || '',
         created_by:localStorage.getItem("userId"),
       }
@@ -113,7 +113,7 @@ export default {
     async submitForm() {
       this.loading = true;
       try {
-        const res = await this.$apiPost("/auth/register", this.form);
+        const res = await this.$apiPost("/users", this.form);
         if (res) {
           this.$root.$refs.toast.showToast('User added successfully', 'success');
           this.$emit("saved");
