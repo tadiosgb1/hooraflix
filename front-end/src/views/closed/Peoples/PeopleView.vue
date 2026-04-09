@@ -148,7 +148,7 @@ export default {
       const params = { page: this.currentPage, page_size: this.pageSize, search: this.searchQuery };
       try {
         const response = await this.$apiGet('/people', params);
-        this.items = response.data.data;
+        this.items = response.data;
         this.count = response.count || 0;
         this.nextPage = response.next || null;
         this.previousPage = response.previous || null;

@@ -1,93 +1,40 @@
-<template>
-  <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center z-[100] p-4">
-    <div class="bg-white rounded-[2.5rem] shadow-2xl w-full max-w-md overflow-hidden animate-pop-in border border-slate-100">
-      
-      <div class="h-2 w-full bg-gradient-to-r from-primary to-dprimary"></div>
 
-      <div class="p-8">
-        <div class="flex justify-between items-start mb-6">
-          <div>
-            <h2 class="text-2xl font-black text-slate-900 leading-none">Add User</h2>
-            <p class="text-[10px] font-black uppercase tracking-[0.2em] text-primary mt-2 flex items-center gap-2">
-              <i class="fas fa-user-plus"></i> Create Directory Entry
-            </p>
-          </div>
-          <button @click="$emit('close')" class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:text-primary hover:bg-green-50 transition-all">
-            <i class="fas fa-times text-xs"></i>
-          </button>
+<template>
+  <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+    <div class="bg-white rounded-xl shadow-2xl w-full max-w-sm p-6 text-sm">
+      <div class="flex justify-between items-center mb-4 border-b pb-2">
+        <h2 class="text-lg font-semibold text-gray-800 ">Add Users </h2>
+        <button @click="$emit('close')" class="text-gray-400 hover:text-gray-600">&times;</button>
+      </div>
+
+      <form @submit.prevent="submitForm" class="space-y-4">
+        
+        <div>
+          <label class="block mb-1 text-sm font-medium text-gray-700">First_name</label>
+          <input v-model="form.first_name" type="text" required class="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full sm:max-w-xs focus:outline-none focus:ring-2 focus:ring-primary shadow-sm transition duration-150" />
+        </div>
+        <div>
+          <label class="block mb-1 text-sm font-medium text-gray-700">Last_name</label>
+          <input v-model="form.last_name" type="text" required class="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full sm:max-w-xs focus:outline-none focus:ring-2 focus:ring-primary shadow-sm transition duration-150" />
+        </div>
+        <div>
+          <label class="block mb-1 text-sm font-medium text-gray-700">Email</label>
+          <input v-model="form.email" type="text" required class="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full sm:max-w-xs focus:outline-none focus:ring-2 focus:ring-primary shadow-sm transition duration-150" />
+        </div>
+        <div>
+          <label class="block mb-1 text-sm font-medium text-gray-700">Phone_number</label>
+          <input v-model="form.phone_number" type="text" required class="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full sm:max-w-xs focus:outline-none focus:ring-2 focus:ring-primary shadow-sm transition duration-150" />
+        </div>
+        <div>
+          <label class="block mb-1 text-sm font-medium text-gray-700">Password</label>
+          <input v-model="form.password" type="text" required class="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full sm:max-w-xs focus:outline-none focus:ring-2 focus:ring-primary shadow-sm transition duration-150" />
         </div>
 
-        <form @submit.prevent="submitForm" class="grid grid-cols-1 gap-4">
-
-            <div class="space-y-1">
-            <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">First name</label>
-            <div class="relative group">
-              <i class="fas fa-at absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-dprimary transition-colors text-xs"></i>
-              <input v-model="form.first_name" type="text" required placeholder="johndoe"
-                class="w-full pl-11 pr-4 py-3 bg-slate-50 border-2 border-slate-50 rounded-2xl focus:bg-white focus:ring-0 focus:border-primary outline-none transition-all text-sm font-bold text-slate-800 placeholder:text-slate-300" />
-            </div>
-          </div>
-            <div class="space-y-1">
-            <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Middle ame</label>
-            <div class="relative group">
-              <i class="fas fa-at absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-dprimary transition-colors text-xs"></i>
-              <input v-model="form.middle_name" type="text" required placeholder="johndoe"
-                class="w-full pl-11 pr-4 py-3 bg-slate-50 border-2 border-slate-50 rounded-2xl focus:bg-white focus:ring-0 focus:border-primary outline-none transition-all text-sm font-bold text-slate-800 placeholder:text-slate-300" />
-            </div>
-          </div>
-          <div class="space-y-1">
-            <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Last Name</label>
-            <div class="relative group">
-              <i class="fas fa-at absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-dprimary transition-colors text-xs"></i>
-              <input v-model="form.last_name" type="text" required placeholder="johndoe"
-                class="w-full pl-11 pr-4 py-3 bg-slate-50 border-2 border-slate-50 rounded-2xl focus:bg-white focus:ring-0 focus:border-primary outline-none transition-all text-sm font-bold text-slate-800 placeholder:text-slate-300" />
-            </div>
-          </div>
-
-          <div class="space-y-1">
-            <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Email Address</label>
-            <div class="relative group">
-              <i class="fas fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-dprimary transition-colors text-xs"></i>
-              <input v-model="form.email" type="email" required placeholder="john@example.com"
-                class="w-full pl-11 pr-4 py-3 bg-slate-50 border-2 border-slate-50 rounded-2xl focus:bg-white focus:ring-0 focus:border-primary outline-none transition-all text-sm font-bold text-slate-800 placeholder:text-slate-300" />
-            </div>
-          </div>
-
-          <div class="space-y-1">
-            <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">phone_number Number</label>
-            <div class="relative group">
-              <i class="fas fa-phone_number absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-dprimary transition-colors text-xs"></i>
-              <input v-model="form.phone_number" type="text" required placeholder="+1 234 567 890"
-                class="w-full pl-11 pr-4 py-3 bg-slate-50 border-2 border-slate-50 rounded-2xl focus:bg-white focus:ring-0 focus:border-primary outline-none transition-all text-sm font-bold text-slate-800 placeholder:text-slate-300" />
-            </div>
-          </div>
-
-          <div class="space-y-1 pb-2">
-            <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Initial Password</label>
-            <div class="relative group">
-              <i class="fas fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-dprimary transition-colors text-xs"></i>
-              <input v-model="form.password" type="password" required placeholder="••••••••"
-                class="w-full pl-11 pr-4 py-3 bg-slate-50 border-2 border-slate-50 rounded-2xl focus:bg-white focus:ring-0 focus:border-primary outline-none transition-all text-sm font-bold text-slate-800 placeholder:text-slate-300" />
-            </div>
-          </div>
-
-          <div class="flex gap-3 pt-2">
-            <button type="button" @click="$emit('close')" 
-              class="flex-1 px-6 py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest text-slate-400 hover:bg-slate-50 transition-colors">
-              Cancel
-            </button>
-            <button type="submit" :disabled="loading"
-              class="flex-[2] bg-slate-900 hover:bg-primary text-white py-4 rounded-2xl font-black text-[10px] uppercase tracking-[0.2em] transition-all shadow-lg shadow-primary/20 active:scale-95 flex items-center justify-center gap-2 group">
-              <template v-if="!loading">
-                Register User <i class="fas fa-arrow-right text-[8px] group-hover:translate-x-1 transition-transform"></i>
-              </template>
-              <template v-else>
-                <div class="w-3 h-3 border-2 border-white/20 border-t-white rounded-full animate-spin"></div>
-              </template>
-            </button>
-          </div>
-        </form>
-      </div>
+        <div class="flex justify-end gap-3 pt-2">
+          <button type="button" @click="$emit('close')" class="px-4 py-2 border rounded-lg">Cancel</button>
+          <button type="submit" class="px-4 py-2 bg-primary text-white rounded-lg">Add</button>
+        </div>
+      </form>
     </div>
   </div>
 </template>
@@ -97,42 +44,34 @@ export default {
   props: { data: Object },
   data() {
     return {
-      loading: false,
       form: {
         first_name: this.data?.first_name || '',
-        middle_name: this.data?.middle_name || '',
-        last_name: this.data?.last_name || '',
-        email: this.data?.email || '',
-        phone_number: this.data?.phone_number || '',
-        password: this.data?.password || '',
-        created_by:localStorage.getItem("userId"),
+last_name: this.data?.last_name || '',
+email: this.data?.email || '',
+phone_number: this.data?.phone_number || '',
+password: this.data?.password || ''
       }
     };
   },
   methods: {
     async submitForm() {
-      this.loading = true;
       try {
-        const res = await this.$apiPost("/users", this.form);
-        if (res) {
-          this.$root.$refs.toast.showToast('User added successfully', 'success');
-          this.$emit("saved");
-          this.$emit("close");
+        if ("Add" === "Add") {
+        const res= await this.$apiPost("/users", this.form);
+        if(res){
+           this.$root.$refs.toast.showToast('Added successfully', 'success');
+         }
+
+        } else {
+         const res= await this.$apiPut("/users",this.data.id ,this.form);
+         if(res){
+           this.$root.$refs.toast.showToast('Edited successfully', 'success');
+         }
         }
-      } catch (e) {
-        console.error(e);
-      } finally {
-        this.loading = false;
-      }
+        this.$emit("saved");
+        this.$emit("close");
+      } catch (e) { console.error(e); }
     }
   }
 }
 </script>
-
-<style scoped>
-@keyframes popIn {
-  from { opacity: 0; transform: scale(0.95) translateY(10px); }
-  to { opacity: 1; transform: scale(1) translateY(0); }
-}
-.animate-pop-in { animation: popIn 0.3s ease-out; }
-</style>

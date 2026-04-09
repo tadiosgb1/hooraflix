@@ -145,6 +145,100 @@ const routes = [
       { requiresGuest: true },
       children: [
       {
+        path: "users",
+        name: "Users-view",
+        component: () => import('../views/closed/users/UsersView.vue'),
+      },
+      {
+        path: "users/add",
+        name: "Users-add",
+        component: () => import('../views/closed/users/AddUsers.vue'),
+      },
+      {
+        path: "users/edit/:id",
+        name: "Users-edit",
+        component: () => import('../views/closed/users/EditUsers.vue'),
+        props: true,
+      },
+      {
+        path: "users/detail/:id",
+        name: "Users-detail",
+        component: () => import('../views/closed/users/UsersDetail.vue'),
+        props: true,
+      },
+
+      {
+        path: "episodes",
+        name: "Episodes-view",
+        component: () => import('../views/closed/episodes/EpisodesView.vue'),
+      },
+      {
+        path: "episodes/add",
+        name: "Episodes-add",
+        component: () => import('../views/closed/episodes/AddEpisodes.vue'),
+      },
+      {
+        path: "episodes/edit/:id",
+        name: "Episodes-edit",
+        component: () => import('../views/closed/episodes/EditEpisodes.vue'),
+        props: true,
+      },
+      {
+        path: "episodes/detail/:id",
+        name: "Episodes-detail",
+        component: () => import('../views/closed/episodes/EpisodesDetail.vue'),
+        props: true,
+      },
+
+      {
+        path: "seasons",
+        name: "Seasons-view",
+        component: () => import('../views/closed/seasons/SeasonsView.vue'),
+      },
+      {
+        path: "seasons/add",
+        name: "Seasons-add",
+        component: () => import('../views/closed/seasons/AddSeasons.vue'),
+      },
+      {
+        path: "seasons/edit/:id",
+        name: "Seasons-edit",
+        component: () => import('../views/closed/seasons/EditSeasons.vue'),
+        props: true,
+      },
+      {
+        path: "seasons/detail/:id",
+        name: "Seasons-detail",
+        component: () => import('../views/closed/seasons/SeasonsDetail.vue'),
+        props: true,
+      },
+
+      {
+        path: "series",
+        name: "Series-view",
+        component: () => import('../views/closed/Series/SeriesView.vue'),
+      },
+      {
+        path: "series/add",
+        name: "Series-add",
+        component: () => import('../views/closed/Series/AddSeries.vue'),
+      },
+      {
+        path: "series/edit/:id",
+        name: "Series-edit",
+        component: () => import('../views/closed/Series/EditSeries.vue'),
+        props: true,
+      },
+      {
+        path: "series/detail/:id",
+        name: "Series-detail",
+        component: () => import('../views/closed/Series/SeriesDetail.vue'),
+        props: true,
+      },
+
+      
+
+      {
         path: "contentpeoples",
         name: "Contentpeople-view",
         component: () => import('../views/closed/ContentPeoples/ContentpeopleView.vue'),
@@ -538,28 +632,7 @@ const routes = [
         props: true,
       },
 
-      {
-        path: "users",
-        name: "Users-view",
-        component: () => import('../views/closed/users/UsersView.vue'),
-      },
-      {
-        path: "users/add",
-        name: "Users-add",
-        component: () => import('../views/closed/users/AddUsers.vue'),
-      },
-      {
-        path: "users/edit/:id",
-        name: "Users-edit",
-        component: () => import('../views/closed/users/EditUsers.vue'),
-        props: true,
-      },
-      {
-        path: "users/detail/:id",
-        name: "Users-detail",
-        component: () => import('../views/closed/users/UsersDetail.vue'),
-        props: true,
-      },
+     
 
       {
         path: "first-dash", name: "first-dash",

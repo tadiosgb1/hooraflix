@@ -61,8 +61,6 @@
       </div>
     </div>
 
-    <pricingPreview @plan-selected="onPlanSelected" />
-
     <Features id="features" />
 
     <Fqs />
