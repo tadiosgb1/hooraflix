@@ -1,148 +1,331 @@
 <template>
-  <div class="min-h-screen bg-[#050505] font-sans selection:bg-primary/30">
-    <section id="home">
-     <Header />
-    </section>
+  <div class="bg-black text-white min-h-screen">
+    <!-- Navbar -->
+    <header class="flex justify-between items-center px-8 py-4 bg-black/80 backdrop-blur-md fixed w-full z-50">
+      <h1 class="text-2xl font-bold text-red-600">HooraFlix</h1>
+      <nav class="space-x-6 hidden md:block">
+        <a href="#features" class="hover:text-red-500">Features</a>
+        <a href="#creators" class="hover:text-red-500">Creators</a>
+        <a href="#pricing" class="hover:text-red-500">Pricing</a>
+      </nav>
+      <button class="bg-red-600 px-4 py-2 rounded-xl hover:bg-red-700">Get Started</button>
+    </header>
 
-     <Hero />
-    
-    <div class="bg-[#080808] py-24 border-y border-white/5">
-      <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-          <div class="relative group">
-            <div class="absolute -inset-4 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-3xl blur-2xl group-hover:opacity-100 opacity-50 transition-opacity"></div>
-            <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-slate-900 aspect-video flex items-center justify-center">
-              <i class="fas fa-play text-5xl text-white/20"></i>
-              <div class="absolute bottom-4 left-4 right-4 h-1 bg-white/10 rounded-full overflow-hidden">
-                <div class="h-full bg-primary w-1/3 animate-pulse"></div>
-              </div>
-            </div>
-          </div>
+    <!-- Hero Section -->
+ <section class="relative h-screen flex items-center overflow-hidden">
 
-          <div>
-              <span class="text-primary font-black uppercase tracking-[0.3em] text-[10px]">Talent & Streaming Super Platform</span>
-              <h2 class="text-4xl md:text-5xl font-black text-white mt-4 mb-8 tracking-tighter leading-tight italic">
-                Empowering the <br/>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-white">Next Generation</span>
-              </h2>
-              <p class="text-white/60 mb-10 leading-relaxed text-lg font-medium">
-                HooraFlix is a dual-purpose digital ecosystem. We bridge the gap between <strong>Content Consumption</strong> and <strong>Career Growth</strong>. Whether you are a viewer seeking premium Ethiopian cinema or a talent looking to monetize your craft, we provide the ultimate stage.
-              </p>
-              
-              <ul class="space-y-6">
-                  <li class="flex items-start gap-4 font-bold text-white/80">
-                    <div class="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-1">
-                      <i class="fas fa-film text-primary text-xs"></i>
-                    </div>
-                    <div>
-                      <span class="block">Premium VOD & Live Streaming</span>
-                      <p class="text-xs text-white/40 font-normal mt-1 italic uppercase tracking-wider">HLS/DASH Adaptive Bitrate</p>
-                    </div>
-                  </li>
-                  <li class="flex items-start gap-4 font-bold text-white/80">
-                    <div class="w-6 h-6 rounded-full bg-secondary/10 flex items-center justify-center shrink-0 mt-1">
-                      <i class="fas fa-star text-secondary text-xs"></i>
-                    </div>
-                    <div>
-                      <span class="block">Talent Management & KYC</span>
-                      <p class="text-xs text-white/40 font-normal mt-1 italic uppercase tracking-wider">Verified Portfolio Portals</p>
-                    </div>
-                  </li>
-                  <li class="flex items-start gap-4 font-bold text-white/80">
-                    <div class="w-6 h-6 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0 mt-1">
-                      <i class="fas fa-network-wired text-emerald-500 text-xs"></i>
-                    </div>
-                    <div>
-                      <span class="block">MLM Referral & Wallet System</span>
-                      <p class="text-xs text-white/40 font-normal mt-1 italic uppercase tracking-wider">Automated Payouts & Ranks</p>
-                    </div>
-                  </li>
-              </ul>
-          </div>
+  <!-- Background Video -->
+  <video autoplay muted loop playsinline class="absolute w-full h-full object-cover">
+    <source src="https://cdn.coverr.co/videos/coverr-watching-a-movie-while-eating-popcorn-5406/1080p.mp4" type="video/mp4">
+  </video>
+
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 grid md:grid-cols-2 gap-10 px-8 w-full max-w-7xl mx-auto items-center">
+
+    <!-- LEFT: Text -->
+    <div>
+      <p class="text-red-500 font-semibold mb-3">
+        #1 Talent & Streaming Platform
+      </p>
+
+      <h2 class="text-4xl md:text-6xl font-bold mb-6">
+        Stream. Create. Earn.
+      </h2>
+
+      <p class="text-gray-300 mb-8 max-w-lg">
+        Watch movies, join live events, or upload your own content and start earning. HooraFlix connects viewers and creators in one powerful platform.
+      </p>
+
+      <div class="flex flex-wrap gap-4">
+        <button class="bg-red-600 px-6 py-3 rounded-2xl hover:bg-red-700 transition">
+          🎬 Watch Movies
+        </button>
+
+        <button class="border border-white px-6 py-3 rounded-2xl hover:bg-white hover:text-black transition">
+          🚀 Become Creator
+        </button>
       </div>
     </div>
 
-    <pricingPreview @plan-selected="onPlanSelected" />
+    <!-- RIGHT: Movie Preview Grid -->
+    <div class="hidden md:grid grid-cols-2 gap-4">
 
-    <Features id="features" />
+      <div class="bg-gray-800 rounded-xl overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4" class="w-full h-40 object-cover" />
+        <p class="p-2 text-sm">Action Movie</p>
+      </div>
 
-    <Fqs />
-    <ContactUs />
-    <Footer />
+      <div class="bg-gray-800 rounded-xl overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4" class="w-full h-40 object-cover" />
+        <p class="p-2 text-sm">Drama Series</p>
+      </div>
 
-    <LoginModal v-if="showLoginModal" @close="showLoginModal = false" />
+      <div class="bg-gray-800 rounded-xl overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1497032205916-ac775f0649ae" class="w-full h-40 object-cover" />
+        <p class="p-2 text-sm">Live Event</p>
+      </div>
+
+      <div class="bg-gray-800 rounded-xl overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c" class="w-full h-40 object-cover" />
+        <p class="p-2 text-sm">Creator Content</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+ <!-- Movie List (After Login) -->
+    <section class="py-20 px-8 bg-black">
+      <h3 class="text-3xl font-bold mb-10">Trending Movies</h3>
+
+      <div class="grid md:grid-cols-4 gap-6">
+        <div 
+          v-for="movie in movies" 
+          :key="movie.id"
+          class="bg-gray-800 rounded-xl overflow-hidden cursor-pointer relative"
+          @click="handleMovieClick(movie)"
+        >
+          <img :src="movie.thumbnail" class="w-full h-40 object-cover" />
+
+          <!-- LOCK OVERLAY -->
+          <div v-if="!user.hasAccess" class="absolute inset-0 bg-black/70 flex items-center justify-center">
+            <span class="text-white text-lg">🔒 Locked</span>
+          </div>
+
+          <p class="p-2 text-sm">{{ movie.title }}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Paywall Modal -->
+    <div v-if="showPaywall" class="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+      <div class="bg-gray-900 p-8 rounded-2xl w-96 text-center">
+        <h3 class="text-xl font-bold mb-4">Unlock Content</h3>
+        <p class="text-gray-400 mb-6">
+          Pay to watch "{{ selectedMovie?.title }}"
+        </p>
+
+        <div class="space-y-4">
+          <button class="w-full bg-green-600 py-3 rounded-xl">
+            Pay with Telebirr
+          </button>
+
+          <button class="w-full bg-blue-600 py-3 rounded-xl">
+            Pay with Chapa / Card
+          </button>
+        </div>
+
+        <button 
+          @click="showPaywall = false"
+          class="mt-6 text-gray-500 hover:text-white"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 px-8 bg-gray-900">
+      <h3 class="text-3xl font-bold text-center mb-12">Platform Features</h3>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-gray-800 p-6 rounded-2xl">
+          <h4 class="text-xl font-semibold mb-3">🎬 Video Streaming</h4>
+          <p class="text-gray-400">Watch movies, series, and live events in HD and 4K.</p>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-2xl">
+          <h4 class="text-xl font-semibold mb-3">💰 Monetization</h4>
+          <p class="text-gray-400">Creators earn via subscriptions, ads, and pay-per-view.</p>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-2xl">
+          <h4 class="text-xl font-semibold mb-3">🤖 AI Recommendations</h4>
+          <p class="text-gray-400">Personalized content suggestions powered by AI.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Creators Section -->
+    <section id="creators" class="py-20 px-8">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h3 class="text-3xl font-bold mb-6">For Creators & Talents</h3>
+          <p class="text-gray-300 mb-4">
+            Upload your content, build your audience, and earn income through HooraFlix's powerful creator ecosystem.
+          </p>
+          <ul class="space-y-3 text-gray-400">
+            <li>✔ Upload Movies & Videos</li>
+            <li>✔ Earn Revenue</li>
+            <li>✔ Build Referral Network</li>
+            <li>✔ Access Training Hub</li>
+          </ul>
+        </div>
+        <div class="bg-gray-800 h-64 rounded-2xl flex items-center justify-center">
+          <span class="text-gray-500">Creator Dashboard Preview</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 px-8 bg-gray-900">
+      <h3 class="text-3xl font-bold text-center mb-12">Pricing Plans</h3>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-gray-800 p-6 rounded-2xl">
+          <h4 class="text-xl font-semibold mb-4">Free</h4>
+          <p class="text-gray-400 mb-6">Ad-supported streaming</p>
+          <button class="w-full bg-white text-black py-2 rounded-xl">Choose</button>
+        </div>
+        <div class="bg-red-600 p-6 rounded-2xl">
+          <h4 class="text-xl font-semibold mb-4">Premium</h4>
+          <p class="mb-6">Ad-free + HD Streaming</p>
+          <button class="w-full bg-black py-2 rounded-xl">Choose</button>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-2xl">
+          <h4 class="text-xl font-semibold mb-4">Creator</h4>
+          <p class="text-gray-400 mb-6">Upload & monetize content</p>
+          <button class="w-full bg-white text-black py-2 rounded-xl">Join</button>
+        </div>
+      </div>
+    </section>
+<section class="py-20 px-8 bg-black">
+      <div class="max-w-4xl mx-auto text-center">
+        <h3 class="text-3xl font-bold mb-6">About HooraFlix</h3>
+        <p class="text-gray-400">
+          HooraFlix is more than streaming — it's a creator economy platform built to empower Ethiopian and African talents. From movies to live shows, from learning to earning, everything happens in one ecosystem.
+        </p>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-8 bg-red-600 text-center">
+      <h3 class="text-3xl font-bold mb-4">Ready to Join HooraFlix?</h3>
+      <p class="mb-6">Start watching, start creating, and start earning today.</p>
+      <button class="bg-black px-8 py-3 rounded-2xl">Get Started Now</button>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-8 bg-gray-900">
+      <div class="max-w-4xl mx-auto">
+        <h3 class="text-3xl font-bold text-center mb-10">Contact Us</h3>
+        <form class="grid md:grid-cols-2 gap-6">
+          <input type="text" placeholder="Your Name" class="p-3 rounded-xl bg-gray-800 border border-gray-700" />
+          <input type="email" placeholder="Your Email" class="p-3 rounded-xl bg-gray-800 border border-gray-700" />
+          <input type="text" placeholder="Subject" class="p-3 rounded-xl bg-gray-800 border border-gray-700 md:col-span-2" />
+          <textarea placeholder="Your Message" rows="5" class="p-3 rounded-xl bg-gray-800 border border-gray-700 md:col-span-2"></textarea>
+          <button class="bg-red-600 py-3 rounded-xl md:col-span-2 hover:bg-red-700">Send Message</button>
+        </form>
+      </div>
+    </section>
+    <!-- Footer -->
+ <footer class="bg-black border-t border-gray-800 py-12 px-8">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-10 text-gray-400">
+    
+    <!-- Brand -->
+    <div>
+      <h2 class="text-2xl font-bold text-red-600 mb-4">HooraFlix</h2>
+      <p class="text-sm">
+        Stream. Create. Earn. The all-in-one platform for entertainment and talent growth in Africa.
+      </p>
+    </div>
+
+    <!-- Navigation -->
+    <div>
+      <h3 class="text-white font-semibold mb-4">Explore</h3>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:text-red-500">Home</a></li>
+        <li><a href="#features" class="hover:text-red-500">Features</a></li>
+        <li><a href="#pricing" class="hover:text-red-500">Pricing</a></li>
+        <li><a href="#contact" class="hover:text-red-500">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- For Creators -->
+    <div>
+      <h3 class="text-white font-semibold mb-4">Creators</h3>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:text-red-500">Upload Content</a></li>
+        <li><a href="#" class="hover:text-red-500">Monetization</a></li>
+        <li><a href="#" class="hover:text-red-500">Training Hub</a></li>
+        <li><a href="#" class="hover:text-red-500">Referral Program</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact / Social -->
+    <div>
+      <h3 class="text-white font-semibold mb-4">Connect</h3>
+      <ul class="space-y-2 text-sm">
+        <li>Email: support@hooraflix.com</li>
+        <li>Phone: +251 9XX XXX XXX</li>
+        <li>Addis Ababa, Ethiopia</li>
+      </ul>
+
+      <!-- Social Icons -->
+      <div class="flex space-x-4 mt-4">
+        <a href="#" class="hover:text-red-500">Facebook</a>
+        <a href="#" class="hover:text-red-500">Twitter</a>
+        <a href="#" class="hover:text-red-500">YouTube</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="mt-10 border-t border-gray-800 pt-6 text-center text-gray-500 text-sm">
+    <p>© 2026 HooraFlix. All rights reserved.</p>
+    <p class="mt-2">
+      <a href="#" class="hover:text-red-500">Privacy Policy</a> • 
+      <a href="#" class="hover:text-red-500">Terms of Service</a>
+    </p>
+  </div>
+</footer>
   </div>
 </template>
+<script setup>
+import { ref } from 'vue'
 
-<script>
-// --- ALL IMPORTS PRESERVED ---
-import Header from './header.vue'
-import Footer from './footer.vue'
-import Hero from './hero.vue'
-import Features from './features.vue'
-import Fqs from './fqs.vue'
-import ContactUs from './contactUs.vue'
-import LoginModal from '../auth/login.vue'
-import whyAlphaMessage from './whyAlphaMessage.vue'
-import secondaryCta from './secondary-cta.vue'
-import pricingPreview from './pricing-preview.vue'
+const user = ref({
+  isLoggedIn: false,
+  hasAccess: false
+})
 
-export default {
-  components: {
-    Header,
-    Hero,
-    Features,
-    Fqs,
-    ContactUs,
-    Footer,
-    LoginModal,
-    whyAlphaMessage,
-    secondaryCta,
-    pricingPreview
-  },
-  data() {
-    return {
-      showLoginModal: false,
-      selectedLang: "en",
-      mobileMenuOpen: false,
-      selectedPlan: null,
-      showForm: true, // Shown for MVP visibility
-      form: {
-        company_name: '', // Interpreted as Talent Agency / Name
-        type: 'individual',
-        email: '',
-        password: '',
-        phone_number: ''
-      }
-    };
-  },
-  methods: {
-    apiDoc(){
-      this.$router.push('/browse'); // Updated for streaming navigation
-    },
-    onPlanSelected(planId) {
-      this.selectedPlan = planId;
-      this.showForm = true;
-      setTimeout(() => {
-        const el = document.getElementById('onboard');
-        el?.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    },
-    scrollTo(id) {
-        const el = document.getElementById(id);
-        el?.scrollIntoView({ behavior: 'smooth' });
-    },
-    async submitForm() {
-        console.log("HooraFlix Talent Registration:", this.form);
-        alert("Welcome to HooraFlix! Setting up your Talent Dashboard...");
-    }
+const movies = ref([
+  { id: 1, title: 'Action Movie', thumbnail: 'https://images.unsplash.com/photo-1524985069026-dd778a71c7b4' },
+  { id: 2, title: 'Drama Series', thumbnail: 'https://images.unsplash.com/photo-1505685296765-3a2736de412f' },
+  { id: 3, title: 'Live Event', thumbnail: 'https://images.unsplash.com/photo-1497032205916-ac775f0649ae' },
+  { id: 4, title: 'Creator Content', thumbnail: 'https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c' }
+])
+
+const showPaywall = ref(false)
+const selectedMovie = ref(null)
+
+const handleMovieClick = (movie) => {
+  if (!user.value.isLoggedIn) {
+    alert('Please login first')
+    return
   }
-};
+
+  if (!user.value.hasAccess) {
+    selectedMovie.value = movie
+    showPaywall.value = true
+    return
+  }
+
+  alert('Playing ' + movie.title)
+}
 </script>
 
-<style scoped>
-/* Updated for dark mode inputs */
-.custom-input {
-  @apply w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-sm font-semibold text-white 
-         transition-all outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 placeholder:text-white/20;
+<style>
+body {
+  font-family: 'Inter', sans-serif;
+}
+</style>
+
+
+<style>
+body {
+  font-family: 'Inter', sans-serif;
 }
 </style>
