@@ -68,13 +68,31 @@ export default {
       is_superuser: false,
       menuItems: [
 
+
+  
+       { name: "Dashboard", route: "first-dash", icon: "fas fa-chart-line" },
+       
+    {
+      name: "Users",
+      route: "Users-view",
+      icon: "fas fa-folder",
+      color: "#22c55e"
+    },
+
+      { name: "Roles", route: "Role-view", icon: "fas fa-id-badge", permission: "" },
+        { name: "Permissions", route: "Permission-view", icon: "fas fa-key", permission: "" },
+          {
+            name: "Categories",
+            route: "Categories-view",
+            icon: "fas fa-folder",
+            color: "#22c55e"
+          },
     {
       name: "Content Peoples",
       route: "Contentpeople-view",
       icon: "fas fa-folder",
       color: "#22c55e"
     },
-
 
     {
       name: "Content Categories",
@@ -83,17 +101,12 @@ export default {
       color: "#22c55e"
     },
 
-
- 
-
-
     {
       name: "Peoples",
       route: "People-view",
       icon: "fas fa-folder",
       color: "#22c55e"
     },
-
 
     {
       name: "Contents",
@@ -102,101 +115,107 @@ export default {
       color: "#22c55e"
     },
 
-
-    {
-      name: "Categories",
-      route: "Categories-view",
-      icon: "fas fa-folder",
-      color: "#22c55e"
-    },
-
-
+{
+            name: "Series",
+            route: "Series-view",
+            icon: "fas fa-folder",
+            color: "#22c55e"
+          },
   
-
+    {
+      name: "Seasons",
+      route: "Seasons-view",
+      icon: "fas fa-folder",
+      color: "#22c55e"
+    },
   
-
-        { name: "Dashboardddd", route: "first-dash", icon: "fas fa-chart-line" },
-        { name: "Users", route: "Users-view", icon: "fas fa-user", permission: "" },
-        { name: "Roles", route: "Role-view", icon: "fas fa-id-badge", permission: "" },
-        { name: "Permissions", route: "Permission-view", icon: "fas fa-key", permission: "" },
-           {
-      name: "Campaigns",
-      route: "AdCampaign-view",
-      icon: "fas fa-folder",
-      color: "#22c55e"
-    },
-
-
-    {
-      name: "Training Modules",
-      route: "TrainingModule-view",
-      icon: "fas fa-folder",
-      color: "#22c55e"
-    },
-
-
-    {
-      name: "Subscriptions",
-      route: "Subscription-view",
-      icon: "fas fa-folder",
-      color: "#22c55e"
-    },
-
-
-    {
-      name: "Transactions",
-      route: "Transaction-view",
+     {
+      name: "Episodes",
+      route: "Episodes-view",
       icon: "fas fa-folder",
       color: "#22c55e"
     },
 
 
 
-    {
-      name: "Wallets",
-      route: "Wallet-view",
-      icon: "fas fa-folder",
-      color: "#22c55e"
-    },
+    //        {
+    //   name: "Campaigns",
+    //   route: "AdCampaign-view",
+    //   icon: "fas fa-folder",
+    //   color: "#22c55e"
+    // },
 
 
-    {
-      name: "Talents Rank",
-      route: "TalentRank-view",
-      icon: "fas fa-folder",
-      color: "#22c55e"
-    },
+    // {
+    //   name: "Training Modules",
+    //   route: "TrainingModule-view",
+    //   icon: "fas fa-folder",
+    //   color: "#22c55e"
+    // },
 
 
-    {
-      name: "Networks",
-      route: "Network-view",
-      icon: "fas fa-folder",
-      color: "#22c55e"
-    },
+    // {
+    //   name: "Subscriptions",
+    //   route: "Subscription-view",
+    //   icon: "fas fa-folder",
+    //   color: "#22c55e"
+    // },
 
 
-    {
-      name: "Live Events",
-      route: "LiveEvent-view",
-      icon: "fas fa-folder",
-      color: "#22c55e"
-    },
+    // {
+    //   name: "Transactions",
+    //   route: "Transaction-view",
+    //   icon: "fas fa-folder",
+    //   color: "#22c55e"
+    // },
 
 
-    {
-      name: "Media Contents",
-      route: "MediaContent-view",
-      icon: "fas fa-folder",
-      color: "#22c55e"
-    },
 
-        {
-          name: "Talents",
-          route: "TalentProfile-view",
-          icon: "fas fa-folder",
-          color: "#22c55e"
-        },
+    // {
+    //   name: "Wallets",
+    //   route: "Wallet-view",
+    //   icon: "fas fa-folder",
+    //   color: "#22c55e"
+    // },
+
+
+    // {
+    //   name: "Talents Rank",
+    //   route: "TalentRank-view",
+    //   icon: "fas fa-folder",
+    //   color: "#22c55e"
+    // },
+
+
+    // {
+    //   name: "Networks",
+    //   route: "Network-view",
+    //   icon: "fas fa-folder",
+    //   color: "#22c55e"
+    // },
+
+
+    // {
+    //   name: "Live Events",
+    //   route: "LiveEvent-view",
+    //   icon: "fas fa-folder",
+    //   color: "#22c55e"
+    // },
+
+
+    // {
+    //   name: "Media Contents",
+    //   route: "MediaContent-view",
+    //   icon: "fas fa-folder",
+    //   color: "#22c55e"
+    // },
+
+    //     {
+    //       name: "Talents",
+    //       route: "TalentProfile-view",
+    //       icon: "fas fa-folder",
+    //       color: "#22c55e"
+    //     },
       
       ],
     };

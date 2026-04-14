@@ -46,14 +46,14 @@ const modalTemplate = (mode) => `
       (f) => `
         <div>
           <label class="block mb-1 text-sm font-medium text-gray-700">${capitalize(f)}</label>
-          <input v-model="form.${f}" type="text" required class="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full sm:max-w-xs focus:outline-none focus:ring-2 focus:ring-green-500 shadow-sm transition duration-150" />
+          <input v-model="form.${f}" type="text" required class="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full sm:max-w-xs focus:outline-none focus:ring-2 focus:ring-primary shadow-sm transition duration-150" />
         </div>`
     )
     .join("")}
 
         <div class="flex justify-end gap-3 pt-2">
           <button type="button" @click="$emit('close')" class="px-4 py-2 border rounded-lg">Cancel</button>
-          <button type="submit" class="px-4 py-2 bg-green-500 text-white rounded-lg">${mode}</button>
+          <button type="submit" class="px-4 py-2 bg-primary text-white rounded-lg">${mode}</button>
         </div>
       </form>
     </div>
@@ -103,7 +103,7 @@ const viewTemplate = `
     <!-- Page Header -->
     <div class="flex items-center justify-between mb-6 border-b pb-4 border-gray-200">
       <h1 class="text-lg font-bold text-gray-800">${capitalize(pageName)}</h1>
-      <button @click="openAddModal" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-medium shadow-md flex items-center space-x-1 text-sm">
+      <button @click="openAddModal" class="bg-primary hover:bg-dprimary text-white px-4 py-2 rounded-lg font-medium shadow-md flex items-center space-x-1 text-sm">
         <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
         </svg>
@@ -114,10 +114,10 @@ const viewTemplate = `
     <!-- Search + Page Size -->
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 gap-4">
       <input v-model="searchQuery" @input="fetchItems(1)" type="text" placeholder="Search..."
-        class="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full sm:max-w-xs focus:outline-none focus:ring-2 focus:ring-green-500 shadow-sm transition duration-150" />
+        class="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full sm:max-w-xs focus:outline-none focus:ring-2 focus:ring-primary shadow-sm transition duration-150" />
       <div class="flex items-center gap-2 text-sm text-gray-600">
         <label>Show</label>
-        <select v-model="pageSize" @change="fetchItems(1)" class="border border-gray-300 rounded-lg px-2 py-1 text-sm bg-white focus:ring-green-500 focus:border-green-500">
+        <select v-model="pageSize" @change="fetchItems(1)" class="border border-gray-300 rounded-lg px-2 py-1 text-sm bg-white focus:ring-primary focus:border-primary">
           <option v-for="size in [5,10,20,50,100]" :key="size" :value="size">{{ size }}</option>
         </select>
         <span>entries</span>
@@ -140,7 +140,7 @@ const viewTemplate = `
               <td class="px-6 py-4">{{ index + 1 }}</td>
               ${fields.map(f => `<td class="px-6 py-4 whitespace-nowrap">{{ item.${f} }}</td>`).join('')}
               <td class="px-6 py-4 text-center space-x-3">
-                <button @click="viewDetails(item.id)" class="text-green-500 hover:text-green-700"><i class="fas fa-eye"></i></button>
+                <button @click="viewDetails(item.id)" class="text-primary hover:text-green-700"><i class="fas fa-eye"></i></button>
                 <button @click="editItem(item)" class="text-blue-500 hover:text-blue-700"><i class="fas fa-edit"></i></button>
                 <button @click="openDeleteModal(item.id)" class="text-red-500 hover:text-red-700"><i class="fas fa-trash"></i></button>
               </td>
@@ -159,7 +159,7 @@ const viewTemplate = `
         <div class="flex justify-between mb-3">
           <h2 class="font-bold text-gray-800">${capitalize(pageName)} #{{ index + 1 }}</h2>
           <div class="flex gap-3 text-sm">
-            <button @click="viewDetails(item.id)" class="text-green-500 hover:text-green-700"><i class="fas fa-eye"></i></button>
+            <button @click="viewDetails(item.id)" class="text-primary hover:text-green-700"><i class="fas fa-eye"></i></button>
             <button @click="editItem(item)" class="text-blue-500 hover:text-blue-700"><i class="fas fa-edit"></i></button>
             <button @click="openDeleteModal(item.id)" class="text-red-500 hover:text-red-700"><i class="fas fa-trash"></i></button>
           </div>
@@ -185,7 +185,7 @@ const viewTemplate = `
       <div class="flex items-center gap-2">
         <button @click="fetchItems(currentPage - 1)" :disabled="!previousPage"
           class="px-3 py-1 border border-gray-300 rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition duration-150">← Previous</button>
-        <span class="px-3 py-1 bg-green-600 text-white rounded-lg font-medium">{{ currentPage }}</span>
+        <span class="px-3 py-1 bg-dprimary text-white rounded-lg font-medium">{{ currentPage }}</span>
         <button @click="fetchItems(currentPage + 1)" :disabled="!nextPage"
           class="px-3 py-1 border border-gray-300 rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition duration-150">Next →</button>
       </div>

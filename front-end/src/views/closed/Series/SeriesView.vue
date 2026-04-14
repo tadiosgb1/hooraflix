@@ -2,26 +2,26 @@
 <template>
   <div class="p-6 bg-gray-50 min-h-screen text-sm text-gray-800 relative">
     <!-- Loading -->
-    <Loading :visible="loading" message="Loading Content..." />
+    <Loading :visible="loading" message="Loading Series..." />
 
     <!-- Page Header -->
     <div class="flex items-center justify-between mb-6 border-b pb-4 border-gray-200">
-      <h1 class="text-lg font-bold text-gray-800">Content</h1>
-      <button @click="openAddModal" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-medium shadow-md flex items-center space-x-1 text-sm">
+      <h1 class="text-lg font-bold text-gray-800">Series</h1>
+      <button @click="openAddModal" class="bg-primary hover:bg-dprimary text-white px-4 py-2 rounded-lg font-medium shadow-md flex items-center space-x-1 text-sm">
         <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
         </svg>
-        <span>Add Content</span>
+        <span>Add Series</span>
       </button>
     </div>
 
     <!-- Search + Page Size -->
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 gap-4">
       <input v-model="searchQuery" @input="fetchItems(1)" type="text" placeholder="Search..."
-        class="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full sm:max-w-xs focus:outline-none focus:ring-2 focus:ring-green-500 shadow-sm transition duration-150" />
+        class="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full sm:max-w-xs focus:outline-none focus:ring-2 focus:ring-primary shadow-sm transition duration-150" />
       <div class="flex items-center gap-2 text-sm text-gray-600">
         <label>Show</label>
-        <select v-model="pageSize" @change="fetchItems(1)" class="border border-gray-300 rounded-lg px-2 py-1 text-sm bg-white focus:ring-green-500 focus:border-green-500">
+        <select v-model="pageSize" @change="fetchItems(1)" class="border border-gray-300 rounded-lg px-2 py-1 text-sm bg-white focus:ring-primary focus:border-primary">
           <option v-for="size in [5,10,20,50,100]" :key="size" :value="size">{{ size }}</option>
         </select>
         <span>entries</span>
@@ -35,22 +35,22 @@
           <thead class="bg-gray-100 text-gray-700 uppercase text-xs font-semibold">
             <tr>
               <th class="px-6 py-3 text-left">#</th>
-              <th class="px-6 py-3 text-left">Title</th><th class="px-6 py-3 text-left">Description</th><th class="px-6 py-3 text-left">Content_type</th><th class="px-6 py-3 text-left">Release_date</th><th class="px-6 py-3 text-left">Duration</th><th class="px-6 py-3 text-left">Language</th><th class="px-6 py-3 text-left">Country</th><th class="px-6 py-3 text-left">Rating</th>
+              <th class="px-6 py-3 text-left">Content_id</th>
               <th class="px-6 py-3 text-center">Actions</th>
             </tr>
           </thead>
           <tbody class="bg-white divide-y divide-gray-200">
             <tr v-for="(item, index) in items" :key="item.id" class="hover:bg-green-50 transition duration-150">
               <td class="px-6 py-4">{{ index + 1 }}</td>
-              <td class="px-6 py-4 whitespace-nowrap">{{ item.title }}</td><td class="px-6 py-4 whitespace-nowrap">{{ item.description }}</td><td class="px-6 py-4 whitespace-nowrap">{{ item.content_type }}</td><td class="px-6 py-4 whitespace-nowrap">{{ item.release_date }}</td><td class="px-6 py-4 whitespace-nowrap">{{ item.duration }}</td><td class="px-6 py-4 whitespace-nowrap">{{ item.language }}</td><td class="px-6 py-4 whitespace-nowrap">{{ item.country }}</td><td class="px-6 py-4 whitespace-nowrap">{{ item.rating }}</td>
+              <td class="px-6 py-4 whitespace-nowrap">{{ item.content?.title }}</td>
               <td class="px-6 py-4 text-center space-x-3">
-                <button @click="viewDetails(item.id)" class="text-green-500 hover:text-green-700"><i class="fas fa-eye"></i></button>
+                <button @click="viewDetails(item.id)" class="text-primary hover:text-green-700"><i class="fas fa-eye"></i></button>
                 <button @click="editItem(item)" class="text-blue-500 hover:text-blue-700"><i class="fas fa-edit"></i></button>
                 <button @click="openDeleteModal(item.id)" class="text-red-500 hover:text-red-700"><i class="fas fa-trash"></i></button>
               </td>
             </tr>
             <tr v-if="items.length === 0">
-              <td colspan="10" class="text-center py-6 text-gray-400 italic">No data found.</td>
+              <td colspan="3" class="text-center py-6 text-gray-400 italic">No data found.</td>
             </tr>
           </tbody>
         </table>
@@ -61,9 +61,9 @@
     <div class="md:hidden space-y-4">
       <div v-for="(item, index) in items" :key="item.id" class="bg-white border border-gray-200 rounded-xl shadow p-4">
         <div class="flex justify-between mb-3">
-          <h2 class="font-bold text-gray-800">Content #{{ index + 1 }}</h2>
+          <h2 class="font-bold text-gray-800">Series #{{ index + 1 }}</h2>
           <div class="flex gap-3 text-sm">
-            <button @click="viewDetails(item.id)" class="text-green-500 hover:text-green-700"><i class="fas fa-eye"></i></button>
+            <button @click="viewDetails(item.id)" class="text-primary hover:text-green-700"><i class="fas fa-eye"></i></button>
             <button @click="editItem(item)" class="text-blue-500 hover:text-blue-700"><i class="fas fa-edit"></i></button>
             <button @click="openDeleteModal(item.id)" class="text-red-500 hover:text-red-700"><i class="fas fa-trash"></i></button>
           </div>
@@ -71,36 +71,8 @@
         <div class="grid grid-cols-2 gap-y-1 text-sm text-gray-700">
           
             <div class="col-span-2">
-              <span class="font-medium text-gray-600">Title:</span>
-              {{ item.title }}
-            </div>
-            <div class="col-span-2">
-              <span class="font-medium text-gray-600">Description:</span>
-              {{ item.description }}
-            </div>
-            <div class="col-span-2">
-              <span class="font-medium text-gray-600">Content_type:</span>
-              {{ item.content_type }}
-            </div>
-            <div class="col-span-2">
-              <span class="font-medium text-gray-600">Release_date:</span>
-              {{ item.release_date }}
-            </div>
-            <div class="col-span-2">
-              <span class="font-medium text-gray-600">Duration:</span>
-              {{ item.duration }}
-            </div>
-            <div class="col-span-2">
-              <span class="font-medium text-gray-600">Language:</span>
-              {{ item.language }}
-            </div>
-            <div class="col-span-2">
-              <span class="font-medium text-gray-600">Country:</span>
-              {{ item.country }}
-            </div>
-            <div class="col-span-2">
-              <span class="font-medium text-gray-600">Rating:</span>
-              {{ item.rating }}
+              <span class="font-medium text-gray-600">Content_id:</span>
+              {{ item.content?.title }}
             </div>
         </div>
       </div>
@@ -117,21 +89,21 @@
       <div class="flex items-center gap-2">
         <button @click="fetchItems(currentPage - 1)" :disabled="!previousPage"
           class="px-3 py-1 border border-gray-300 rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition duration-150">← Previous</button>
-        <span class="px-3 py-1 bg-green-600 text-white rounded-lg font-medium">{{ currentPage }}</span>
+        <span class="px-3 py-1 bg-dprimary text-white rounded-lg font-medium">{{ currentPage }}</span>
         <button @click="fetchItems(currentPage + 1)" :disabled="!nextPage"
           class="px-3 py-1 border border-gray-300 rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition duration-150">Next →</button>
       </div>
     </div>
 
     <!-- Add/Edit Modal -->
-    <add-content v-if="showModal && !editMode" :data="selectedItem" @close="showModal=false" @saved="fetchItems"/>
-    <edit-content v-if="showModal && editMode" :data="selectedItem" @close="showModal=false" @saved="fetchItems"/>
+    <add-series v-if="showModal && !editMode" :data="selectedItem" @close="showModal=false" @saved="fetchItems"/>
+    <edit-series v-if="showModal && editMode" :data="selectedItem" @close="showModal=false" @saved="fetchItems"/>
 
     <!-- Delete Confirmation Modal -->
     <delete-confirm-modal 
       :visible="deleteModalVisible"
-      title="Delete Content"
-      message="Are you sure you want to delete this Content?"
+      title="Delete Series"
+      message="Are you sure you want to delete this Series?"
       @confirm="confirmDelete"
       @cancel="deleteModalVisible=false"
     />
@@ -139,13 +111,13 @@
 </template>
 
 <script>
-import AddContent from "./AddContent.vue";
-import EditContent from "./EditContent.vue";
+import AddSeries from "./AddSeries.vue";
+import EditSeries from "./EditSeries.vue";
 import Loading from "@/components/Loading.vue";
 import DeleteConfirmModal from "@/components/DeleteConfirmModal.vue";
 
 export default {
-  components: { AddContent, EditContent, Loading, DeleteConfirmModal },
+  components: { AddSeries, EditSeries, Loading, DeleteConfirmModal },
 
   data() {
     return {
@@ -171,7 +143,7 @@ export default {
       this.currentPage = page;
       const params = { page: this.currentPage, page_size: this.pageSize, search: this.searchQuery };
       try {
-        const response = await this.$apiGet('/content', params);
+        const response = await this.$apiGet('/series', params);
         this.items = response.data;
         this.count = response.count || 0;
         this.nextPage = response.next || null;
@@ -185,16 +157,16 @@ export default {
     
     // Navigate using static route name
     viewDetails(id) { 
-      this.$router.push({ name: 'Content-detail', params: { id } });
+      this.$router.push({ name: 'Series-detail', params: { id } });
     },
 
     openDeleteModal(id) { this.deleteId = id; this.deleteModalVisible = true; },
 
     // Delete with toast
     async confirmDelete() {
-      const res = await this.$apiDelete('/content', this.deleteId);
+      const res = await this.$apiDelete('/series', this.deleteId);
       if(res) {
-        this.$root.$refs.toast.showToast('Content deleted successfully', 'success');
+        this.$root.$refs.toast.showToast('Series deleted successfully', 'success');
       }
       this.deleteModalVisible = false;
       this.fetchItems(this.currentPage);
