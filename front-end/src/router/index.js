@@ -145,6 +145,53 @@ const routes = [
       { requiresGuest: true },
       children: [
       {
+        path: "mediafiles",
+        name: "MediaFiles-view",
+        component: () => import('../views/closed/MediaFiles/MediaFilesView.vue'),
+      },
+      {
+        path: "mediafiles/add",
+        name: "MediaFiles-add",
+        component: () => import('../views/closed/MediaFiles/AddMediaFiles.vue'),
+      },
+      {
+        path: "mediafiles/edit/:id",
+        name: "MediaFiles-edit",
+        component: () => import('../views/closed/MediaFiles/EditMediaFiles.vue'),
+        props: true,
+      },
+      {
+        path: "mediafiles/detail/:id",
+        name: "MediaFiles-detail",
+        component: () => import('../views/closed/MediaFiles/MediaFilesDetail.vue'),
+        props: true,
+      },
+
+
+      {
+        path: "parts",
+        name: "Parts-view",
+        component: () => import('../views/closed/Parts/PartsView.vue'),
+      },
+      {
+        path: "parts/add",
+        name: "Parts-add",
+        component: () => import('../views/closed/Parts/AddParts.vue'),
+      },
+      {
+        path: "parts/edit/:id",
+        name: "Parts-edit",
+        component: () => import('../views/closed/Parts/EditParts.vue'),
+        props: true,
+      },
+      {
+        path: "parts/detail/:id",
+        name: "Parts-detail",
+        component: () => import('../views/closed/Parts/PartsDetail.vue'),
+        props: true,
+      },
+
+      {
         path: "users",
         name: "Users-view",
         component: () => import('../views/closed/users/UsersView.vue'),
@@ -563,28 +610,7 @@ const routes = [
         props: true,
       },
 
-      {
-        path: "mediacontents",
-        name: "MediaContent-view",
-        component: () => import('../views/closed/MediaContents/MediaContentView.vue'),
-      },
-      {
-        path: "mediacontents/add",
-        name: "MediaContent-add",
-        component: () => import('../views/closed/MediaContents/AddMediaContent.vue'),
-      },
-      {
-        path: "mediacontents/edit/:id",
-        name: "MediaContent-edit",
-        component: () => import('../views/closed/MediaContents/EditMediaContent.vue'),
-        props: true,
-      },
-      {
-        path: "mediacontents/detail/:id",
-        name: "MediaContent-detail",
-        component: () => import('../views/closed/MediaContents/MediaContentDetail.vue'),
-        props: true,
-      },
+     
 
       {
         path: "talentprofiles",

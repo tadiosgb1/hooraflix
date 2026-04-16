@@ -68,6 +68,9 @@ export default {
       is_superuser: false,
       menuItems: [
 
+  
+
+
 
   
        { name: "Dashboard", route: "first-dash", icon: "fas fa-chart-line" },
@@ -111,6 +114,24 @@ export default {
     {
       name: "Contents",
       route: "Content-view",
+      icon: "fas fa-folder",
+      color: "#22c55e"
+    },
+
+      {
+      name: "MediaFiles",
+      route: "MediaFiles-view",
+      icon: "fas fa-folder",
+      color: "#22c55e"
+    },
+
+
+   
+
+
+    {
+      name: "Parts",
+      route: "Parts-view",
       icon: "fas fa-folder",
       color: "#22c55e"
     },
