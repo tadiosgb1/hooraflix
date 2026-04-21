@@ -145,6 +145,144 @@ const routes = [
       { requiresGuest: true },
       children: [
       {
+        path: "contentcontract",
+        name: "ContentContract-view",
+        component: () => import('../views/closed/ContentContract/ContentContractView.vue'),
+      },
+      {
+        path: "contentcontract/add",
+        name: "ContentContract-add",
+        component: () => import('../views/closed/ContentContract/AddContentContract.vue'),
+      },
+      {
+        path: "contentcontract/edit/:id",
+        name: "ContentContract-edit",
+        component: () => import('../views/closed/ContentContract/EditContentContract.vue'),
+        props: true,
+      },
+      {
+        path: "contentcontract/detail/:id",
+        name: "ContentContract-detail",
+        component: () => import('../views/closed/ContentContract/ContentContractDetail.vue'),
+        props: true,
+      },
+
+      {
+        path: "contentpricing",
+        name: "ContentPricing-view",
+        component: () => import('../views/closed/ContentPricing/ContentPricingView.vue'),
+      },
+      {
+        path: "contentpricing/add",
+        name: "ContentPricing-add",
+        component: () => import('../views/closed/ContentPricing/AddContentPricing.vue'),
+      },
+      {
+        path: "contentpricing/edit/:id",
+        name: "ContentPricing-edit",
+        component: () => import('../views/closed/ContentPricing/EditContentPricing.vue'),
+        props: true,
+      },
+      {
+        path: "contentpricing/detail/:id",
+        name: "ContentPricing-detail",
+        component: () => import('../views/closed/ContentPricing/ContentPricingDetail.vue'),
+        props: true,
+      },
+
+      {
+        path: "pricingplans",
+        name: "PricingPlans-view",
+        component: () => import('../views/closed/PricingPlans/PricingPlansView.vue'),
+      },
+      {
+        path: "pricingplans/add",
+        name: "PricingPlans-add",
+        component: () => import('../views/closed/PricingPlans/AddPricingPlans.vue'),
+      },
+      {
+        path: "pricingplans/edit/:id",
+        name: "PricingPlans-edit",
+        component: () => import('../views/closed/PricingPlans/EditPricingPlans.vue'),
+        props: true,
+      },
+      {
+        path: "pricingplans/detail/:id",
+        name: "PricingPlans-detail",
+        component: () => import('../views/closed/PricingPlans/PricingPlansDetail.vue'),
+        props: true,
+      },
+
+      {
+        path: "creators",
+        name: "Creators-view",
+        component: () => import('../views/closed/creators/CreatorsView.vue'),
+      },
+      {
+        path: "creators/add",
+        name: "Creators-add",
+        component: () => import('../views/closed/creators/AddCreators.vue'),
+      },
+      {
+        path: "creators/edit/:id",
+        name: "Creators-edit",
+        component: () => import('../views/closed/creators/EditCreators.vue'),
+        props: true,
+      },
+      {
+        path: "creators/detail/:id",
+        name: "Creators-detail",
+        component: () => import('../views/closed/creators/CreatorsDetail.vue'),
+        props: true,
+      },
+
+      {
+        path: "usersubscriptions",
+        name: "UserSubscriptions-view",
+        component: () => import('../views/closed/UserSubscriptions/UserSubscriptionsView.vue'),
+      },
+      {
+        path: "usersubscriptions/add",
+        name: "UserSubscriptions-add",
+        component: () => import('../views/closed/UserSubscriptions/AddUserSubscriptions.vue'),
+      },
+      {
+        path: "usersubscriptions/edit/:id",
+        name: "UserSubscriptions-edit",
+        component: () => import('../views/closed/UserSubscriptions/EditUserSubscriptions.vue'),
+        props: true,
+      },
+      {
+        path: "usersubscriptions/detail/:id",
+        name: "UserSubscriptions-detail",
+        component: () => import('../views/closed/UserSubscriptions/UserSubscriptionsDetail.vue'),
+        props: true,
+      },
+
+      {
+        path: "subscriptionplans",
+        name: "SubscriptionPlans-view",
+        component: () => import('../views/closed/SubscriptionPlans/SubscriptionPlansView.vue'),
+      },
+      {
+        path: "subscriptionplans/add",
+        name: "SubscriptionPlans-add",
+        component: () => import('../views/closed/SubscriptionPlans/AddSubscriptionPlans.vue'),
+      },
+      {
+        path: "subscriptionplans/edit/:id",
+        name: "SubscriptionPlans-edit",
+        component: () => import('../views/closed/SubscriptionPlans/EditSubscriptionPlans.vue'),
+        props: true,
+      },
+      {
+        path: "subscriptionplans/detail/:id",
+        name: "SubscriptionPlans-detail",
+        component: () => import('../views/closed/SubscriptionPlans/SubscriptionPlansDetail.vue'),
+        props: true,
+      },
+
+      {
         path: "mediafiles",
         name: "MediaFiles-view",
         component: () => import('../views/closed/MediaFiles/MediaFilesView.vue'),

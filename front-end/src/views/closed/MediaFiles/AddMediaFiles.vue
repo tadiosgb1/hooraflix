@@ -1,11 +1,11 @@
 <template>
-  <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-    <div class="bg-white rounded-xl shadow-2xl w-full max-w-sm p-6 text-sm">
+  <div class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+    <div class="bg-gradient-to-br from-gray-900/95 to-black rounded-2xl shadow-2xl border border-red-600/30 w-full max-w-sm p-6 text-sm">
 
       <!-- Header -->
-      <div class="flex justify-between items-center mb-4 border-b pb-2">
-        <h2 class="text-lg font-semibold text-gray-800">Add MediaFiles</h2>
-        <button @click="$emit('close')" class="text-gray-400 hover:text-gray-600">&times;</button>
+      <div class="flex justify-between items-center mb-4 border-b border-red-600/30 pb-2">
+        <h2 class="text-lg font-semibold text-white">Add MediaFiles</h2>
+        <button @click="$emit('close')" class="text-gray-500 hover:text-gray-500">&times;</button>
       </div>
 
       <!-- Form -->
@@ -13,28 +13,28 @@
 
         <!-- Content ID -->
         <div>
-          <label class="block mb-1 text-sm font-medium text-gray-700">Content ID</label>
+          <label class="block mb-1 text-sm font-medium text-gray-300">Content ID</label>
           <input v-model="form.content_id" type="text" required
-            class="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" />
+            class="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full focus:outline-none focus:ring-2 focus:ring-red-600 shadow-sm" />
         </div>
 
         <!-- File Type -->
         <div>
-          <label class="block mb-1 text-sm font-medium text-gray-700">File Type</label>
+          <label class="block mb-1 text-sm font-medium text-gray-300">File Type</label>
           <input v-model="form.file_type" type="text" required
-            class="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" />
+            class="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full focus:outline-none focus:ring-2 focus:ring-red-600 shadow-sm" />
         </div>
 
         <!-- Quality -->
         <div>
-          <label class="block mb-1 text-sm font-medium text-gray-700">Quality</label>
+          <label class="block mb-1 text-sm font-medium text-gray-300">Quality</label>
           <input v-model="form.quality" type="text" required
-            class="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" />
+            class="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full focus:outline-none focus:ring-2 focus:ring-red-600 shadow-sm" />
         </div>
 
         <!-- File Upload -->
         <div>
-          <label class="block mb-1 text-sm font-medium text-gray-700">Upload File (Video/Image)</label>
+          <label class="block mb-1 text-sm font-medium text-gray-300">Upload File (Video/Image)</label>
           <input 
             type="file"
             @change="handleFileUpload"
@@ -50,7 +50,7 @@
 
         <!-- Buttons -->
         <div class="flex justify-end gap-3 pt-2">
-          <button type="button" @click="$emit('close')" class="px-4 py-2 border rounded-lg">
+          <button type="button" @click="$emit('close')" class="px-4 py-2 border border-gray-600 text-gray-300 rounded-lg hover:bg-gray-800/50 transition duration-150">
             Cancel
           </button>
           <button type="submit" class="px-4 py-2 bg-primary text-white rounded-lg">
@@ -130,3 +130,4 @@ export default {
   }
 };
 </script>
+

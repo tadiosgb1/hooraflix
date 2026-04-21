@@ -1,15 +1,15 @@
 <template>
-  <div class="p-6 bg-gray-50 min-h-screen text-sm text-gray-800 relative">
+  <div class="p-6 bg-black min-h-screen text-sm text-white relative">
 
     <!-- Loading -->
     <Loading :visible="loading" message="Loading Users..." />
 
     <!-- Header -->
-    <div class="flex items-center justify-between mb-6 border-b pb-4 border-gray-200">
-      <h1 class="text-lg font-bold text-gray-800">Users</h1>
+    <div class="flex items-center justify-between mb-6 border-b border-red-600/30 pb-4">
+      <h1 class="text-lg font-bold text-white">Users</h1>
       <button
         @click="openAddModal"
-        class="bg-primary hover:bg-dprimary text-white px-4 py-2 rounded-lg font-medium shadow-md flex items-center gap-1"
+        class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium shadow-md flex items-center gap-1"
       >
         <i class="fas fa-plus"></i>
         Add User
@@ -23,7 +23,7 @@
         @input="fetchItems(1)"
         type="text"
         placeholder="Search..."
-        class="border border-gray-300 rounded-lg px-4 py-2 w-full sm:max-w-xs focus:ring-2 focus:ring-primary"
+        class="border border-gray-300 rounded-lg px-4 py-2 w-full sm:max-w-xs focus:ring-2 focus:ring-red-600"
       />
       <div class="flex items-center gap-2">
         <label>Show</label>
@@ -53,10 +53,10 @@
               :key="item.id"
               class="border-t hover:bg-primary/10 transition"
             >
-              <td class="px-6 py-4">{{ (currentPage - 1) * pageSize + index + 1 }}</td>
+              <td class="px-6 py-4 text-gray-300">{{ (currentPage - 1) * pageSize + index + 1 }}</td>
               <td class="px-6 py-4 font-medium">{{ item.first_name }} {{ item.last_name }}</td>
-              <td class="px-6 py-4">{{ item.email }}</td>
-              <td class="px-6 py-4">{{ item.phone_number }}</td>
+              <td class="px-6 py-4 text-gray-300">{{ item.email }}</td>
+              <td class="px-6 py-4 text-gray-300">{{ item.phone_number }}</td>
               <td class="px-6 py-4 text-center space-x-3">
 
                 <!-- Assign Roles -->
@@ -77,7 +77,7 @@
               </td>
             </tr>
             <tr v-if="items.length === 0">
-              <td colspan="5" class="text-center py-6 text-gray-400 italic">No data found.</td>
+              <td colspan="5" class="text-center py-6 text-gray-500 italic">No data found.</td>
             </tr>
           </tbody>
         </table>
@@ -105,7 +105,7 @@
         <p><strong>Email:</strong> {{ item.email }}</p>
         <p><strong>Phone:</strong> {{ item.phone_number }}</p>
       </div>
-      <p v-if="items.length === 0" class="text-center text-gray-400 py-6 italic">No data found.</p>
+      <p v-if="items.length === 0" class="text-center text-gray-500 py-6 italic">No data found.</p>
     </div>
 
     <!-- Pagination -->
@@ -228,3 +228,4 @@ export default {
   },
 };
 </script>
+

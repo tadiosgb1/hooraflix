@@ -6,92 +6,92 @@
       <transition name="auth-overlay">
         <div
           v-if="visible"
-          class="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/60 backdrop-blur-md p-4 overflow-y-auto"
+          :class="['fixed inset-0 z-[100] flex items-center justify-center backdrop-blur-md p-4 overflow-y-auto', isDark ? 'bg-black/60' : 'bg-slate-900/60']"
           @click.self="$emit('close')"
         >
-          <div class="bg-white w-full max-w-2xl rounded-[2rem] shadow-2xl relative overflow-hidden animate-pop-in">
+          <div :class="['w-full max-w-2xl rounded-[2rem] shadow-2xl relative overflow-hidden animate-pop-in transition-colors duration-200', isDark ? 'bg-gray-900' : 'bg-white']">
             
-            <div class="bg-white px-8 py-6 border-b border-slate-100 flex justify-between items-center">
+            <div :class="['px-8 py-6 border-b flex justify-between items-center transition-colors duration-200', isDark ? 'bg-gray-800 border-gray-700' : 'bg-white border-slate-100']">
               <div class="flex items-center gap-4">
-                <div class="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary">
-                  <i class="fas fa-user-edit text-xl"></i>
+                <div :class="['w-12 h-12 rounded-2xl flex items-center justify-center text-xl', isDark ? 'bg-red-600/20 text-red-400' : 'bg-primary/10 text-primary']">
+                  <i class="fas fa-user-edit"></i>
                 </div>
                 <div>
-                  <h2 class="text-xl font-black text-slate-800 tracking-tight">Update Profile</h2>
-                  <p class="text-[10px] font-black uppercase tracking-widest text-slate-400">Personal Information Settings</p>
+                  <h2 :class="['text-xl font-black tracking-tight', isDark ? 'text-white' : 'text-slate-800']">Update Profile</h2>
+                  <p :class="['text-[10px] font-black uppercase tracking-widest', isDark ? 'text-gray-500' : 'text-slate-400']">Personal Information Settings</p>
                 </div>
               </div>
               <button 
                 @click="$emit('close')" 
-                class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-50 text-slate-400 hover:bg-red-50 hover:text-red-500 transition-all"
+                :class="['w-10 h-10 flex items-center justify-center rounded-full transition-all', isDark ? 'bg-gray-700 text-gray-400 hover:bg-red-600/20 hover:text-red-400' : 'bg-slate-50 text-slate-400 hover:bg-red-50 hover:text-red-500']"
               >
                 <i class="fas fa-times"></i>
               </button>
             </div>
 
-            <form @submit.prevent="updateProfile" class="p-8">
+            <form @submit.prevent="updateProfile" :class="['p-8 transition-colors duration-200', isDark ? 'bg-gray-900' : 'bg-white']">
               <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
                 
                 <div class="space-y-1">
-                  <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">First Name</label>
+                  <label :class="['text-[10px] font-black uppercase tracking-widest ml-1', isDark ? 'text-gray-500' : 'text-slate-400']">First Name</label>
                   <div class="relative group">
-                    <i class="fas fa-signature absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-primary transition-colors text-xs"></i>
-                    <input v-model="form.first_name" type="text" class="compact-input" placeholder="John" />
+                    <i :class="['fas fa-signature absolute left-4 top-1/2 -translate-y-1/2 transition-colors text-xs', isDark ? 'text-gray-600 group-focus-within:text-red-500' : 'text-slate-300 group-focus-within:text-primary']"></i>
+                    <input v-model="form.first_name" type="text" :class="['compact-input', isDark ? 'dark-input' : '']" placeholder="John" />
                   </div>
                 </div>
 
                 <div class="space-y-1">
-                  <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Middle Name</label>
+                  <label :class="['text-[10px] font-black uppercase tracking-widest ml-1', isDark ? 'text-gray-500' : 'text-slate-400']">Middle Name</label>
                   <div class="relative group">
-                    <i class="fas fa-pen-nib absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-primary transition-colors text-xs"></i>
-                    <input v-model="form.middle_name" type="text" class="compact-input" placeholder="Edward" />
+                    <i :class="['fas fa-pen-nib absolute left-4 top-1/2 -translate-y-1/2 transition-colors text-xs', isDark ? 'text-gray-600 group-focus-within:text-red-500' : 'text-slate-300 group-focus-within:text-primary']"></i>
+                    <input v-model="form.middle_name" type="text" :class="['compact-input', isDark ? 'dark-input' : '']" placeholder="Edward" />
                   </div>
                 </div>
 
                 <div class="space-y-1">
-                  <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Last Name</label>
+                  <label :class="['text-[10px] font-black uppercase tracking-widest ml-1', isDark ? 'text-gray-500' : 'text-slate-400']">Last Name</label>
                   <div class="relative group">
-                    <i class="fas fa-user absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-primary transition-colors text-xs"></i>
-                    <input v-model="form.last_name" type="text" class="compact-input" placeholder="Doe" />
+                    <i :class="['fas fa-user absolute left-4 top-1/2 -translate-y-1/2 transition-colors text-xs', isDark ? 'text-gray-600 group-focus-within:text-red-500' : 'text-slate-300 group-focus-within:text-primary']"></i>
+                    <input v-model="form.last_name" type="text" :class="['compact-input', isDark ? 'dark-input' : '']" placeholder="Doe" />
                   </div>
                 </div>
 
                 <div class="space-y-1">
-                  <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Email Address</label>
+                  <label :class="['text-[10px] font-black uppercase tracking-widest ml-1', isDark ? 'text-gray-500' : 'text-slate-400']">Email Address</label>
                   <div class="relative group">
-                    <i class="fas fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-primary transition-colors text-xs"></i>
-                    <input v-model="form.email" type="email" class="compact-input" placeholder="john.doe@alpha.com" />
+                    <i :class="['fas fa-envelope absolute left-4 top-1/2 -translate-y-1/2 transition-colors text-xs', isDark ? 'text-gray-600 group-focus-within:text-red-500' : 'text-slate-300 group-focus-within:text-primary']"></i>
+                    <input v-model="form.email" type="email" :class="['compact-input', isDark ? 'dark-input' : '']" placeholder="john.doe@alpha.com" />
                   </div>
                 </div>
 
                 <div class="space-y-1">
-                  <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Phone Number</label>
+                  <label :class="['text-[10px] font-black uppercase tracking-widest ml-1', isDark ? 'text-gray-500' : 'text-slate-400']">Phone Number</label>
                   <div class="relative group">
-                    <i class="fas fa-phone absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-primary transition-colors text-xs"></i>
-                    <input v-model="form.phone_number" type="text" class="compact-input" placeholder="+123 456 7890" />
+                    <i :class="['fas fa-phone absolute left-4 top-1/2 -translate-y-1/2 transition-colors text-xs', isDark ? 'text-gray-600 group-focus-within:text-red-500' : 'text-slate-300 group-focus-within:text-primary']"></i>
+                    <input v-model="form.phone_number" type="text" :class="['compact-input', isDark ? 'dark-input' : '']" placeholder="+123 456 7890" />
                   </div>
                 </div>
 
                 <div class="space-y-1">
-                  <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Physical Address</label>
+                  <label :class="['text-[10px] font-black uppercase tracking-widest ml-1', isDark ? 'text-gray-500' : 'text-slate-400']">Physical Address</label>
                   <div class="relative group">
-                    <i class="fas fa-map-marker-alt absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-primary transition-colors text-xs"></i>
-                    <input v-model="form.address" type="text" class="compact-input" placeholder="Street, City, Country" />
+                    <i :class="['fas fa-map-marker-alt absolute left-4 top-1/2 -translate-y-1/2 transition-colors text-xs', isDark ? 'text-gray-600 group-focus-within:text-red-500' : 'text-slate-300 group-focus-within:text-primary']"></i>
+                    <input v-model="form.address" type="text" :class="['compact-input', isDark ? 'dark-input' : '']" placeholder="Street, City, Country" />
                   </div>
                 </div>
               </div>
 
-              <div class="mt-10 pt-6 border-t border-slate-50 flex items-center justify-end gap-3">
+              <div :class="['mt-10 pt-6 border-t flex items-center justify-end gap-3 transition-colors duration-200', isDark ? 'border-gray-700' : 'border-slate-50']">
                 <button 
                   type="button" 
                   @click="$emit('close')"
-                  class="px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest text-slate-400 hover:bg-slate-50 transition-all"
+                  :class="['px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all', isDark ? 'text-gray-400 hover:bg-gray-800' : 'text-slate-400 hover:bg-slate-50']"
                 >
                   Cancel
                 </button>
                 <button 
                   type="submit" 
-                  class="bg-dprimary hover:bg-primary text-white px-10 py-3.5 rounded-xl font-black text-[10px] uppercase tracking-[0.2em] shadow-lg shadow-dprimary/20 transition-all active:scale-95"
+                  :class="['px-10 py-3.5 rounded-xl font-black text-[10px] uppercase tracking-[0.2em] shadow-lg transition-all active:scale-95', isDark ? 'bg-red-600 hover:bg-red-700 text-white shadow-red-600/20' : 'bg-red-600 hover:bg-primary text-white shadow-dprimary/20']"
                   :disabled="loading"
                 >
                   <span v-if="!loading">Save Changes</span>
@@ -112,7 +112,11 @@
 <style scoped>
 /* Input Field Styling */
 .compact-input {
-  @apply w-full pl-11 pr-4 py-3.5 bg-slate-50 border border-slate-100 rounded-2xl focus:bg-white focus:ring-4 focus:ring-primary/10 focus:border-primary outline-none transition-all text-sm font-bold text-slate-800 placeholder:text-slate-300 placeholder:font-medium;
+  @apply w-full pl-11 pr-4 py-3.5 bg-slate-50 border border-slate-100 rounded-2xl focus:bg-white focus:ring-4 focus:ring-red-600/10 focus:border-red-600 outline-none transition-all text-sm font-bold text-slate-800 placeholder:text-slate-300 placeholder:font-medium;
+}
+
+.dark-input {
+  @apply bg-gray-800 border-gray-700 text-white placeholder:text-gray-600 focus:bg-gray-700 focus:ring-red-600/20 focus:border-red-600;
 }
 
 /* Animations */
@@ -154,6 +158,7 @@ export default {
         phone_number: "",
         address: "",
       },
+      isDark: true,
     };
   },
   watch: {
@@ -162,6 +167,21 @@ export default {
         this.loadProfile();
       }
     },
+  },
+  mounted() {
+    // Load theme preference
+    const savedTheme = localStorage.getItem('hooraflix-theme');
+    if (savedTheme) {
+      this.isDark = savedTheme === 'dark';
+    }
+
+    // Listen for theme changes from sidebar
+    this.$root.$on('theme-changed', (isDark) => {
+      this.isDark = isDark;
+    });
+  },
+  beforeUnmount() {
+    this.$root.$off('theme-changed');
   },
   methods: {
     async loadProfile() {
@@ -216,3 +236,4 @@ export default {
   },
 };
 </script>
+

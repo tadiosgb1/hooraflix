@@ -1,11 +1,11 @@
 <template>
-  <div class="p-6 bg-gray-50 min-h-screen text-sm text-gray-800 relative">
+  <div class="p-6 bg-black min-h-screen text-sm text-white relative">
 
     <!-- Loading -->
     <Loading :visible="loading" message="Loading MediaFiles..." />
 
     <!-- Header -->
-    <div class="flex items-center justify-between mb-6 border-b pb-4 border-gray-200">
+    <div class="flex items-center justify-between mb-6 border-b border-red-600/30 pb-4">
       <h1 class="text-lg font-bold">MediaFiles</h1>
       <button @click="openAddModal"
         class="bg-primary text-white px-4 py-2 rounded-lg shadow">
@@ -49,14 +49,14 @@
             class="w-full h-full object-cover" />
 
           <!-- ❌ FALLBACK -->
-          <span v-else class="text-gray-400 text-xs">
+          <span v-else class="text-gray-500 text-xs">
             No Preview
           </span>
 
         </div>
 
         <!-- INFO -->
-        <div class="p-4 space-y-1 text-xs text-gray-600">
+        <div class="p-4 space-y-1 text-xs text-gray-500">
           <p><b>Content:</b> {{ item.content_id }}</p>
           <p><b>Type:</b> {{ item.file_type }}</p>
           <p><b>Quality:</b> {{ item.quality }}</p>
@@ -76,7 +76,7 @@
 
       <!-- EMPTY -->
       <div v-if="items.length === 0"
-        class="col-span-full text-center py-10 text-gray-400">
+        class="col-span-full text-center py-10 text-gray-500">
         No data found
       </div>
 

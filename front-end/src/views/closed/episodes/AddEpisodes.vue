@@ -1,11 +1,11 @@
 <template>
-  <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-    <div class="bg-white rounded-xl shadow-2xl w-full max-w-sm p-6 text-sm">
+  <div class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+    <div class="bg-gradient-to-br from-gray-900/95 to-black rounded-2xl shadow-2xl border border-red-600/30 w-full max-w-sm p-6 text-sm">
 
       <!-- Header -->
-      <div class="flex justify-between items-center mb-4 border-b pb-2">
-        <h2 class="text-lg font-semibold text-gray-800">Add Episode</h2>
-        <button @click="$emit('close')" class="text-gray-400 hover:text-gray-600">&times;</button>
+      <div class="flex justify-between items-center mb-4 border-b border-red-600/30 pb-2">
+        <h2 class="text-lg font-semibold text-white">Add Episode</h2>
+        <button @click="$emit('close')" class="text-gray-500 hover:text-gray-500">&times;</button>
       </div>
 
       <!-- Form -->
@@ -13,7 +13,7 @@
 
         <!-- Season -->
         <div>
-          <label class="block mb-1 text-sm font-medium text-gray-700">Season</label>
+          <label class="block mb-1 text-sm font-medium text-gray-300">Season</label>
           <select v-model="form.season_id" required class="input">
             <option value="" disabled>Select season</option>
             <option v-if="loadingSeasons" disabled>Loading...</option>
@@ -25,25 +25,25 @@
 
         <!-- Title -->
         <div>
-          <label class="block mb-1 text-sm font-medium text-gray-700">Title</label>
+          <label class="block mb-1 text-sm font-medium text-gray-300">Title</label>
           <input v-model="form.title" type="text" required class="input" />
         </div>
 
         <!-- Episode Number -->
         <div>
-          <label class="block mb-1 text-sm font-medium text-gray-700">Episode Number</label>
+          <label class="block mb-1 text-sm font-medium text-gray-300">Episode Number</label>
           <input v-model="form.episode_number" type="number" min="1" required class="input" />
         </div>
 
         <!-- Duration -->
         <div>
-          <label class="block mb-1 text-sm font-medium text-gray-700">Duration (minutes)</label>
+          <label class="block mb-1 text-sm font-medium text-gray-300">Duration (minutes)</label>
           <input v-model="form.duration" type="number" min="1" required class="input" />
         </div>
 
         <!-- Video Upload -->
         <div>
-          <label class="block mb-1 text-sm font-medium text-gray-700">Upload Video</label>
+          <label class="block mb-1 text-sm font-medium text-gray-300">Upload Video</label>
           <input
             type="file"
             accept="video/*"
@@ -59,7 +59,7 @@
 
         <!-- Buttons -->
         <div class="flex justify-end gap-3 pt-2">
-          <button type="button" @click="$emit('close')" class="px-4 py-2 border rounded-lg">
+          <button type="button" @click="$emit('close')" class="px-4 py-2 border border-gray-600 text-gray-300 rounded-lg hover:bg-gray-800/50 transition duration-150">
             Cancel
           </button>
           <button type="submit" class="px-4 py-2 bg-primary text-white rounded-lg">

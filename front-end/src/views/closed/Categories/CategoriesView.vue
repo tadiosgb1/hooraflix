@@ -1,178 +1,140 @@
-
 <template>
-  <div class="p-6 bg-gray-50 min-h-screen text-sm text-gray-800 relative">
+  <div class="min-h-screen bg-black text-white">
     <!-- Loading -->
-    <Loading :visible="loading" message="Loading Categories..." />
+    <Loading :visible="loading" message="Loading categories..." />
 
     <!-- Page Header -->
-    <div class="flex items-center justify-between mb-6 border-b pb-4 border-gray-200">
-      <h1 class="text-lg font-bold text-gray-800">Categories</h1>
-      <button @click="openAddModal" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-medium shadow-md flex items-center space-x-1 text-sm">
-        <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-        </svg>
-        <span>Add Categories</span>
-      </button>
-    </div>
-
-    <!-- Search + Page Size -->
-    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 gap-4">
-      <input v-model="searchQuery" @input="fetchItems(1)" type="text" placeholder="Search..."
-        class="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full sm:max-w-xs focus:outline-none focus:ring-2 focus:ring-green-500 shadow-sm transition duration-150" />
-      <div class="flex items-center gap-2 text-sm text-gray-600">
-        <label>Show</label>
-        <select v-model="pageSize" @change="fetchItems(1)" class="border border-gray-300 rounded-lg px-2 py-1 text-sm bg-white focus:ring-green-500 focus:border-green-500">
-          <option v-for="size in [5,10,20,50,100]" :key="size" :value="size">{{ size }}</option>
-        </select>
-        <span>entries</span>
+    <div class="px-8 py-6 border-b border-red-600/20 bg-gradient-to-r from-black to-gray-900/50 sticky top-0 z-40">
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
+        <div>
+          <h1 class="text-4xl font-bold text-white mb-2">Categories</h1>
+          <p class="text-gray-400">Manage all content categories</p>
+        </div>
+        <button 
+          @click="openAddModal" 
+          class="px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white rounded-lg font-semibold transition duration-150 shadow-md"
+        >
+          + Add Category
+        </button>
       </div>
     </div>
 
-    <!-- Desktop Table -->
-    <div class="bg-white overflow-hidden rounded-xl border border-gray-200 hidden md:block">
-      <div class="overflow-x-auto">
-        <table class="min-w-full text-sm divide-y divide-gray-200">
-          <thead class="bg-gray-100 text-gray-700 uppercase text-xs font-semibold">
-            <tr>
-              <th class="px-6 py-3 text-left">#</th>
-              <th class="px-6 py-3 text-left">Name</th>
-              <th class="px-6 py-3 text-center">Actions</th>
-            </tr>
-          </thead>
-          <tbody class="bg-white divide-y divide-gray-200">
-            <tr v-for="(item, index) in items" :key="item.id" class="hover:bg-green-50 transition duration-150">
-              <td class="px-6 py-4">{{ index + 1 }}</td>
-              <td class="px-6 py-4 whitespace-nowrap">{{ item.name }}</td>
-              <td class="px-6 py-4 text-center space-x-3">
-                <button @click="viewDetails(item.id)" class="text-green-500 hover:text-green-700"><i class="fas fa-eye"></i></button>
-                <button @click="editItem(item)" class="text-blue-500 hover:text-blue-700"><i class="fas fa-edit"></i></button>
-                <button @click="openDeleteModal(item.id)" class="text-red-500 hover:text-red-700"><i class="fas fa-trash"></i></button>
-              </td>
-            </tr>
-            <tr v-if="items.length === 0">
-              <td colspan="3" class="text-center py-6 text-gray-400 italic">No data found.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+    <!-- Content -->
+    <div class="px-8 py-12">
+      <div class="max-w-7xl mx-auto">
+        <!-- Empty State -->
+        <div v-if="items.length === 0" class="text-center py-16">
+          <div class="text-6xl mb-4">📁</div>
+          <h3 class="text-2xl font-bold text-white mb-2">No Categories Found</h3>
+          <p class="text-gray-400 mb-8">Create your first category to get started</p>
+          <button 
+            @click="openAddModal"
+            class="px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-lg font-semibold transition duration-150"
+          >
+            Create Category
+          </button>
+        </div>
 
-    <!-- Mobile Cards -->
-    <div class="md:hidden space-y-4">
-      <div v-for="(item, index) in items" :key="item.id" class="bg-white border border-gray-200 rounded-xl shadow p-4">
-        <div class="flex justify-between mb-3">
-          <h2 class="font-bold text-gray-800">Categories #{{ index + 1 }}</h2>
-          <div class="flex gap-3 text-sm">
-            <button @click="viewDetails(item.id)" class="text-green-500 hover:text-green-700"><i class="fas fa-eye"></i></button>
-            <button @click="editItem(item)" class="text-blue-500 hover:text-blue-700"><i class="fas fa-edit"></i></button>
-            <button @click="openDeleteModal(item.id)" class="text-red-500 hover:text-red-700"><i class="fas fa-trash"></i></button>
+        <!-- Categories Grid -->
+        <div v-else class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div 
+            v-for="item in items" 
+            :key="item.id"
+            class="bg-gradient-to-br from-gray-900/50 to-black border border-red-600/20 rounded-2xl p-6 hover:border-red-600/50 transition duration-150 shadow-lg group"
+          >
+            <!-- Category Header -->
+            <div class="flex items-start justify-between mb-4">
+              <div class="flex-1">
+                <h3 class="text-xl font-bold text-white group-hover:text-red-500 transition duration-150">{{ item.name }}</h3>
+                <p class="text-gray-500 text-sm mt-1">ID: {{ item.id }}</p>
+              </div>
+              <div class="text-3xl">📂</div>
+            </div>
+
+            <!-- Actions -->
+            <div class="flex gap-2 pt-4 border-t border-gray-700/50">
+              <button 
+                @click="viewDetail(item.id)"
+                class="flex-1 px-3 py-2 bg-gray-800/50 hover:bg-gray-700 text-gray-300 rounded-lg text-sm font-medium transition duration-150"
+              >
+                View
+              </button>
+              <button 
+                @click="openEditModal(item)"
+                class="flex-1 px-3 py-2 bg-blue-600/20 hover:bg-blue-600/30 text-blue-400 rounded-lg text-sm font-medium transition duration-150"
+              >
+                Edit
+              </button>
+              <button 
+                @click="deleteItem(item.id)"
+                class="flex-1 px-3 py-2 bg-red-600/20 hover:bg-red-600/30 text-red-400 rounded-lg text-sm font-medium transition duration-150"
+              >
+                Delete
+              </button>
+            </div>
           </div>
         </div>
-        <div class="grid grid-cols-2 gap-y-1 text-sm text-gray-700">
-          
-            <div class="col-span-2">
-              <span class="font-medium text-gray-600">Name:</span>
-              {{ item.name }}
-            </div>
-        </div>
-      </div>
-      <p v-if="items.length === 0" class="text-center text-gray-400 py-6 italic">No data found.</p>
-    </div>
-
-    <!-- Pagination -->
-    <div class="flex items-center justify-between mt-6 text-sm text-gray-600">
-      <span>
-        Showing {{ (currentPage - 1) * pageSize + 1 }} 
-        to {{ Math.min(currentPage * pageSize, count) }} 
-        of {{ count }} total entries
-      </span>
-      <div class="flex items-center gap-2">
-        <button @click="fetchItems(currentPage - 1)" :disabled="!previousPage"
-          class="px-3 py-1 border border-gray-300 rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition duration-150">← Previous</button>
-        <span class="px-3 py-1 bg-green-600 text-white rounded-lg font-medium">{{ currentPage }}</span>
-        <button @click="fetchItems(currentPage + 1)" :disabled="!nextPage"
-          class="px-3 py-1 border border-gray-300 rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition duration-150">Next →</button>
       </div>
     </div>
 
-    <!-- Add/Edit Modal -->
-    <add-categories v-if="showModal && !editMode" :data="selectedItem" @close="showModal=false" @saved="fetchItems"/>
-    <edit-categories v-if="showModal && editMode" :data="selectedItem" @close="showModal=false" @saved="fetchItems"/>
-
-    <!-- Delete Confirmation Modal -->
-    <delete-confirm-modal 
-      :visible="deleteModalVisible"
-      title="Delete Categories"
-      message="Are you sure you want to delete this Categories?"
-      @confirm="confirmDelete"
-      @cancel="deleteModalVisible=false"
-    />
+    <!-- Modals -->
+    <AddCategories v-if="showAddModal" @close="showAddModal = false" @saved="loadData" />
+    <EditCategories v-if="showEditModal" :data="selectedItem" @close="showEditModal = false" @saved="loadData" />
   </div>
 </template>
 
 <script>
+import Loading from "@/components/Loading.vue";
 import AddCategories from "./AddCategories.vue";
 import EditCategories from "./EditCategories.vue";
-import Loading from "@/components/Loading.vue";
-import DeleteConfirmModal from "@/components/DeleteConfirmModal.vue";
 
 export default {
-  components: { AddCategories, EditCategories, Loading, DeleteConfirmModal },
-
+  components: { Loading, AddCategories, EditCategories },
   data() {
     return {
       items: [],
-      count: 0,
-      nextPage: null,
-      previousPage: null,
-      currentPage: 1,
-      pageSize: 10,
-      searchQuery: "",
-      showModal: false,
-      editMode: false,
-      selectedItem: null,
       loading: false,
-      deleteModalVisible: false,
-      deleteId: null,
+      showAddModal: false,
+      showEditModal: false,
+      selectedItem: null,
     };
   },
-
+  async mounted() {
+    this.loadData();
+  },
   methods: {
-    async fetchItems(page = 1) {
+    async loadData() {
       this.loading = true;
-      this.currentPage = page;
-      const params = { page: this.currentPage, page_size: this.pageSize, search: this.searchQuery };
       try {
-        const response = await this.$apiGet('/categories', params);
-        this.items = response.data;
-        this.count = response.count || 0;
-        this.nextPage = response.next || null;
-        this.previousPage = response.previous || null;
-      } catch(e) { console.error(e); }
-      finally { this.loading = false; }
-    },
-
-    openAddModal() { this.editMode = false; this.selectedItem = null; this.showModal = true; },
-    editItem(item) { this.editMode = true; this.selectedItem = item; this.showModal = true; },
-    
-    // Navigate using static route name
-    viewDetails(id) { 
-      this.$router.push({ name: 'Categories-detail', params: { id } });
-    },
-
-    openDeleteModal(id) { this.deleteId = id; this.deleteModalVisible = true; },
-
-    // Delete with toast
-    async confirmDelete() {
-      const res = await this.$apiDelete('/categories', this.deleteId);
-      if(res) {
-        this.$root.$refs.toast.showToast('Categories deleted successfully', 'success');
+        const response = await this.$apiGet("/categories");
+        this.items = response.data || [];
+      } catch (error) {
+        console.error(error);
+      } finally {
+        this.loading = false;
       }
-      this.deleteModalVisible = false;
-      this.fetchItems(this.currentPage);
+    },
+    openAddModal() {
+      this.showAddModal = true;
+    },
+    openEditModal(item) {
+      this.selectedItem = item;
+      this.showEditModal = true;
+    },
+    viewDetail(id) {
+      this.$router.push(`/categories/${id}`);
+    },
+    async deleteItem(id) {
+      if (confirm("Are you sure you want to delete this category?")) {
+        try {
+          await this.$apiDelete("/categories", id);
+          this.$root.$refs.toast.showToast("Deleted successfully", "success");
+          this.loadData();
+        } catch (error) {
+          console.error(error);
+        }
+      }
     },
   },
-
-  mounted() { this.fetchItems(); }
 };
 </script>

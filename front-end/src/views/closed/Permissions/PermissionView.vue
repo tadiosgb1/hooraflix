@@ -1,16 +1,16 @@
 <template>
-  <div class="p-6 bg-gray-50 min-h-screen text-sm text-gray-800 relative">
+  <div class="p-6 bg-black min-h-screen text-sm text-white relative">
     
     <!-- Loading -->
     <Loading :visible="loading" message="Loading Permission..." />
 
     <!-- Header -->
-    <div class="flex items-center justify-between mb-6 border-b pb-4 border-gray-200">
-      <h1 class="text-lg font-bold text-gray-800">Permissions</h1>
+    <div class="flex items-center justify-between mb-6 border-b border-red-600/30 pb-4">
+      <h1 class="text-lg font-bold text-white">Permissions</h1>
 
       <button
         @click="openAddModal"
-        class="bg-primary hover:bg-dprimary text-white px-4 py-2 rounded-lg font-medium shadow-md flex items-center space-x-1 text-sm"
+        class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium shadow-md flex items-center space-x-1 text-sm"
       >
         <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
@@ -26,15 +26,15 @@
         @input="fetchItems(1)"
         type="text"
         placeholder="Search..."
-        class="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full sm:max-w-xs focus:outline-none focus:ring-2 focus:ring-primary shadow-sm"
+        class="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full sm:max-w-xs focus:outline-none focus:ring-2 focus:ring-red-600 shadow-sm"
       />
 
-      <div class="flex items-center gap-2 text-sm text-gray-600">
+      <div class="flex items-center gap-2 text-sm text-gray-500">
         <label>Show</label>
         <select
           v-model="pageSize"
           @change="fetchItems(1)"
-          class="border border-gray-300 rounded-lg px-2 py-1 text-sm bg-white focus:ring-primary"
+          class="border border-gray-300 rounded-lg px-2 py-1 text-sm bg-white focus:ring-red-600"
         >
           <option v-for="size in [5,10,20,50,100]" :key="size" :value="size">
             {{ size }}
@@ -49,7 +49,7 @@
       <div class="overflow-x-auto">
         <table class="min-w-full text-sm divide-y divide-gray-200">
 
-          <thead class="bg-gray-100 text-gray-700 uppercase text-xs font-semibold">
+          <thead class="bg-gray-900/80 text-gray-300 uppercase text-xs font-semibold border-b border-red-600/30">
             <tr>
               <th class="px-6 py-3 text-left">#</th>
               <th class="px-6 py-3 text-left">Name</th>
@@ -65,17 +65,17 @@
               :key="item.id"
               class="hover:bg-primary/5 transition"
             >
-              <td class="px-6 py-4">{{ index + 1 }}</td>
+              <td class="px-6 py-4 text-gray-300">{{ index + 1 }}</td>
 
-              <td class="px-6 py-4 font-medium text-gray-800">
+              <td class="px-6 py-4 font-medium text-white">
                 {{ item.name }}
               </td>
 
-              <td class="px-6 py-4 text-gray-600">
+              <td class="px-6 py-4 text-gray-500">
                 {{ item.codename }}
               </td>
 
-              <td class="px-6 py-4">
+              <td class="px-6 py-4 text-gray-300">
                 <span class="px-2 py-1 text-xs rounded-lg bg-secondary/20 text-secondary font-medium">
                   {{ item.content_type }}
                 </span>
@@ -88,14 +88,14 @@
                   <i class="fas fa-edit"></i>
                 </button>
 
-                <button @click="openDeleteModal(item.id)" class="text-red-500 hover:text-red-700">
+                <button @click="openDeleteModal(item.id)" class="text-red-500 hover:text-red-400 transition duration-150">
                   <i class="fas fa-trash"></i>
                 </button>
               </td>
             </tr>
 
             <tr v-if="items.length === 0">
-              <td colspan="5" class="text-center py-6 text-gray-400 italic">
+              <td colspan="5" class="text-center py-6 text-gray-500 italic">
                 No data found.
               </td>
             </tr>
@@ -113,7 +113,7 @@
         class="bg-white border rounded-xl shadow p-4"
       >
         <div class="flex justify-between mb-3">
-          <h2 class="font-bold text-gray-800">
+          <h2 class="font-bold text-white">
             Permission #{{ index + 1 }}
           </h2>
 
@@ -130,7 +130,7 @@
           </div>
         </div>
 
-        <div class="text-gray-700 space-y-1">
+        <div class="text-gray-300 space-y-1">
           <div><strong>Name:</strong> {{ item.name }}</div>
           <div><strong>Codename:</strong> {{ item.codename }}</div>
           <div>
@@ -142,13 +142,13 @@
         </div>
       </div>
 
-      <p v-if="items.length === 0" class="text-center text-gray-400 italic">
+      <p v-if="items.length === 0" class="text-center text-gray-500 italic">
         No data found.
       </p>
     </div>
 
     <!-- PAGINATION -->
-    <div class="flex justify-between mt-6 text-sm text-gray-600">
+    <div class="flex justify-between mt-6 text-sm text-gray-500">
       <span>
         Showing {{ (currentPage - 1) * pageSize + 1 }}
         to {{ Math.min(currentPage * pageSize, count) }}
@@ -293,3 +293,4 @@ export default {
   },
 };
 </script>
+
