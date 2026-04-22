@@ -16,7 +16,7 @@
     </div>
 
     <!-- Mobile View -->
-    <div class="md:hidden bg-white rounded-md border border-gray-200 p-4 space-y-2">
+    <div class="md:hidden bg-gradient-to-br from-gray-900/50 to-black rounded-2xl border border-gray-700/50 p-4 space-y-2">
       <div><strong>ID:</strong> {{ item.id }}</div>
       <div><strong>User_id:</strong> {{ item.user_id }}</div><div><strong>Plan_id:</strong> {{ item.plan_id }}</div><div><strong>Starts_at:</strong> {{ item.starts_at }}</div><div><strong>Ends_at:</strong> {{ item.ends_at }}</div><div><strong>Auto_renew:</strong> {{ item.auto_renew }}</div>
     </div>

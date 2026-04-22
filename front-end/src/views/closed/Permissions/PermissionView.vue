@@ -26,7 +26,7 @@
         @input="fetchItems(1)"
         type="text"
         placeholder="Search..."
-        class="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full sm:max-w-xs focus:outline-none focus:ring-2 focus:ring-red-600 shadow-sm"
+        class="border border-gray-600 bg-gray-900/50 rounded-lg px-4 py-2 text-sm w-full sm:max-w-xs text-white placeholder-gray-500 focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600/50 shadow-sm transition duration-150"
       />
 
       <div class="flex items-center gap-2 text-sm text-gray-500">
@@ -34,7 +34,7 @@
         <select
           v-model="pageSize"
           @change="fetchItems(1)"
-          class="border border-gray-300 rounded-lg px-2 py-1 text-sm bg-white focus:ring-red-600"
+          class="border border-gray-600 bg-gray-900/50 rounded-lg px-2 py-1 text-sm text-white focus:border-red-600 focus:ring-1 focus:ring-red-600/50"
         >
           <option v-for="size in [5,10,20,50,100]" :key="size" :value="size">
             {{ size }}
@@ -45,7 +45,7 @@
     </div>
 
     <!-- TABLE -->
-    <div class="bg-white rounded-xl border border-gray-200 hidden md:block">
+    <div class="bg-gradient-to-br from-gray-900/50 to-black rounded-xl border border-gray-700/50 hidden md:block">
       <div class="overflow-x-auto">
         <table class="min-w-full text-sm divide-y divide-gray-200">
 
@@ -110,7 +110,7 @@
       <div
         v-for="(item, index) in items"
         :key="item.id"
-        class="bg-white border rounded-xl shadow p-4"
+        class="bg-gradient-to-br from-gray-900/50 to-black border border-gray-700/50 rounded-xl shadow p-4"
       >
         <div class="flex justify-between mb-3">
           <h2 class="font-bold text-white">

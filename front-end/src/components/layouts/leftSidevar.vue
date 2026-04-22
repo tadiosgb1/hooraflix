@@ -51,9 +51,7 @@
                 :class="[
                   'flex items-center px-4 py-3 rounded-xl font-semibold text-sm transition-all duration-200',
                   isActive(menu.route)
-                    ? isDark
-                      ? 'bg-red-600 text-white shadow-lg'
-                      : 'bg-red-600 text-white shadow-lg'
+                    ? 'bg-red-600 text-white shadow-lg'
                     : isDark
                     ? 'text-gray-400 hover:bg-gray-900/50 hover:text-red-500'
                     : 'text-gray-600 hover:bg-red-50 hover:text-red-600'
@@ -71,9 +69,7 @@
                   :class="[
                     'w-full flex justify-between items-center px-4 py-3 cursor-pointer rounded-xl font-semibold text-sm transition-all duration-200 select-none',
                     openMenus[menu.name]
-                      ? isDark
-                        ? 'bg-red-600 text-white shadow-lg'
-                        : 'bg-red-600 text-white shadow-lg'
+                      ? 'bg-red-600 text-white shadow-lg'
                       : isDark
                       ? 'text-gray-400 hover:bg-gray-900/50 hover:text-red-500'
                       : 'text-gray-600 hover:bg-red-50 hover:text-red-600'
@@ -92,10 +88,7 @@
                 <!-- Submenu -->
                 <transition name="fade">
                   <ul v-if="openMenus[menu.name]" class="ml-6 mt-2 space-y-1">
-                    <li
-                      v-for="child in menu.children"
-                      :key="child.route"
-                    >
+                    <li v-for="child in menu.children" :key="child.route">
                       <router-link
                         :to="{ name: child.route }"
                         :class="[
@@ -126,7 +119,7 @@
             isDark ? 'border-red-600/20 bg-gray-900/50' : 'border-gray-200 bg-gray-50'
           ]"
         >
-          <p :class="['text-xs text-center', isDark ? 'text-gray-500' : 'text-gray-500']">
+          <p class="text-xs text-center text-gray-500">
             © 2026 HooraFlix. All rights reserved.
           </p>
         </div>
@@ -136,20 +129,18 @@
 </template>
 
 <script>
+import emitter from '@/eventBus';
+
 export default {
   data() {
     return {
       showTitle: false,
       openMenus: {},
       isDark: true,
+      themeHandler: null,
 
       menuItems: [
-        {
-          name: "Dashboard",
-          icon: "fas fa-chart-line",
-          route: "first-dash",
-          permission: ""
-        },
+        { name: "Dashboard", icon: "fas fa-chart-line", route: "first-dash", permission: "" },
 
         {
           name: "User Management",
@@ -203,12 +194,7 @@ export default {
           ]
         },
 
-        {
-          name: "Creators",
-          icon: "fas fa-user-tie",
-          route: "Creators-view",
-          permission: ""
-        },
+        { name: "Creators", icon: "fas fa-user-tie", route: "Creators-view", permission: "" },
 
         {
           name: "Parts",
@@ -243,7 +229,7 @@ export default {
     },
 
     toggleMenu(name) {
-      this.openMenus[name] = !this.openMenus[name];
+      this.openMenus = { ...this.openMenus, [name]: !this.openMenus[name] };
     },
 
     isActive(route) {
@@ -253,7 +239,7 @@ export default {
     toggleTheme() {
       this.isDark = !this.isDark;
       localStorage.setItem('hooraflix-theme', this.isDark ? 'dark' : 'light');
-      this.$root.$emit('theme-changed', this.isDark);
+      emitter.emit('theme-changed', this.isDark);
     },
 
     handleResize() {
@@ -261,14 +247,16 @@ export default {
     },
 
     autoOpenMenu() {
+      const updates = {};
       this.menuItems.forEach(menu => {
         if (menu.children) {
           const found = menu.children.find(child =>
             child.route === this.$route.name && this.can(child)
           );
-          if (found) this.openMenus[menu.name] = true;
+          if (found) updates[menu.name] = true;
         }
       });
+      this.openMenus = { ...this.openMenus, ...updates };
     }
   },
 
@@ -277,59 +265,21 @@ export default {
     this.autoOpenMenu();
     window.addEventListener("resize", this.handleResize);
 
-    // Load theme preference
     const savedTheme = localStorage.getItem('hooraflix-theme');
     if (savedTheme) {
       this.isDark = savedTheme === 'dark';
     }
 
-    // Listen for theme changes from other components
-    this.$root.$on('theme-changed', (isDark) => {
+    this.themeHandler = (isDark) => {
       this.isDark = isDark;
-    });
+    };
+
+    emitter.on('theme-changed', this.themeHandler);
   },
 
   beforeUnmount() {
     window.removeEventListener("resize", this.handleResize);
-    this.$root.$off('theme-changed');
+    emitter.off('theme-changed', this.themeHandler);
   }
 };
 </script>
-
-<style scoped>
-.slide-enter-active,
-.slide-leave-active {
-  transition: transform 0.4s ease;
-}
-.slide-enter-from,
-.slide-leave-to {
-  transform: translateX(-100%);
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: all 0.25s ease;
-}
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-  transform: translateY(-5px);
-}
-
-.custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(220, 38, 38, 0.3);
-  border-radius: 10px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(220, 38, 38, 0.5);
-}
-</style>

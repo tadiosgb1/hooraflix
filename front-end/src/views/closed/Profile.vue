@@ -137,19 +137,24 @@
 </style>
 
 <script>
-
 import Toast from "../../components/Toast.vue";
+
 export default {
   name: "Profile",
-    components:{Toast},
+  components: { Toast },
+
   props: {
     visible: {
       type: Boolean,
       default: false,
     },
   },
+
   data() {
     return {
+      isDark: true, // keep static if you want styling
+      loading: false,
+
       form: {
         first_name: "",
         middle_name: "",
@@ -158,9 +163,9 @@ export default {
         phone_number: "",
         address: "",
       },
-      isDark: true,
     };
   },
+
   watch: {
     visible(newVal) {
       if (newVal) {
@@ -168,69 +173,60 @@ export default {
       }
     },
   },
-  mounted() {
-    // Load theme preference
-    const savedTheme = localStorage.getItem('hooraflix-theme');
-    if (savedTheme) {
-      this.isDark = savedTheme === 'dark';
-    }
 
-    // Listen for theme changes from sidebar
-    this.$root.$on('theme-changed', (isDark) => {
-      this.isDark = isDark;
-    });
-  },
-  beforeUnmount() {
-    this.$root.$off('theme-changed');
-  },
   methods: {
     async loadProfile() {
       try {
         const id = localStorage.getItem("userId");
         const res = await this.$apiGet(`/get_user/${id}`);
-        //this.form = res;
-        this.form.email=res.email;
-        this.form.first_name=res.first_name;
-        this.form.last_name=res.last_name;
-        this.form.middle_name=res.middle_name;
-        this.form.phone_number=res.phone_number;
-        this.form.address=res.address;
 
-
+        this.form = {
+          first_name: res.first_name,
+          middle_name: res.middle_name,
+          last_name: res.last_name,
+          email: res.email,
+          phone_number: res.phone_number,
+          address: res.address,
+        };
 
       } catch (err) {
         console.error("Failed to fetch user", err);
       }
     },
+
     async updateProfile() {
+      this.loading = true;
+
       try {
         const id = localStorage.getItem("userId");
 
-        console.log("this form",this.form);
+        const res = await this.$apiPatch(`/old_update_user`, id, this.form);
 
-       const res = await this.$apiPatch(`/old_update_user`, id, this.form);
-         if(res && res.error){
- this.$root.$refs.toast.showToast(
-          res.error || "Failed to update profile ",
-          "error"
-        );
-         this.$emit("close");
+        if (res && res.error) {
+          this.$refs.toast.showToast(
+            res.error || "Failed to update profile",
+            "error"
+          );
+          this.$emit("close");
         } else {
-        this.$root.$refs.toast.showToast(
-          "Profile updated successfully ",
-          "success"
-        );
-      this.$emit("updated", this.form);
-        this.$emit("close");
+          this.$refs.toast.showToast(
+            "Profile updated successfully",
+            "success"
+          );
+
+          this.$emit("updated", this.form);
+          this.$emit("close");
         }
-        
-       
+
       } catch (err) {
         console.error("Update failed", err);
-       this.$root.$refs.toast.showToast(
-         "Failed to update profile ",
+
+        this.$refs.toast.showToast(
+          "Failed to update profile",
           "error"
         );
+      } finally {
+        this.loading = false;
       }
     },
   },

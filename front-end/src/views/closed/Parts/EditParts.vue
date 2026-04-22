@@ -15,28 +15,28 @@
         <div>
           <label class="block mb-1 text-sm font-medium text-gray-300">Series ID</label>
           <input v-model="form.series_id" type="text" required
-            class="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full focus:outline-none focus:ring-2 focus:ring-red-600 shadow-sm" />
+            class="border border-gray-600 bg-gray-900/50 rounded-lg px-4 py-2 text-sm w-full text-white placeholder-gray-500 focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600/50 shadow-sm transition duration-150" />
         </div>
 
         <!-- Title -->
         <div>
           <label class="block mb-1 text-sm font-medium text-gray-300">Title</label>
           <input v-model="form.title" type="text" required
-            class="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full focus:outline-none focus:ring-2 focus:ring-red-600 shadow-sm" />
+            class="border border-gray-600 bg-gray-900/50 rounded-lg px-4 py-2 text-sm w-full text-white placeholder-gray-500 focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600/50 shadow-sm transition duration-150" />
         </div>
 
         <!-- Part Number -->
         <div>
           <label class="block mb-1 text-sm font-medium text-gray-300">Part Number</label>
           <input v-model="form.part_number" type="text" required
-            class="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full focus:outline-none focus:ring-2 focus:ring-red-600 shadow-sm" />
+            class="border border-gray-600 bg-gray-900/50 rounded-lg px-4 py-2 text-sm w-full text-white placeholder-gray-500 focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600/50 shadow-sm transition duration-150" />
         </div>
 
         <!-- Duration -->
         <div>
           <label class="block mb-1 text-sm font-medium text-gray-300">Duration</label>
           <input v-model="form.duration" type="text" required
-            class="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full focus:outline-none focus:ring-2 focus:ring-red-600 shadow-sm" />
+            class="border border-gray-600 bg-gray-900/50 rounded-lg px-4 py-2 text-sm w-full text-white placeholder-gray-500 focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600/50 shadow-sm transition duration-150" />
         </div>
 
         <!-- Current Video (optional display) -->
@@ -52,7 +52,7 @@
             type="file" 
             @change="handleFileUpload" 
             accept="video/*"
-            class="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full"
+            class="border border-gray-600 bg-gray-900/50 rounded-lg px-4 py-2 text-sm w-full text-white file:text-gray-300 file:bg-gray-800 file:border-0 file:rounded file:mr-2"
           />
           <p v-if="videoFile" class="text-xs text-gray-500 mt-1">
             Selected: {{ videoFile.name }}

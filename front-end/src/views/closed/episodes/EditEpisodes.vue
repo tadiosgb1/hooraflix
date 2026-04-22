@@ -14,7 +14,7 @@
         <!-- Season -->
         <div>
           <label class="block mb-1 font-medium text-gray-300">Season</label>
-          <select v-model="form.season_id" required class="input">
+          <select v-model="form.season_id" required class="border border-gray-600 bg-gray-900/50 rounded-lg px-4 py-2 text-sm w-full text-white placeholder-gray-500 focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600/50 shadow-sm transition duration-150">
             <option value="" disabled>Select season</option>
             <option v-if="loadingSeasons" disabled>Loading seasons...</option>
             <option v-for="season in seasonsList" :key="season.id" :value="season.id">
@@ -26,19 +26,19 @@
         <!-- Title -->
         <div>
           <label class="block mb-1 font-medium text-gray-300">Title</label>
-          <input v-model="form.title" type="text" required class="input" />
+          <input v-model="form.title" type="text" required class="border border-gray-600 bg-gray-900/50 rounded-lg px-4 py-2 text-sm w-full text-white placeholder-gray-500 focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600/50 shadow-sm transition duration-150" />
         </div>
 
         <!-- Episode Number -->
         <div>
           <label class="block mb-1 font-medium text-gray-300">Episode Number</label>
-          <input v-model="form.episode_number" type="number" min="1" required class="input" />
+          <input v-model="form.episode_number" type="number" min="1" required class="border border-gray-600 bg-gray-900/50 rounded-lg px-4 py-2 text-sm w-full text-white placeholder-gray-500 focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600/50 shadow-sm transition duration-150" />
         </div>
 
         <!-- Duration -->
         <div>
           <label class="block mb-1 font-medium text-gray-300">Duration (minutes)</label>
-          <input v-model="form.duration" type="number" min="1" required class="input" />
+          <input v-model="form.duration" type="number" min="1" required class="border border-gray-600 bg-gray-900/50 rounded-lg px-4 py-2 text-sm w-full text-white placeholder-gray-500 focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600/50 shadow-sm transition duration-150" />
         </div>
 
         <!-- ✅ VIDEO FILE UPLOAD -->
@@ -48,7 +48,7 @@
             type="file" 
             accept="video/*"
             @change="handleFileUpload"
-            class="input"
+            class="border border-gray-600 bg-gray-900/50 rounded-lg px-4 py-2 text-sm w-full text-white placeholder-gray-500 focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600/50 shadow-sm transition duration-150 file:text-gray-300 file:bg-gray-800 file:border-0 file:rounded file:mr-2"
           />
 
           <!-- Preview -->
@@ -161,7 +161,7 @@ export default {
 
 <style scoped>
 .input {
-  @apply border border-gray-300 rounded-lg px-4 py-2 text-sm w-full focus:outline-none focus:ring-2 focus:ring-red-600 shadow-sm;
+  @apply border border-gray-600 bg-gray-900/50 rounded-lg px-4 py-2 text-sm w-full text-white placeholder-gray-500 focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600/50 shadow-sm transition duration-150;
 }
 </style>
 

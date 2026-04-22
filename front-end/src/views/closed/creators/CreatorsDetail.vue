@@ -16,7 +16,7 @@
     </div>
 
     <!-- Mobile View -->
-    <div class="md:hidden bg-white rounded-md border border-gray-200 p-4 space-y-2">
+    <div class="md:hidden bg-gradient-to-br from-gray-900/50 to-black rounded-2xl border border-gray-700/50 p-4 space-y-2">
       <div><strong>ID:</strong> {{ item.id }}</div>
       <div><strong>User_id:</strong> {{ item.user_id }}</div><div><strong>Stage_name:</strong> {{ item.stage_name }}</div><div><strong>Bio:</strong> {{ item.bio }}</div><div><strong>Profile_image_url:</strong> {{ item.profile_image_url }}</div><div><strong>Cover_image_url:</strong> {{ item.cover_image_url }}</div>
     </div>

@@ -13,7 +13,7 @@
       <div v-else class="max-h-96 overflow-y-auto space-y-2">
         <div v-if="permissions.length === 0" class="text-gray-500 italic text-center">No permissions assigned.</div>
         <ul v-else class="space-y-1">
-          <li v-for="perm in permissions" :key="perm.id" class="text-gray-300 border-b border-gray-200 py-1 px-2 rounded hover:bg-primary/10 transition">
+          <li v-for="perm in permissions" :key="perm.id" class="text-gray-300 border-b border-gray-700/50 py-1 px-2 rounded hover:bg-primary/10 transition">
             {{ perm.name }} ({{ perm.codename }})
           </li>
         </ul>
@@ -21,7 +21,7 @@
 
       <!-- Close Button -->
       <div class="flex justify-end pt-4">
-        <button @click="$emit('close')" class="px-4 py-2 border border-gray-600 text-gray-300 rounded-lg hover:bg-gray-800/50 transition duration-150 hover:bg-gray-100 transition">Close</button>
+        <button @click="$emit('close')" class="px-4 py-2 border border-gray-600 text-gray-300 rounded-lg hover:bg-gray-800/50 transition duration-150">Close</button>
       </div>
 
     </div>

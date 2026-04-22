@@ -16,7 +16,7 @@
     </div>
 
     <!-- Mobile View -->
-    <div class="md:hidden bg-white rounded-md border border-gray-200 p-4 space-y-2">
+    <div class="md:hidden bg-gradient-to-br from-gray-900/50 to-black rounded-2xl border border-gray-700/50 p-4 space-y-2">
       <div><strong>ID:</strong> {{ item.id }}</div>
       <div><strong>Name:</strong> {{ item.name }}</div><div><strong>Billing_type:</strong> {{ item.billing_type }}</div><div><strong>Price:</strong> {{ item.price }}</div><div><strong>Duration_hours:</strong> {{ item.duration_hours }}</div><div><strong>Ad_enabled:</strong> {{ item.ad_enabled }}</div>
     </div>

@@ -16,7 +16,7 @@
     </div>
 
     <!-- Mobile View -->
-    <div class="md:hidden bg-white rounded-md border border-gray-200 p-4 space-y-2">
+    <div class="md:hidden bg-gradient-to-br from-gray-900/50 to-black rounded-2xl border border-gray-700/50 p-4 space-y-2">
       <div><strong>ID:</strong> {{ item.id }}</div>
       <div><strong>Creator_id:</strong> {{ item.creator_id }}</div><div><strong>Content_id:</strong> {{ item.content_id }}</div><div><strong>Rights_type:</strong> {{ item.rights_type }}</div><div><strong>Revenue_share:</strong> {{ item.revenue_share }}</div><div><strong>Contract_document:</strong> {{ item.contract_document }}</div>
     </div>

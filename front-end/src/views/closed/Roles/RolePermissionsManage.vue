@@ -7,7 +7,7 @@
     >
 
       <!-- HEADER (sticky) -->
-      <div class="flex justify-between items-center px-6 py-4 border-b sticky top-0 bg-white z-10">
+      <div class="flex justify-between items-center px-6 py-4 border-b sticky top-0 bg-gradient-to-br from-gray-900/95 to-black z-10 border-red-600/30">
         <h2 class="text-lg font-bold text-white">
           Manage Permissions for
           <span class="text-primary">{{ role.name }}</span>
@@ -37,13 +37,13 @@
             <label
               v-for="perm in permissions"
               :key="perm.id"
-              class="flex items-center gap-3 p-3 rounded-xl border hover:border-primary hover:bg-red-600/5 transition cursor-pointer"
+              class="flex items-center gap-3 p-3 rounded-xl border border-gray-700/50 hover:border-primary hover:bg-red-600/5 transition cursor-pointer bg-gray-800/50"
             >
               <input
                 type="checkbox"
                 :value="perm.id"
                 v-model="selectedPermissionIds"
-                class="w-4 h-4 text-primary border-gray-300 rounded focus:ring-red-600"
+                class="w-4 h-4 text-primary border-gray-600 rounded focus:ring-red-600"
               />
 
               <span class="text-sm text-gray-300 font-medium">
@@ -57,12 +57,12 @@
       </div>
 
       <!-- FOOTER (sticky) -->
-      <div class="px-6 py-4 border-t flex justify-end gap-3 bg-white sticky bottom-0">
+      <div class="px-6 py-4 border-t flex justify-end gap-3 bg-gradient-to-br from-gray-900/95 to-black sticky bottom-0 border-red-600/30">
 
         <button
           type="button"
           @click="$emit('close')"
-          class="px-5 py-2 border rounded-lg hover:bg-gray-100 transition"
+          class="px-5 py-2 border border-gray-600 text-gray-300 rounded-lg hover:bg-gray-800/50 transition"
         >
           Cancel
         </button>

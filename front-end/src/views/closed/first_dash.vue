@@ -137,21 +137,26 @@
 <script>
 export default {
   name: "SuperDashboard",
+
   data() {
     return {
+      // ✅ simple static theme (no syncing, no crash)
       isDark: true,
+
       topStats: [
         { label: "Total Revenue", value: "482,900 ETB", percentage: "12.5", trendUp: true },
         { label: "Active Trainees", value: "1,240", percentage: "8.2", trendUp: true },
         { label: "Content Sales", value: "8,432", percentage: "3.1", trendUp: false },
         { label: "Affiliate Payouts", value: "42,000 ETB", percentage: "22.4", trendUp: true },
       ],
+
       contentMix: [
         { type: "Movies (PPV)", count: "1,240 Titles", percent: 85 },
         { type: "Music Albums", count: "4,820 Tracks", percent: 65 },
         { type: "Training Modules", count: "156 Courses", percent: 40 },
         { type: "Partner Companies", count: "42 Vendors", percent: 25 },
       ],
+
       recentActivity: [
         { name: "Global Film Studio", category: "Subscription", transaction: "Movie Sale", commission: "250.00 ETB", status: "Completed" },
         { name: "Abebe Kebede", category: "Training", transaction: "Course Enrollment", commission: "180.00 ETB", status: "Completed" },
@@ -159,21 +164,6 @@ export default {
         { name: "Sara Tech-Academy", category: "Training", transaction: "Module Listing", commission: "500.00 ETB", status: "Completed" },
       ]
     };
-  },
-  mounted() {
-    // Load theme preference
-    const savedTheme = localStorage.getItem('hooraflix-theme');
-    if (savedTheme) {
-      this.isDark = savedTheme === 'dark';
-    }
-
-    // Listen for theme changes from sidebar
-    this.$root.$on('theme-changed', (isDark) => {
-      this.isDark = isDark;
-    });
-  },
-  beforeUnmount() {
-    this.$root.$off('theme-changed');
   }
 };
 </script>

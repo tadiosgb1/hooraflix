@@ -18,10 +18,10 @@
     <!-- Search + Page Size -->
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 gap-4">
       <input v-model="searchQuery" @input="fetchItems(1)" type="text" placeholder="Search..."
-        class="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full sm:max-w-xs focus:outline-none focus:ring-2 focus:ring-red-600 shadow-sm transition duration-150" />
+        class="border border-gray-600 bg-gray-900/50 rounded-lg px-4 py-2 text-sm w-full sm:max-w-xs text-white placeholder-gray-500 focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600/50 shadow-sm transition duration-150" />
       <div class="flex items-center gap-2 text-sm text-gray-500">
         <label>Show</label>
-        <select v-model="pageSize" @change="fetchItems(1)" class="border border-gray-300 rounded-lg px-2 py-1 text-sm bg-white focus:ring-red-600 focus:border-red-600">
+        <select v-model="pageSize" @change="fetchItems(1)" class="border border-gray-600 bg-gray-900/50 rounded-lg px-2 py-1 text-sm text-white focus:border-red-600 focus:ring-1 focus:ring-red-600/50">
           <option v-for="size in [5,10,20,50,100]" :key="size" :value="size">{{ size }}</option>
         </select>
         <span>entries</span>
@@ -120,8 +120,8 @@
     </div>
 
     <!-- Add/Edit Modal -->
-    <add-subscriptionplans v-if="showModal && !editMode" :data="selectedItem" @close="showModal=false" @saved="fetchItems"/>
-    <edit-subscriptionplans v-if="showModal && editMode" :data="selectedItem" @close="showModal=false" @saved="fetchItems"/>
+    <AddSubscriptionPlans v-if="showModal && !editMode" :data="selectedItem" @close="showModal=false" @saved="fetchItems"/>
+    <EditSubscriptionPlans v-if="showModal && editMode" :data="selectedItem" @close="showModal=false" @saved="fetchItems"/>
 
     <!-- Delete Confirmation Modal -->
     <delete-confirm-modal 
@@ -167,7 +167,7 @@ export default {
       this.currentPage = page;
       const params = { page: this.currentPage, page_size: this.pageSize, search: this.searchQuery };
       try {
-        const response = await this.$apiGet('/subscriptionplans', params);
+        const response = await this.$apiGet('/subscription-plans', params);
         this.items = response.data;
         this.count = response.count || 0;
         this.nextPage = response.next || null;
