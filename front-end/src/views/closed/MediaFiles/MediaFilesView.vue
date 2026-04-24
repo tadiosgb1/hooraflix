@@ -1,11 +1,11 @@
 <template>
-  <div class="p-6 bg-gray-50 min-h-screen text-sm text-gray-800 relative">
+  <div class="p-6 bg-black min-h-screen text-sm text-white relative">
 
     <!-- Loading -->
     <Loading :visible="loading" message="Loading MediaFiles..." />
 
     <!-- Header -->
-    <div class="flex items-center justify-between mb-6 border-b pb-4 border-gray-200">
+    <div class="flex items-center justify-between mb-6 border-b border-red-600/30 pb-4">
       <h1 class="text-lg font-bold">MediaFiles</h1>
       <button @click="openAddModal"
         class="bg-primary text-white px-4 py-2 rounded-lg shadow">
@@ -17,10 +17,10 @@
     <div class="flex flex-col sm:flex-row justify-between mb-6 gap-4">
       <input v-model="searchQuery" @input="fetchItems(1)"
         type="text" placeholder="Search..."
-        class="border px-4 py-2 rounded-lg w-full sm:max-w-xs" />
+        class="border border-gray-600 bg-gray-900/50 rounded-lg px-4 py-2 text-sm w-full sm:max-w-xs text-white placeholder-gray-500 focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600/50 shadow-sm transition duration-150" />
 
       <select v-model="pageSize" @change="fetchItems(1)"
-        class="border px-2 py-1 rounded-lg">
+        class="border border-gray-600 bg-gray-900/50 rounded-lg px-2 py-1 text-sm text-white focus:border-red-600 focus:ring-1 focus:ring-red-600/50">
         <option v-for="size in [5,10,20,50,100]" :key="size" :value="size">
           {{ size }}
         </option>
@@ -31,7 +31,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 
       <div v-for="(item, index) in items" :key="item.id"
-        class="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden">
+        class="bg-gradient-to-br from-gray-900/50 to-black rounded-xl shadow hover:shadow-lg overflow-hidden border border-gray-700/50">
 
         <!-- 🎥 MEDIA -->
         <div class="w-full h-48 bg-black flex items-center justify-center">
@@ -49,20 +49,20 @@
             class="w-full h-full object-cover" />
 
           <!-- ❌ FALLBACK -->
-          <span v-else class="text-gray-400 text-xs">
+          <span v-else class="text-gray-500 text-xs">
             No Preview
           </span>
 
         </div>
 
         <!-- INFO -->
-        <div class="p-4 space-y-1 text-xs text-gray-600">
+        <div class="p-4 space-y-1 text-xs text-gray-400">
           <p><b>Content:</b> {{ item.content_id }}</p>
           <p><b>Type:</b> {{ item.file_type }}</p>
           <p><b>Quality:</b> {{ item.quality }}</p>
 
           <!-- ACTIONS -->
-          <div class="flex justify-between items-center pt-2 border-t mt-2">
+          <div class="flex justify-between items-center pt-2 border-t border-gray-700 mt-2">
             <div class="flex gap-3">
               <button @click="viewDetails(item.id)">👁</button>
               <button @click="editItem(item)">✏</button>
@@ -76,7 +76,7 @@
 
       <!-- EMPTY -->
       <div v-if="items.length === 0"
-        class="col-span-full text-center py-10 text-gray-400">
+        class="col-span-full text-center py-10 text-gray-500">
         No data found
       </div>
 

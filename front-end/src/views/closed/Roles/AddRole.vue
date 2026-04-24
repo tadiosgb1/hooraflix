@@ -1,11 +1,11 @@
 <template>
-  <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-    <div class="bg-white rounded-xl shadow-2xl w-full max-w-sm p-6 text-sm">
+  <div class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+    <div class="bg-gradient-to-br from-gray-900/95 to-black rounded-2xl shadow-2xl border border-red-600/30 w-full max-w-sm p-6 text-sm">
 
       <!-- Header -->
-      <div class="flex justify-between items-center mb-4 border-b pb-2">
+      <div class="flex justify-between items-center mb-4 border-b border-red-600/30 pb-2">
         <h2 class="text-lg font-semibold text-primary">Add Role</h2>
-        <button @click="$emit('close')" class="text-gray-400 hover:text-gray-600 transition">&times;</button>
+        <button @click="$emit('close')" class="text-gray-500 hover:text-gray-500 transition">&times;</button>
       </div>
 
       <!-- Form -->
@@ -13,23 +13,23 @@
 
         <!-- Name -->
         <div>
-          <label class="block mb-1 text-sm font-medium text-gray-700">Name</label>
+          <label class="block mb-1 text-sm font-medium text-gray-300">Name</label>
           <input
             v-model="form.name"
             type="text"
             required
-            class="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full sm:max-w-xs focus:outline-none focus:ring-2 focus:ring-primary shadow-sm transition duration-150"
+            class="border border-gray-600 bg-gray-900/50 rounded-lg px-4 py-2 text-sm w-full text-white placeholder-gray-500 focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600/50 shadow-sm transition duration-150"
           />
         </div>
 
         <!-- Description -->
         <div>
-          <label class="block mb-1 text-sm font-medium text-gray-700">Description</label>
+          <label class="block mb-1 text-sm font-medium text-gray-300">Description</label>
           <input
             v-model="form.description"
             type="text"
             required
-            class="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full sm:max-w-xs focus:outline-none focus:ring-2 focus:ring-primary shadow-sm transition duration-150"
+            class="border border-gray-600 bg-gray-900/50 rounded-lg px-4 py-2 text-sm w-full text-white placeholder-gray-500 focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600/50 shadow-sm transition duration-150"
           />
         </div>
 
@@ -38,13 +38,13 @@
           <button
             type="button"
             @click="$emit('close')"
-            class="px-4 py-2 border rounded-lg hover:bg-gray-100 transition"
+            class="px-4 py-2 border border-gray-600 text-gray-300 rounded-lg hover:bg-gray-800/50 transition duration-150 hover:bg-gray-100 transition"
           >
             Cancel
           </button>
           <button
             type="submit"
-            class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-dprimary transition"
+            class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-red-600 transition"
           >
             Add
           </button>
@@ -87,3 +87,4 @@ export default {
   }
 }
 </script>
+

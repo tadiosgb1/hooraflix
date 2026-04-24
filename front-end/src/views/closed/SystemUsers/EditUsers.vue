@@ -6,13 +6,13 @@
 
       <!-- Header -->
       <div class="flex justify-between items-center mb-5 border-b pb-3">
-        <h2 class="text-lg font-semibold text-gray-800">
+        <h2 class="text-lg font-semibold text-white">
           Edit User
         </h2>
 
         <button
           @click="$emit('close')"
-          class="text-gray-400 hover:text-dprimary text-xl"
+          class="text-gray-500 hover:text-dprimary text-xl"
         >
           &times;
         </button>
@@ -51,14 +51,14 @@
           <button
             type="button"
             @click="$emit('close')"
-            class="px-4 py-2 border border-gray-300 rounded-lg text-gray-600 hover:bg-gray-100 transition"
+            class="px-4 py-2 border border-gray-300 rounded-lg text-gray-500 hover:bg-gray-100 transition"
           >
             Cancel
           </button>
 
           <button
             type="submit"
-            class="px-4 py-2 bg-primary hover:bg-dprimary text-white rounded-lg shadow-md transition"
+            class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg shadow-md transition"
           >
             Update
           </button>
@@ -117,12 +117,13 @@ export default {
 /* Reusable Input */
 .input {
   @apply w-full border border-gray-300 rounded-lg px-4 py-2 text-sm
-         focus:outline-none focus:ring-2 focus:ring-primary
-         focus:border-primary transition;
+         focus:outline-none focus:ring-2 focus:ring-red-600
+         focus:border-red-600 transition;
 }
 
 /* Label */
 .label {
-  @apply block mb-1 text-sm font-medium text-gray-700;
+  @apply block mb-1 text-sm font-medium text-gray-300;
 }
 </style>
+
