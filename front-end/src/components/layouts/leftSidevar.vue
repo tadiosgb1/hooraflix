@@ -160,21 +160,21 @@ export default {
             { name: "Contents", route: "Content-view", permission: "" },
             // { name: "Content Peoples", route: "Contentpeople-view", permission: "" },
             // { name: "Content Categories", route: "Contentcategories-view", permission: "" },
-            // { name: "Peoples", route: "People-view", permission: "" },
+            { name: "Peoples", route: "People-view", permission: "" },
            
             // { name: "Media Files", route: "MediaFiles-view", permission: "" }
           ]
         },
 
-        // {
-        //   name: "Series Management",
-        //   icon: "fas fa-film",
-        //   children: [
-        //     { name: "Series", route: "Series-view", permission: "" },
-        //     { name: "Seasons", route: "Seasons-view", permission: "" },
-        //     { name: "Episodes", route: "Episodes-view", permission: "" }
-        //   ]
-        // },
+         {
+         name: "Series Management",
+           icon: "fas fa-film",
+          children: [
+            { name: "Series", route: "Series-view", permission: "" },
+             { name: "Seasons", route: "Seasons-view", permission: "" },
+            { name: "Episodes", route: "Episodes-view", permission: "" }
+          ]
+         },
 
         {
           name: "Pricing Management",
@@ -197,13 +197,13 @@ export default {
 
         { name: "Creators", icon: "fas fa-user-tie", route: "Creators-view", permission: "" },
 
-        // {
-        //   name: "Parts",
-        //   icon: "fas fa-cubes",
-        //   children: [
-        //     { name: "Parts", route: "Parts-view", permission: "" }
-        //   ]
-        // }
+         {
+           name: "Parts",
+           icon: "fas fa-cubes",
+           children: [
+            { name: "Parts", route: "Parts-view", permission: "" }
+          ]
+         }
       ]
     };
   },
