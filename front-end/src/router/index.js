@@ -145,6 +145,100 @@ const routes = [
       { requiresGuest: true },
       children: [
       {
+        path: "paymenttransactions",
+        name: "PaymentTransactions-view",
+        component: () => import('../views/closed/PaymentTransactions/PaymentTransactionsView.vue'),
+      },
+      {
+        path: "paymenttransactions/add",
+        name: "PaymentTransactions-add",
+        component: () => import('../views/closed/PaymentTransactions/AddPaymentTransactions.vue'),
+      },
+      {
+        path: "paymenttransactions/edit/:id",
+        name: "PaymentTransactions-edit",
+        component: () => import('../views/closed/PaymentTransactions/EditPaymentTransactions.vue'),
+        props: true,
+      },
+      {
+        path: "paymenttransactions/detail/:id",
+        name: "PaymentTransactions-detail",
+        component: () => import('../views/closed/PaymentTransactions/PaymentTransactionsDetail.vue'),
+        props: true,
+      },
+
+      {
+        path: "contentaccesslogs",
+        name: "ContentAccessLogs-view",
+        component: () => import('../views/closed/ContentAccessLogs/ContentAccessLogsView.vue'),
+      },
+      {
+        path: "contentaccesslogs/add",
+        name: "ContentAccessLogs-add",
+        component: () => import('../views/closed/ContentAccessLogs/AddContentAccessLogs.vue'),
+      },
+      {
+        path: "contentaccesslogs/edit/:id",
+        name: "ContentAccessLogs-edit",
+        component: () => import('../views/closed/ContentAccessLogs/EditContentAccessLogs.vue'),
+        props: true,
+      },
+      {
+        path: "contentaccesslogs/detail/:id",
+        name: "ContentAccessLogs-detail",
+        component: () => import('../views/closed/ContentAccessLogs/ContentAccessLogsDetail.vue'),
+        props: true,
+      },
+
+      {
+        path: "revenueshares",
+        name: "RevenueShares-view",
+        component: () => import('../views/closed/RevenueShares/RevenueSharesView.vue'),
+      },
+      {
+        path: "revenueshares/add",
+        name: "RevenueShares-add",
+        component: () => import('../views/closed/RevenueShares/AddRevenueShares.vue'),
+      },
+      {
+        path: "revenueshares/edit/:id",
+        name: "RevenueShares-edit",
+        component: () => import('../views/closed/RevenueShares/EditRevenueShares.vue'),
+        props: true,
+      },
+      {
+        path: "revenueshares/detail/:id",
+        name: "RevenueShares-detail",
+        component: () => import('../views/closed/RevenueShares/RevenueSharesDetail.vue'),
+        props: true,
+      },
+
+      {
+        path: "userentitlements",
+        name: "UserEntitlementss-view",
+        component: () => import('../views/closed/UserEntitlements/UserEntitlementssView.vue'),
+      },
+      {
+        path: "userentitlements/add",
+        name: "UserEntitlementss-add",
+        component: () => import('../views/closed/UserEntitlements/AddUserEntitlementss.vue'),
+      },
+      {
+        path: "userentitlements/edit/:id",
+        name: "UserEntitlementss-edit",
+        component: () => import('../views/closed/UserEntitlements/EditUserEntitlementss.vue'),
+        props: true,
+      },
+      {
+        path: "userentitlements/detail/:id",
+        name: "UserEntitlementss-detail",
+        component: () => import('../views/closed/UserEntitlements/UserEntitlementssDetail.vue'),
+        props: true,
+      },
+
+     
+
+      {
         path: "contentcontract",
         name: "ContentContract-view",
         component: () => import('../views/closed/ContentContract/ContentContractView.vue'),

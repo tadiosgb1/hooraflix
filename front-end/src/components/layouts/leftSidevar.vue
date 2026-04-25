@@ -18,12 +18,12 @@
               : 'bg-gradient-to-r from-red-50 to-white border-gray-200'
           ]"
         >
-          <div class="flex items-center space-x-3">
+          <!-- <div class="flex items-center space-x-3">
             <div :class="['w-10 h-10 rounded-xl flex items-center justify-center', isDark ? 'bg-red-600/20' : 'bg-red-100']">
               <img src="../../assets/img/logo1.jpg" class="h-7 w-7 rounded-lg" />
             </div>
             <span :class="['text-xl font-bold', isDark ? 'text-red-500' : 'text-red-600']">HooraFlix</span>
-          </div>
+          </div> -->
 
           <!-- Theme Toggle Button -->
           <button
@@ -140,6 +140,12 @@ export default {
       themeHandler: null,
 
       menuItems: [
+
+ 
+
+
+   
+
         { name: "Dashboard", icon: "fas fa-chart-line", route: "first-dash", permission: "" },
        
         {
@@ -203,7 +209,39 @@ export default {
            children: [
             { name: "Parts", route: "Parts-view", permission: "" }
           ]
-         }
+         },
+    
+
+    {
+      name: "Revenue Shares",
+      route: "RevenueShares-view",
+      icon: "fas fa-folder",
+      color: "#22c55e"
+    },
+
+
+    {
+      name: "User Entitlementss",
+      route: "UserEntitlementss-view",
+      icon: "fas fa-folder",
+      color: "#22c55e"
+    },
+
+   {
+      name: "PaymentTransactions",
+      route: "PaymentTransactions-view",
+      icon: "fas fa-folder",
+      color: "#22c55e"
+    },
+   
+      {
+      name: "Content Access Logs",
+      route: "ContentAccessLogs-view",
+      icon: "fas fa-folder",
+      color: "#22c55e"
+    },
+
+         
       ]
     };
   },

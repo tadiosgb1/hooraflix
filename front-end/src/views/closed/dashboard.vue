@@ -20,7 +20,6 @@
                 alt="Logo"
                 :class="['h-9 w-9 rounded-xl object-cover ring-2 transition-all shadow-lg', 'ring-red-600/50 group-hover:ring-red-500 group-hover:shadow-red-600/30']"
               />
-              <div class="absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 border-2 border-black rounded-full shadow-lg"></div>
             </div>
             <div class="flex flex-col">
               <h1 :class="['text-lg font-black leading-none tracking-tight transition-colors', 'text-red-500 group-hover:text-red-400']">
