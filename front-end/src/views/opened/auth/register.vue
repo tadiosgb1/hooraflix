@@ -163,6 +163,8 @@ export default {
         // Step 1 — register user
         const res = await this.$apiPost('/users', this.form);
         const userId = res?.data?.id || res?.data?.data?.id;
+
+    
         if (!userId) throw new Error('User ID not found in response');
 
         // Step 2 — assign role silently based on type
@@ -172,6 +174,7 @@ export default {
         user_id: userId, 
         role_id: roleId
         }
+
         if (roleId) {
           await this.$apiPost('/user-roles', payload);
         }

@@ -205,7 +205,8 @@ export default {
         duration: this.data?.duration || '',
         language: this.data?.language || '',
         country: this.data?.country || '',
-        rating: this.data?.rating || '',
+        //rating: this.data?.rating || '',
+
         category_ids: [],
         pricing_option: this.data?.pricing_option || 'free',
         pricing_plan_id: this.data?.pricing_plan_id || '',
