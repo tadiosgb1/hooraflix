@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from '../views/opened/landing/Home.vue'
+import Contents from '../views/opened/landing/Contents.vue'
 
 import SendSMS from  '../views/opened/landing/apidocs/SendSMS.vue'
 import BulkSend from "../views/opened/landing/apidocs/BulkSend.vue";
@@ -12,6 +13,7 @@ import Products from  '../views/opened/landing/products.vue'
 import Pricing from  '../views/opened/landing/plans.vue'
 
 import Login from '../views/opened/auth/login.vue'
+import Register from '../views/opened/auth/register.vue'
 
 import ResetPassword from '../views/opened/auth/ResetPassword.vue'
 import ForgotPasssword from '../views/opened/auth/forgotPassword.vue'
@@ -34,8 +36,12 @@ const routes = [
   {
     path: "/", name: "/",
     component: Home,
-    meta:
-      { requiresGuest: true }
+    meta: { requiresGuest: true }
+  },
+  {
+    path: "/contents", name: "contents",
+    component: Contents,
+    meta: { requiresGuest: true }
   },
   {
     path: "/login", name: "login",
@@ -46,9 +52,8 @@ const routes = [
 
   {
     path: "/register", name: "register",
-    component: Registration,
-    meta:
-      { requiresGuest: true }
+    component: Register,
+    meta: { requiresGuest: true }
   },
 
   {

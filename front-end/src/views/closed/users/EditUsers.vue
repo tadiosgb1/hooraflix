@@ -63,7 +63,7 @@ password: this.data?.password || ''
          }
 
         } else {
-         const res= await this.$apiPut("/users",this.data.id ,this.form);
+         const res= await this.$apiPatch("/users",this.data.id ,this.form);
          if(res){
            this.$root.$refs.toast.showToast('Edited successfully', 'success');
          }

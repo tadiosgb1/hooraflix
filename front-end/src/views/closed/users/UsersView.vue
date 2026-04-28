@@ -46,6 +46,7 @@
               <td class="px-6 py-4 text-center space-x-3">
                 <button @click="viewDetails(item.id)" class="text-red-500 hover:text-red-400 transition duration-150"><i class="fas fa-eye"></i></button>
                 <button @click="editItem(item)" class="text-blue-400 hover:text-blue-300 transition duration-150"><i class="fas fa-edit"></i></button>
+                <button @click="openAssignRole(item)" title="Assign Role" class="text-yellow-400 hover:text-yellow-300 transition duration-150"><i class="fas fa-user-tag"></i></button>
                 <button @click="openDeleteModal(item.id)" class="text-red-500 hover:text-red-400 transition duration-150"><i class="fas fa-trash"></i></button>
               </td>
             </tr>
@@ -65,6 +66,7 @@
           <div class="flex gap-3 text-sm">
             <button @click="viewDetails(item.id)" class="text-red-500 hover:text-red-400 transition duration-150"><i class="fas fa-eye"></i></button>
             <button @click="editItem(item)" class="text-blue-400 hover:text-blue-300 transition duration-150"><i class="fas fa-edit"></i></button>
+            <button @click="openAssignRole(item)" title="Assign Role" class="text-yellow-400 hover:text-yellow-300 transition duration-150"><i class="fas fa-user-tag"></i></button>
             <button @click="openDeleteModal(item.id)" class="text-red-500 hover:text-red-400 transition duration-150"><i class="fas fa-trash"></i></button>
           </div>
         </div>
@@ -123,8 +125,55 @@
       @confirm="confirmDelete"
       @cancel="deleteModalVisible=false"
     />
+
+    <!-- Assign Role Modal -->
+    <div v-if="assignRoleModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+      <div class="bg-gradient-to-br from-gray-900/95 to-black rounded-2xl shadow-2xl w-full max-w-sm border border-red-600/30">
+        <!-- Header -->
+        <div class="flex justify-between items-center px-6 py-4 border-b border-red-600/30">
+          <div>
+            <h2 class="text-base font-semibold text-white">Assign Role</h2>
+            <p class="text-xs text-gray-500 mt-0.5">
+              {{ assignRoleUser?.first_name }} {{ assignRoleUser?.last_name }}
+            </p>
+          </div>
+          <button @click="assignRoleModal = false" class="text-gray-500 hover:text-red-500 transition text-xl leading-none">&times;</button>
+        </div>
+
+        <div class="px-6 py-5 space-y-4">
+          <!-- Role select -->
+          <div>
+            <label class="block mb-1 text-xs font-medium text-gray-400 uppercase tracking-wide">Role</label>
+            <div v-if="loadingRoles" class="text-gray-500 text-xs py-2">Loading roles...</div>
+            <select v-else v-model="assignRoleId" class="input-field">
+              <option value="" disabled>Select a role</option>
+              <option v-for="role in roles" :key="role.id" :value="role.id">{{ role.name }}</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="flex justify-end gap-3 px-6 py-4 border-t border-gray-800">
+          <button @click="assignRoleModal = false"
+            class="px-4 py-2 border border-gray-600 text-gray-300 rounded-lg hover:bg-gray-800/50 text-sm transition">
+            Cancel
+          </button>
+          <button @click="submitAssignRole" :disabled="!assignRoleId || assigningRole"
+            class="px-5 py-2 bg-yellow-500 hover:bg-yellow-600 disabled:opacity-60 text-black rounded-lg font-semibold text-sm transition shadow-md">
+            {{ assigningRole ? 'Assigning...' : 'Assign Role' }}
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
+
+<style scoped>
+.input-field {
+  @apply border border-gray-600 bg-gray-900/50 rounded-lg px-3 py-2 text-sm w-full text-white placeholder-gray-500
+         focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600/50 shadow-sm transition duration-150;
+}
+</style>
 
 <script>
 import AddUsers from "./AddUsers.vue";
@@ -150,6 +199,13 @@ export default {
       loading: false,
       deleteModalVisible: false,
       deleteId: null,
+      // Assign role
+      assignRoleModal: false,
+      assignRoleUser: null,
+      assignRoleId: '',
+      roles: [],
+      loadingRoles: false,
+      assigningRole: false,
     };
   },
 
@@ -171,14 +227,12 @@ export default {
     openAddModal() { this.editMode = false; this.selectedItem = null; this.showModal = true; },
     editItem(item) { this.editMode = true; this.selectedItem = item; this.showModal = true; },
     
-    // Navigate using static route name
     viewDetails(id) { 
       this.$router.push({ name: 'Users-detail', params: { id } });
     },
 
     openDeleteModal(id) { this.deleteId = id; this.deleteModalVisible = true; },
 
-    // Delete with toast
     async confirmDelete() {
       const res = await this.$apiDelete('/users', this.deleteId);
       if(res) {
@@ -186,6 +240,33 @@ export default {
       }
       this.deleteModalVisible = false;
       this.fetchItems(this.currentPage);
+    },
+
+    async openAssignRole(user) {
+      this.assignRoleUser = user;
+      this.assignRoleId = '';
+      this.assignRoleModal = true;
+      if (this.roles.length === 0) {
+        this.loadingRoles = true;
+        try {
+          const res = await this.$apiGet('/roles', { page_size: 200 });
+          this.roles = res.data || res || [];
+        } catch(e) { console.error(e); }
+        finally { this.loadingRoles = false; }
+      }
+    },
+
+    async submitAssignRole() {
+      this.assigningRole = true;
+      try {
+        const payload = { user_id: this.assignRoleUser.id, role_id: this.assignRoleId };
+        const res = await this.$apiPost('/user-roles', payload);
+        if (res) {
+          this.$root.$refs.toast.showToast('Role assigned successfully', 'success');
+          this.assignRoleModal = false;
+        }
+      } catch(e) { console.error(e); }
+      finally { this.assigningRole = false; }
     },
   },
 

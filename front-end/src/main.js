@@ -4,7 +4,7 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import globals from './globals/globals.js';
-import './assets/global.css'; // Import the global CSS
+import './assets/global.css';
 import { createI18n } from 'vue-i18n';
 import amharicMessages from '../locales/amharic.json';
 import englishMessages from '../locales/english.json';
@@ -13,16 +13,13 @@ import apiClientPlugin from "./store/plugins/apiClientPlugin";
 import './assets/css/darkmode.css'; 
 import "animate.css";
 import VueParticles from "vue-particles";
-//import toast from './components/Common/Toast.vue';
-//check
-//hii
-
-
 import VueApexCharts from 'vue3-apexcharts';
+import { themeMixin } from './globals/themeMixin';
+
 const defaultLocale = 'amharic';
 const i18n = createI18n({
-  locale: defaultLocale, // Set Amharic as the default language
-  fallbackLocale: 'english', // Set a fallback language
+  locale: defaultLocale,
+  fallbackLocale: 'english',
   messages: {
     amharic: amharicMessages,
     english: englishMessages,
@@ -30,7 +27,9 @@ const i18n = createI18n({
   },
 });
 
-createApp(App)
+const app = createApp(App);
+app.mixin(themeMixin);
+app
   .use(store)
   .use(globals)
   .use(VueApexCharts)
@@ -38,5 +37,4 @@ createApp(App)
   .use(i18n)
   .use(VueParticles)
   .use(apiClientPlugin)
-  //.use(toast)
   .mount('#app');

@@ -8,20 +8,34 @@
       </div>
 
       <nav class="space-x-8 hidden lg:flex text-sm font-medium">
-        <a href="#movies" class="hover:text-red-500 transition">Movies & Series</a>
-        <a href="#music" class="hover:text-red-500 transition">Music</a>
-        <a href="#talents" class="hover:text-red-500 transition">Talent Training</a>
-        <a href="#creators" class="hover:text-red-500 transition">For Creators</a>
-        <a href="#pricing" class="hover:text-red-500 transition">Pricing</a>
+        <router-link to="/" class="hover:text-red-500 transition">Home</router-link>
+        <router-link to="/contents" class="hover:text-red-500 transition">All Contents</router-link>
+        <router-link :to="{ path: '/contents', query: { content_type: 'full_movie' } }" class="hover:text-red-500 transition">Movies & Series</router-link>
+        <router-link :to="{ path: '/contents', query: { content_type: 'documentary' } }" class="hover:text-red-500 transition">Documentary Films</router-link>
+        <router-link :to="{ path: '/contents', query: { content_type: 'music' } }" class="hover:text-red-500 transition">Music</router-link>
+        <router-link :to="{ path: '/contents', query: { content_type: 'news' } }" class="hover:text-red-500 transition">News</router-link>
       </nav>
 
       <div class="flex gap-3">
-        <router-link to="/login" class="border border-red-600 px-4 py-2 rounded-lg hover:bg-red-600/10 transition text-sm font-semibold">
-          Sign In
-        </router-link>
-        <a href="/#pricing" class="bg-red-600 px-6 py-2 rounded-lg hover:bg-red-700 transition text-sm font-semibold cursor-pointer">
-          Get Started
-        </a>
+        <template v-if="isAuthenticated">
+          <router-link v-if="!isViewer" to="/dashboard" class="border border-red-600 px-4 py-2 rounded-lg hover:bg-red-600/10 transition text-sm font-semibold">
+            Dashboard
+          </router-link>
+          <router-link to="/register?type=creator" class="border border-white/30 px-4 py-2 rounded-lg hover:bg-white/10 transition text-sm font-semibold">
+            🚀 Become a Creator
+          </router-link>
+          <button @click="logout" class="bg-red-600 px-6 py-2 rounded-lg hover:bg-red-700 transition text-sm font-semibold">
+            Logout
+          </button>
+        </template>
+        <template v-else>
+          <router-link to="/login" class="border border-red-600 px-4 py-2 rounded-lg hover:bg-red-600/10 transition text-sm font-semibold">
+            Sign In
+          </router-link>
+          <router-link to="/register" class="bg-red-600 px-6 py-2 rounded-lg hover:bg-red-700 transition text-sm font-semibold">
+            Get Started
+          </router-link>
+        </template>
       </div>
     </header>
 
@@ -48,15 +62,15 @@
           </p>
 
           <div class="flex flex-wrap gap-4">
-            <button @click="openRegistrationModal('viewer')" class="bg-red-600 px-8 py-4 rounded-lg hover:bg-red-700 transition font-semibold text-lg">
+            <router-link to="/register" class="bg-red-600 px-8 py-4 rounded-lg hover:bg-red-700 transition font-semibold text-lg">
               🎬 Start Watching
-            </button>
-            <button @click="openRegistrationModal('creator')" class="border-2 border-white px-8 py-4 rounded-lg hover:bg-white hover:text-black transition font-semibold text-lg">
+            </router-link>
+            <router-link to="/register?type=creator" class="border-2 border-white px-8 py-4 rounded-lg hover:bg-white hover:text-black transition font-semibold text-lg">
               🚀 Become a Creator
-            </button>
-            <button @click="openRegistrationModal('trainer')" class="border-2 border-yellow-500 px-8 py-4 rounded-lg hover:bg-yellow-500 hover:text-black transition font-semibold text-lg">
+            </router-link>
+            <router-link to="/register?type=creator" class="border-2 border-yellow-500 px-8 py-4 rounded-lg hover:bg-yellow-500 hover:text-black transition font-semibold text-lg">
               👨‍🏫 Train Talents
-            </button>
+            </router-link>
           </div>
         </div>
       </div>
@@ -247,9 +261,9 @@
                 <span class="text-gray-300">Direct payment to your account</span>
               </li>
             </ul>
-            <button class="bg-red-600 px-8 py-3 rounded-lg hover:bg-red-700 transition font-semibold">
+            <router-link to="/register?type=creator" class="bg-red-600 px-8 py-3 rounded-lg hover:bg-red-700 transition font-semibold inline-block">
               Start Creating
-            </button>
+            </router-link>
           </div>
         </div>
       </div>
@@ -312,100 +326,37 @@
       </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="py-20 px-8 bg-gray-900">
-      <div class="max-w-7xl mx-auto">
-        <h3 class="text-4xl font-bold text-center mb-6">Flexible Pricing Plans</h3>
-        <p class="text-gray-400 text-center mb-12 text-lg">Choose the perfect plan for your needs</p>
+    <!-- Pricing Section — Revenue Sharing for Creators -->
+    <section id="creators-earn" class="py-20 px-8 bg-gray-900">
+      <div class="max-w-7xl mx-auto text-center">
+        <h3 class="text-4xl font-bold mb-4">Earn With Your Content</h3>
+        <p class="text-gray-400 mb-4 text-lg max-w-2xl mx-auto">
+          HooraFlix is <span class="text-red-500 font-semibold">not subscription-based for creators</span>. We operate on a <span class="text-green-400 font-semibold">revenue sharing model</span> — you earn a percentage of every view, rental, and ad impression your content generates.
+        </p>
+        <p class="text-gray-500 text-sm mb-12 max-w-xl mx-auto">No monthly fees. No upfront costs. Just upload your content and start earning.</p>
 
-        <div class="grid md:grid-cols-3 gap-8">
-          <!-- Free Plan (Viewer) -->
-          <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-gray-600 transition">
-            <h4 class="text-2xl font-bold mb-2">👁️ Viewer</h4>
-            <p class="text-gray-400 mb-6">Watch unlimited content</p>
-            <div class="text-3xl font-bold mb-6">Free<span class="text-lg text-gray-400"> (Pay-per-view)</span></div>
-            <ul class="space-y-3 mb-8">
-              <li class="flex items-center space-x-2">
-                <span class="text-green-500">✓</span>
-                <span class="text-gray-300">Stream movies & series</span>
-              </li>
-              <li class="flex items-center space-x-2">
-                <span class="text-green-500">✓</span>
-                <span class="text-gray-300">Listen to music</span>
-              </li>
-              <li class="flex items-center space-x-2">
-                <span class="text-green-500">✓</span>
-                <span class="text-gray-300">Pay-per-view pricing</span>
-              </li>
-              <li class="flex items-center space-x-2">
-                <span class="text-green-500">✓</span>
-                <span class="text-gray-300">Social login (Google, Facebook)</span>
-              </li>
-            </ul>
-            <router-link :to="{ name: 'register', query: { role: 'viewer' } }" @click.prevent="openRegistrationModal('viewer')" class="w-full block text-center border border-white px-6 py-3 rounded-lg hover:bg-white hover:text-black transition font-semibold cursor-pointer">
-              Get Started
-            </router-link>
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+          <div class="bg-gray-800/60 border border-green-500/20 rounded-2xl p-8">
+            <div class="text-5xl mb-4">💰</div>
+            <h4 class="text-2xl font-bold mb-2 text-green-400">Revenue Share</h4>
+            <p class="text-gray-400">Earn a percentage of every view, rental, and ad revenue your content generates. The more views, the more you earn.</p>
           </div>
-
-          <!-- Creator Plan -->
-          <div class="bg-gradient-to-br from-red-600 to-red-700 p-8 rounded-2xl border-2 border-red-500 relative">
-            <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-red-600 px-4 py-1 rounded-full text-sm font-bold">
-              MOST POPULAR
-            </div>
-            <h4 class="text-2xl font-bold mb-2">🎥 Creator</h4>
-            <p class="text-red-100 mb-6">Upload & monetize content</p>
-            <div class="text-3xl font-bold mb-6">$19.99<span class="text-lg text-red-100">/month</span></div>
-            <ul class="space-y-3 mb-8">
-              <li class="flex items-center space-x-2">
-                <span class="text-green-300">✓</span>
-                <span class="text-white">All Viewer features</span>
-              </li>
-              <li class="flex items-center space-x-2">
-                <span class="text-green-300">✓</span>
-                <span class="text-white">Upload unlimited content</span>
-              </li>
-              <li class="flex items-center space-x-2">
-                <span class="text-green-300">✓</span>
-                <span class="text-white">Earn from subscriptions</span>
-              </li>
-              <li class="flex items-center space-x-2">
-                <span class="text-green-300">✓</span>
-                <span class="text-white">Referral commissions (10%)</span>
-              </li>
-            </ul>
-            <button @click="openRegistrationModal('creator')" class="w-full block text-center bg-black px-6 py-3 rounded-lg hover:bg-gray-900 transition font-semibold">
-              Subscribe Now
-            </button>
+          <div class="bg-gray-800/60 border border-yellow-500/20 rounded-2xl p-8">
+            <div class="text-5xl mb-4">📈</div>
+            <h4 class="text-2xl font-bold mb-2 text-yellow-400">Performance Bonuses</h4>
+            <p class="text-gray-400">Top-performing creators receive additional bonuses and featured placement to maximize their reach and earnings.</p>
           </div>
-
-          <!-- Trainer Plan -->
-          <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-yellow-600 transition">
-            <h4 class="text-2xl font-bold mb-2">👨‍🏫 Trainer</h4>
-            <p class="text-gray-400 mb-6">Train talents & earn commissions</p>
-            <div class="text-3xl font-bold mb-6">$29.99<span class="text-lg text-gray-400">/month</span></div>
-            <ul class="space-y-3 mb-8">
-              <li class="flex items-center space-x-2">
-                <span class="text-green-500">✓</span>
-                <span class="text-gray-300">All Creator features</span>
-              </li>
-              <li class="flex items-center space-x-2">
-                <span class="text-green-500">✓</span>
-                <span class="text-gray-300">Create training courses</span>
-              </li>
-              <li class="flex items-center space-x-2">
-                <span class="text-green-500">✓</span>
-                <span class="text-gray-300">Earn 15% per student</span>
-              </li>
-              <li class="flex items-center space-x-2">
-                <span class="text-green-500">✓</span>
-                <span class="text-gray-300">Referral bonuses (10% + 5%)</span>
-              </li>
-            </ul>
-            <button @click="openRegistrationModal('trainer')" class="w-full block text-center border border-yellow-600 px-6 py-3 rounded-lg hover:bg-yellow-600/10 transition font-semibold text-yellow-500">
-              Join as Trainer
-            </button>
+          <div class="bg-gray-800/60 border border-red-500/20 rounded-2xl p-8">
+            <div class="text-5xl mb-4">🔗</div>
+            <h4 class="text-2xl font-bold mb-2 text-red-400">Referral Commissions</h4>
+            <p class="text-gray-400">Refer other creators and earn a commission on their revenue too. Build your network and grow your passive income.</p>
           </div>
         </div>
+
+        <router-link to="/register?type=creator"
+          class="bg-red-600 px-10 py-4 rounded-xl hover:bg-red-700 transition font-semibold text-lg inline-block">
+          🚀 Start Earning as a Creator
+        </router-link>
       </div>
     </section>
 
@@ -565,20 +516,34 @@ export default {
     };
   },
 
+  computed: {
+    isAuthenticated() {
+      return !!localStorage.getItem("access");
+    },
+    isViewer() {
+      try {
+        const roles = JSON.parse(localStorage.getItem("roles") || "[]");
+        return roles.includes("viewer") && !roles.includes("creator") && !roles.includes("admin");
+      } catch { return false; }
+    },
+  },
+
   methods: {
     openRegistrationModal(role) {
       this.selectedRole = role;
       this.showRegistrationModal = true;
     },
-
     closeRegistrationModal() {
       this.showRegistrationModal = false;
     },
-
     handleRegistered(userData) {
       console.log("User registered:", userData);
       this.showRegistrationModal = false;
-    }
+    },
+    logout() {
+      localStorage.clear();
+      this.$router.push("/login");
+    },
   }
 };
 </script>

@@ -22,7 +22,11 @@
     </div>
 
     <!-- GRID -->
-    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <div v-if="loading" class="flex justify-center py-16">
+      <div class="w-8 h-8 border-4 border-red-600 border-t-transparent rounded-full animate-spin"></div>
+    </div>
+
+    <div v-else class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 
       <div
         v-for="item in filteredItems"
@@ -135,6 +139,10 @@
 </template>
 
 <script>
+import axios from "axios";
+
+const BASE_URL = import.meta.env.VITE_APP_BASE_URL_LOCAL;
+
 export default {
   name: "TrendingMedia",
 
@@ -143,6 +151,7 @@ export default {
       activeTab: "all",
       tabs: ["all", "movie", "series", "music"],
       contents: [],
+      loading: false,
 
       // 🔒 PAYWALL STATE
       showPayModal: false,
@@ -163,11 +172,14 @@ export default {
 
   methods: {
     async fetchContent() {
+      this.loading = true;
       try {
-        const res = await this.$apiGet("/content");
-        this.contents = res.data || [];
+        const res = await axios.get(`${BASE_URL}/content`);
+        this.contents = res.data?.data || res.data || [];
       } catch (e) {
-        console.error(e);
+        console.error("Failed to fetch content:", e);
+      } finally {
+        this.loading = false;
       }
     },
 

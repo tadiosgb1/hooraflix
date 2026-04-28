@@ -1,18 +1,124 @@
 /* src/assets/css/darkmode.css */
-@tailwind base; /* Ensure base styles are applied */
-@tailwind components; /* Optional: if you are using custom components */
-@tailwind utilities; /* Optional: if you are using custom utilities */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@layer base {
-  /* Light Mode styles (default) */
-  body {
-    background-color: #ffffff; /* Light background */
-    color: #000000; /* Light text */
-  }
+/* ── Light mode overrides ──────────────────────────────────────────────────
+   When data-theme="light" is set on the <main> wrapper, these rules
+   override the hardcoded dark Tailwind classes used in page views.
+   ───────────────────────────────────────────────────────────────────────── */
 
-  /* Dark Mode styles */
-  .dark body {
-    background-color: #1a202c; /* Dark background */
-    color: #ffffff; /* Dark text */
-  }
+[data-theme="light"] {
+  /* Page backgrounds */
+  --tw-bg-opacity: 1;
+  background-color: #f9fafb;
+  color: #111827;
+}
+
+/* Page wrapper */
+[data-theme="light"] .bg-black,
+[data-theme="light"] .bg-black\/60 {
+  background-color: #f9fafb !important;
+}
+
+/* Cards / panels */
+[data-theme="light"] .from-gray-900\/70,
+[data-theme="light"] .from-gray-900\/50,
+[data-theme="light"] .from-gray-900\/95,
+[data-theme="light"] .to-black {
+  --tw-gradient-from: #ffffff !important;
+  --tw-gradient-to: #f3f4f6 !important;
+}
+
+[data-theme="light"] .bg-gradient-to-br.from-gray-900\/50.to-black,
+[data-theme="light"] .bg-gradient-to-br.from-gray-900\/70.to-black,
+[data-theme="light"] .bg-gradient-to-br.from-gray-900\/95.to-black {
+  background: linear-gradient(to bottom right, #ffffff, #f3f4f6) !important;
+}
+
+/* Borders */
+[data-theme="light"] .border-gray-700\/50,
+[data-theme="light"] .border-gray-700\/40,
+[data-theme="light"] .border-gray-800 {
+  border-color: #e5e7eb !important;
+}
+
+[data-theme="light"] .border-red-600\/30 {
+  border-color: #fca5a5 !important;
+}
+
+/* Text */
+[data-theme="light"] .text-white {
+  color: #111827 !important;
+}
+
+[data-theme="light"] .text-gray-300,
+[data-theme="light"] .text-gray-400 {
+  color: #4b5563 !important;
+}
+
+[data-theme="light"] .text-gray-500,
+[data-theme="light"] .text-gray-600 {
+  color: #6b7280 !important;
+}
+
+/* Table head */
+[data-theme="light"] .bg-gray-900\/80 {
+  background-color: #f3f4f6 !important;
+}
+
+[data-theme="light"] thead .text-gray-300 {
+  color: #374151 !important;
+}
+
+/* Table rows */
+[data-theme="light"] .divide-gray-700\/50 > *,
+[data-theme="light"] .divide-gray-800\/60 > *,
+[data-theme="light"] .divide-gray-800 > * {
+  border-color: #e5e7eb !important;
+}
+
+[data-theme="light"] .hover\:bg-red-900\/10:hover {
+  background-color: #fef2f2 !important;
+}
+
+/* Inputs */
+[data-theme="light"] .bg-gray-900\/50 {
+  background-color: #ffffff !important;
+}
+
+[data-theme="light"] .bg-gray-900\/60 {
+  background-color: #f9fafb !important;
+}
+
+[data-theme="light"] input.text-white,
+[data-theme="light"] select.text-white,
+[data-theme="light"] textarea.text-white {
+  color: #111827 !important;
+  background-color: #ffffff !important;
+}
+
+[data-theme="light"] .border-gray-600 {
+  border-color: #d1d5db !important;
+}
+
+/* Pagination badge */
+[data-theme="light"] .bg-red-600 {
+  background-color: #dc2626 !important;
+}
+
+/* Mobile cards */
+[data-theme="light"] .bg-gray-900\/40 {
+  background-color: #f3f4f6 !important;
+}
+
+/* Section cards */
+[data-theme="light"] .section-card {
+  background: linear-gradient(to bottom right, #ffffff, #f3f4f6) !important;
+  border-color: #e5e7eb !important;
+}
+
+/* Modal overlay */
+[data-theme="light"] .backdrop-blur-sm.bg-black\/70 {
+  background-color: rgba(0,0,0,0.4) !important;
 }

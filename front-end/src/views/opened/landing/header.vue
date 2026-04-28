@@ -42,19 +42,34 @@
           <i class="fas fa-chevron-down absolute right-3 top-1/2 -translate-y-1/2 text-[8px] text-white/50 pointer-events-none"></i>
         </div>
 
-        <router-link 
-          to="/login"
-          class="px-6 py-2.5 bg-white/5 border border-white/10 text-white text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-white/10 transition-all duration-300"
-        >
-          Login
-        </router-link>
-
-        <router-link 
-          to="/register"
-          class="px-6 py-2.5 bg-primary text-white text-[10px] font-black uppercase tracking-widest rounded-xl shadow-[0_10px_20px_-5px_rgba(61,90,254,0.4)] hover:scale-105 active:scale-95 transition-all duration-300"
-        >
-          Get Started
-        </router-link>
+        <template v-if="isAuthenticated">
+          <router-link
+            to="/dashboard"
+            class="px-6 py-2.5 bg-white/5 border border-white/10 text-white text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-white/10 transition-all duration-300"
+          >
+            Dashboard
+          </router-link>
+          <button
+            @click="logout"
+            class="px-6 py-2.5 bg-red-600/20 border border-red-600/40 text-red-400 text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-red-600/30 transition-all duration-300"
+          >
+            Logout
+          </button>
+        </template>
+        <template v-else>
+          <router-link
+            to="/login"
+            class="px-6 py-2.5 bg-white/5 border border-white/10 text-white text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-white/10 transition-all duration-300"
+          >
+            Login
+          </router-link>
+          <router-link
+            to="/register"
+            class="px-6 py-2.5 bg-primary text-white text-[10px] font-black uppercase tracking-widest rounded-xl shadow-[0_10px_20px_-5px_rgba(61,90,254,0.4)] hover:scale-105 active:scale-95 transition-all duration-300"
+          >
+            Get Started
+          </router-link>
+        </template>
       </div>
 
       <button 
@@ -114,13 +129,24 @@ export default {
       mobileMenuOpen: false,
       selectedLang: 'en',
       navLinks: [
-        { name: 'Browse', path: '/browse' },         // Module 2: VOD
-        { name: 'Live', path: '/live' },             // Module 3: Live
-        { name: 'Training', path: '/training' },     // Module 7: Hub
-        { name: 'Talents', path: '/talents' },       // Module 5: Management
-        { name: 'Network', path: '/network' }        // Module 8: Referral/MLM
+        { name: 'Contents', path: '/contents' },
+        { name: 'Live', path: '/live' },
+        { name: 'Training', path: '/training' },
+        { name: 'Talents', path: '/talents' },
+        { name: 'Network', path: '/network' },
       ]
     };
+  },
+  computed: {
+    isAuthenticated() {
+      return !!localStorage.getItem('token');
+    },
+  },
+  methods: {
+    logout() {
+      localStorage.clear();
+      this.$router.push('/login');
+    },
   },
   watch: {
     $route() {

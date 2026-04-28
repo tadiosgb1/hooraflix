@@ -112,9 +112,9 @@
           <!-- Sign Up Link -->
           <p class="text-center text-gray-400">
             Don't have an account?
-            <router-link to="/register" class="text-red-500 hover:text-red-400 font-semibold transition">
+            <a href="/#pricing" class="text-red-500 hover:text-red-400 font-semibold transition cursor-pointer">
               Sign up
-            </router-link>
+            </a>
           </p>
         </div>
 
@@ -173,7 +173,7 @@ export default {
 
         // Redirect based on role — viewer → home, everyone else → dashboard
         if (roleNames.includes("viewer") && !roleNames.includes("creator") && !roleNames.includes("admin")) {
-          this.$router.push("/");
+          this.$router.push("/dashboard/first-dash");
         } else {
           this.$router.push("/dashboard/first-dash");
         }
