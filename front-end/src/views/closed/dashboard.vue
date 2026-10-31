@@ -8,10 +8,10 @@
             <i class="fas fa-bars text-xl"></i>
           </button>
           <div class="flex items-center space-x-3 group cursor-pointer">
-            <img src="../../assets/img/logo1.jpg" alt="Logo"
+            <img src="../../assets/img/logo1.jpg" alt="Alphaflix logo"
               :class="['h-9 w-9 rounded-xl object-cover ring-2 transition-all shadow-lg', isDark ? 'ring-red-600/50' : 'ring-red-400/50']" />
             <div class="flex flex-col">
-              <h1 :class="['text-lg font-black leading-none tracking-tight', isDark ? 'text-red-500' : 'text-red-600']">Hooraflix</h1>
+              <h1 :class="['text-lg font-black leading-none tracking-tight', isDark ? 'text-red-500' : 'text-red-600']">Alpha<span class="text-red-500">flix</span></h1>
               <span :class="['text-[9px] font-bold uppercase tracking-[0.2em]', isDark ? 'text-gray-500' : 'text-gray-400']">Premium Content</span>
             </div>
           </div>
