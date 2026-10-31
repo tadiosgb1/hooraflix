@@ -10,7 +10,7 @@
 
         <!-- Logo -->
         <div class="text-center mb-10">
-          <router-link to="/"><h1 class="text-5xl font-bold text-red-600 mb-2">🎬 HooraFlix</h1></router-link>
+          <router-link to="/"><h1 class="text-5xl font-black tracking-tight text-white mb-2">🎬 Alpha<span class="text-red-500">flix</span></h1></router-link>
           <p class="text-gray-400">Stream. Create. Train. Earn.</p>
         </div>
 

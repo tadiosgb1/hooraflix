@@ -1,7 +1,7 @@
-# HooraFlix Authentication & Registration Structure
+# Alphaflix Authentication & Registration Structure
 
 ## Overview
-HooraFlix has a professional authentication system with three user roles: **Viewers**, **Creators**, and **Trainers**. Registration is handled via a modal that appears when users click pricing buttons on the Home page.
+Alphaflix has a professional authentication system with three user roles: **Viewers**, **Creators**, and **Trainers**. Registration is handled via a modal that appears when users click pricing buttons on the Home page.
 
 ---
 
@@ -220,7 +220,7 @@ The Home page includes:
 4. **Music Section** - Dedicated music streaming features
 5. **Talent Training Section** - Commission structure and how it works
 6. **For Creators Section** - Creator benefits and monetization
-7. **Platform Features** - Why choose HooraFlix
+7. **Platform Features** - Why choose Alphaflix
 8. **About Section** - Background, Mission, Vision, Core Values
 9. **Pricing Section** - Three plans with registration modal
 10. **CTA Section** - Final call-to-action
