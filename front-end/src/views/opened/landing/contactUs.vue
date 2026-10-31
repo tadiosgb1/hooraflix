@@ -11,7 +11,7 @@
         <div class="lg:col-span-5 space-y-8">
           <div>
             <span class="inline-block px-4 py-1.5 mb-6 text-[10px] font-black tracking-[0.3em] text-primary bg-primary/10 rounded-full uppercase border border-primary/20">
-              Partner with HooraFlix
+              Partner with Alphaflix
             </span>
             <h2 class="text-6xl font-black text-white mb-8 tracking-tighter leading-[0.9] italic uppercase">
               Claim Your <br/> <span class="text-primary">Spotlight.</span>
@@ -119,7 +119,7 @@ export default {
     async submitForm() {
       this.loading = true;
       setTimeout(() => {
-        alert("Your inquiry has been sent to the HooraFlix Talent Desk. We will reach out within 48 hours.");
+        alert("Your inquiry has been sent to the Alphaflix Talent Desk. We will reach out within 48 hours.");
         this.loading = false;
         this.form = { org_name: "", email: "", subject: "talent", message: "" };
       }, 1500);
