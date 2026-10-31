@@ -10,7 +10,7 @@
         </div>
         <div class="flex flex-col">
           <span class="text-xl font-black text-white tracking-tighter leading-none italic uppercase">
-            Hoora<span class="text-primary">Flix</span>
+            Alpha<span class="text-primary">flix</span>
           </span>
           <span class="text-[8px] font-black text-white/40 uppercase tracking-[0.3em] leading-none mt-1 hidden sm:block">
             Talent Super Platform
