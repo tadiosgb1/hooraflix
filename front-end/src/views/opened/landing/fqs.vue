@@ -108,10 +108,10 @@ const enter = (el, done) => {
   })
 }
 
-// Updated FAQ Content for HooraFlix (Streaming & Talent Focus)
+// Updated FAQ Content for Alphaflix (Streaming & Talent Focus)
 const faqs = [
   {
-    question: 'What content can I watch on HooraFlix?',
+    question: 'What content can I watch on Alphaflix?',
     answer: 'We offer a wide range of premium Ethiopian movies, original series, and live streaming events. Our library is updated weekly with exclusive productions from local creators.',
     tags: ['VOD', 'Streaming']
   },
@@ -122,7 +122,7 @@ const faqs = [
   },
   {
     question: 'How does the Referral Network work?',
-    answer: 'HooraFlix uses a 5-rank hierarchical system. By referring new users or creators, you earn commissions. As your network grows, you move up in rank, unlocking higher payout percentages.',
+    answer: 'Alphaflix uses a 5-rank hierarchical system. By referring new users or creators, you earn commissions. As your network grows, you move up in rank, unlocking higher payout percentages.',
     tags: ['Earning', 'MLM']
   },
   {
