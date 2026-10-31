@@ -6,20 +6,17 @@
     <div class="absolute inset-0 bg-gradient-to-br from-slate-950/80 via-indigo-950/55 to-slate-900/55"></div>
 
     <div class="relative z-10 min-h-screen flex items-center justify-center px-4 py-3">
-      <div class="w-full max-w-sm">
+      <div class="w-full max-w-md">
 
         <!-- Registration Card -->
-        <div class="bg-slate-900/95 text-white backdrop-blur-xl border border-indigo-300/20 rounded-2xl p-4 shadow-2xl shadow-black/50">
+        <div class="bg-slate-900/95 text-white backdrop-blur-xl border border-indigo-300/20 rounded-none p-5 shadow-2xl shadow-black/50">
 
-          <div class="text-center mb-3"><div class="text-2xl font-black tracking-tight">Alpha<span class="text-red-400">flix</span></div><p class="text-slate-300 text-xs mt-1">Stream. Create. Train. Earn.</p></div>
+          <div class="text-center mb-3"><div class="text-2xl font-black tracking-tight">Alpha<span class="text-red-400">flix</span></div></div>
 
           <!-- Account type and title -->
           <h2 class="text-xl font-bold text-center mb-1">
-            {{ isCreator ? 'Create a creator account' : 'Create your account' }}
+            Create your account
           </h2>
-          <p class="text-slate-300 text-center text-sm mb-3">
-            {{ isCreator ? 'Publish content and earn through revenue sharing' : 'Sign up to explore movies, music and more' }}
-          </p>
 
           <!-- Error -->
           <div v-if="error" class="mb-5 p-4 bg-red-500/20 border border-red-500/50 rounded-lg">
