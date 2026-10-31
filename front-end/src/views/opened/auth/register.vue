@@ -3,41 +3,37 @@
     <video autoplay muted loop playsinline class="absolute w-full h-full object-cover opacity-75">
       <source src="https://cdn.coverr.co/videos/coverr-watching-a-movie-while-eating-popcorn-5406/1080p.mp4" />
     </video>
-    <div class="absolute inset-0 bg-gradient-to-r from-slate-950/55 via-slate-950/40 to-slate-950/25"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-950/80 via-indigo-950/55 to-slate-900/55"></div>
 
     <div class="relative z-10 min-h-screen flex items-center justify-center px-4 py-3">
       <div class="w-full max-w-sm">
 
-        <!-- Logo -->
-        <div class="text-center mb-3">
-          <router-link to="/"><h1 class="text-4xl font-black tracking-tight text-white mb-2">🎬 Alpha<span class="text-red-500">flix</span></h1></router-link>
-          <p class="text-gray-400">Stream. Create. Train. Earn.</p>
-        </div>
+        <!-- Registration Card -->
+        <div class="bg-slate-900/95 text-white backdrop-blur-xl border border-indigo-300/20 rounded-2xl p-4 shadow-2xl shadow-black/50">
 
-        <!-- Card -->
-        <div class="bg-black/80 text-white backdrop-blur-md border border-red-500/40 rounded-2xl p-4 shadow-2xl shadow-black/50">
+          <div class="text-center mb-3"><div class="text-2xl font-black tracking-tight">Alpha<span class="text-red-400">flix</span></div><p class="text-slate-300 text-xs mt-1">Stream. Create. Train. Earn.</p></div>
 
-          <!-- Title changes based on type -->
+          <!-- Account type and title -->
           <h2 class="text-xl font-bold text-center mb-1">
-            {{ isCreator ? '🎥 Join as Creator' : '🎬 Start Watching' }}
+            {{ isCreator ? 'Create a creator account' : 'Create your account' }}
           </h2>
-          <p class="text-gray-400 text-center text-sm mb-3">
-            {{ isCreator ? 'Upload content and earn through revenue sharing' : 'Create your free viewer account' }}
+          <p class="text-slate-300 text-center text-sm mb-3">
+            {{ isCreator ? 'Publish content and earn through revenue sharing' : 'Sign up to explore movies, music and more' }}
           </p>
 
           <!-- Error -->
           <div v-if="error" class="mb-5 p-4 bg-red-500/20 border border-red-500/50 rounded-lg">
-            <p class="text-red-300 text-sm">⚠️ {{ error }}</p>
+            <p class="text-red-300 text-sm">{{ error }}</p>
           </div>
 
           <form @submit.prevent="register" class="space-y-2.5">
             <div class="grid grid-cols-2 gap-2">
               <div>
-                <label class="block text-xs font-semibold mb-0.5 text-gray-400 uppercase tracking-wide">First Name</label>
+                <label class="block text-xs font-semibold mb-0.5 text-slate-300">First Name</label>
                 <input v-model="form.first_name" type="text" required placeholder="Jane" class="field" />
               </div>
               <div>
-                <label class="block text-xs font-semibold mb-1 text-gray-400 uppercase tracking-wide">Last Name</label>
+                <label class="block text-xs font-semibold mb-1 text-slate-300">Last Name</label>
                 <input v-model="form.last_name" type="text" required placeholder="Doe" class="field" />
               </div>
             </div>
