@@ -10,9 +10,9 @@
 
     <!-- Content -->
     <div class="relative z-10 min-h-screen flex items-center justify-center px-4 py-3">
-      <div class="w-full max-w-sm">
+      <div class="w-full max-w-md">
         <!-- Login Card -->
-        <div class="bg-slate-900/95 text-white backdrop-blur-xl border border-indigo-300/20 rounded-2xl p-5 shadow-2xl shadow-black/50">
+        <div class="bg-slate-900/95 text-white backdrop-blur-xl border border-indigo-300/20 rounded-none p-6 shadow-2xl shadow-black/50">
           <div class="text-center mb-4"><div class="text-2xl font-black tracking-tight">Alpha<span class="text-red-400">flix</span></div></div><h2 class="text-xl font-bold text-center mb-1">Sign in to your account</h2>
           
 
