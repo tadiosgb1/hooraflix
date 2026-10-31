@@ -4,7 +4,7 @@
     <!-- Navbar -->
     <header class="flex justify-between items-center px-8 py-4 bg-black/80 backdrop-blur-md fixed w-full z-50 border-b border-red-600/20">
       <div class="flex items-center space-x-2">
-        <h1 class="text-3xl font-bold text-red-600">🎬 HooraFlix</h1>
+        <h1 class="text-3xl font-bold text-red-600">🎬 Alphaflix</h1>
       </div>
 
       <nav class="space-x-8 hidden lg:flex text-sm font-medium">
@@ -272,7 +272,7 @@
     <!-- Platform Features Section -->
     <section class="py-20 px-8 bg-black">
       <div class="max-w-7xl mx-auto">
-        <h3 class="text-4xl font-bold text-center mb-12">Why Choose HooraFlix?</h3>
+        <h3 class="text-4xl font-bold text-center mb-12">Why Choose Alphaflix?</h3>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div class="bg-gray-800/50 p-6 rounded-xl border border-gray-700/50 hover:border-red-500/50 transition">
@@ -331,7 +331,7 @@
       <div class="max-w-7xl mx-auto text-center">
         <h3 class="text-4xl font-bold mb-4">Earn With Your Content</h3>
         <p class="text-gray-400 mb-4 text-lg max-w-2xl mx-auto">
-          HooraFlix is <span class="text-red-500 font-semibold">not subscription-based for creators</span>. We operate on a <span class="text-green-400 font-semibold">revenue sharing model</span> — you earn a percentage of every view, rental, and ad impression your content generates.
+          Alphaflix is <span class="text-red-500 font-semibold">not subscription-based for creators</span>. We operate on a <span class="text-green-400 font-semibold">revenue sharing model</span> — you earn a percentage of every view, rental, and ad impression your content generates.
         </p>
         <p class="text-gray-500 text-sm mb-12 max-w-xl mx-auto">No monthly fees. No upfront costs. Just upload your content and start earning.</p>
 
@@ -363,7 +363,7 @@
     <!-- CTA Section -->
     <section class="py-20 px-8 bg-gradient-to-r from-red-900/30 to-black">
       <div class="max-w-4xl mx-auto text-center">
-        <h3 class="text-4xl font-bold mb-6">Ready to Join HooraFlix?</h3>
+        <h3 class="text-4xl font-bold mb-6">Ready to Join Alphaflix?</h3>
         <p class="text-gray-300 mb-10 text-lg">
           Start watching, creating, or training today. Choose your path and begin your journey.
         </p>
@@ -385,7 +385,7 @@
     <section id="about" class="py-20 px-8 bg-gradient-to-b from-black to-gray-900">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16">
-          <h2 class="text-5xl font-bold mb-4">About HooraFlix</h2>
+          <h2 class="text-5xl font-bold mb-4">About Alphaflix</h2>
           <p class="text-gray-400 text-lg max-w-2xl mx-auto">Revolutionizing entertainment and talent development globally</p>
         </div>
 
@@ -393,7 +393,7 @@
         <div class="mb-16 bg-gradient-to-r from-red-900/20 to-black p-12 rounded-2xl border border-red-600/20">
           <h3 class="text-3xl font-bold mb-4">Our Background</h3>
           <p class="text-gray-300 text-lg leading-relaxed">
-            HooraFlix was founded with a vision to democratize entertainment and talent development. We believe that everyone deserves access to world-class content and the opportunity to showcase their talents. Our platform brings together viewers, creators, and trainers in a unified ecosystem where creativity is rewarded and talent is nurtured.
+            Alphaflix was founded with a vision to democratize entertainment and talent development. We believe that everyone deserves access to world-class content and the opportunity to showcase their talents. Our platform brings together viewers, creators, and trainers in a unified ecosystem where creativity is rewarded and talent is nurtured.
           </p>
         </div>
 
@@ -442,9 +442,9 @@
           </div>
         </div>
 
-        <!-- Why HooraFlix -->
+        <!-- Why Alphaflix -->
         <div class="bg-black border border-red-600/20 rounded-2xl p-12">
-          <h3 class="text-3xl font-bold mb-8 text-center">Why HooraFlix?</h3>
+          <h3 class="text-3xl font-bold mb-8 text-center">Why Alphaflix?</h3>
           <div class="grid md:grid-cols-2 gap-8">
             <div class="flex items-start space-x-4">
               <div class="text-3xl">🚀</div>
