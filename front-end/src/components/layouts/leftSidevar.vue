@@ -18,12 +18,12 @@
               : 'bg-gradient-to-r from-red-50 to-white border-gray-200'
           ]"
         >
-          <!-- <div class="flex items-center space-x-3">
+          <div class="flex items-center space-x-3">
             <div :class="['w-10 h-10 rounded-xl flex items-center justify-center', isDark ? 'bg-red-600/20' : 'bg-red-100']">
-              <img src="../../assets/img/logo1.jpg" class="h-7 w-7 rounded-lg" />
+              <img src="../../assets/img/logo1.jpg" alt="Alphaflix logo" class="h-7 w-7 rounded-lg object-cover" />
             </div>
-            <span :class="['text-xl font-bold', isDark ? 'text-red-500' : 'text-red-600']">HooraFlix</span>
-          </div> -->
+            <span :class="['text-xl font-black tracking-tight', isDark ? 'text-white' : 'text-gray-900']">Alpha<span class="text-red-500">flix</span></span>
+          </div>
 
           <!-- Theme Toggle Button -->
           <button
@@ -120,7 +120,7 @@
           ]"
         >
           <p class="text-xs text-center text-gray-500">
-            © 2026 HooraFlix. All rights reserved.
+            © 2026 Alphaflix. All rights reserved.
           </p>
         </div>
       </aside>
