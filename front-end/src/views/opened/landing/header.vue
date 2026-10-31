@@ -1,18 +1,18 @@
 <template>
   <header 
-    class="bg-[#050505] sticky top-0 z-[100] border-b border-white/5 shadow-2xl backdrop-blur-2xl bg-opacity-95 transition-all duration-500"
+    class="bg-slate-950/95 sticky top-0 z-[100] border-b border-indigo-200/10 shadow-xl backdrop-blur-2xl bg-opacity-95 transition-all duration-500"
   >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
       
       <router-link to="/" class="flex items-center space-x-3 group cursor-pointer">
-        <div class="h-10 w-10 sm:h-11 sm:w-11 bg-primary rounded-xl flex items-center justify-center shadow-[0_0_15px_rgba(61,90,254,0.4)] transform group-hover:scale-110 transition-all duration-500">
+        <div class="h-10 w-10 sm:h-11 sm:w-11 bg-indigo-600 rounded-xl flex items-center justify-center shadow-[0_0_15px_rgba(61,90,254,0.4)] transform group-hover:scale-110 transition-all duration-500">
           <i class="fas fa-play text-white text-sm ml-0.5"></i>
         </div>
         <div class="flex flex-col">
           <span class="text-xl font-black text-white tracking-tighter leading-none italic uppercase">
-            Alpha<span class="text-primary">flix</span>
+            Alpha<span class="text-indigo-300">flix</span>
           </span>
-          <span class="text-[8px] font-black text-white/40 uppercase tracking-[0.3em] leading-none mt-1 hidden sm:block">
+          <span class="text-[8px] font-black text-slate-400 uppercase tracking-[0.3em] leading-none mt-1 hidden sm:block">
             Talent Super Platform
           </span>
         </div>
@@ -23,8 +23,8 @@
           v-for="nav in navLinks" 
           :key="nav.path" 
           :to="nav.path"
-          class="px-4 py-2 text-white/60 text-[10px] font-black uppercase tracking-widest hover:text-white hover:bg-white/5 rounded-lg transition-all duration-300"
-          active-class="text-white bg-white/10"
+          class="px-4 py-2 text-slate-300 text-[10px] font-black uppercase tracking-widest hover:text-white hover:bg-indigo-300/10 rounded-lg transition-all duration-300"
+          active-class="text-white bg-indigo-300/10"
         >
           {{ nav.name }}
         </router-link>
@@ -34,7 +34,7 @@
         <div class="relative group">
           <select
             v-model="selectedLang"
-            class="appearance-none bg-white/5 text-white text-[10px] font-black pl-4 pr-8 py-2 rounded-xl border border-white/10 outline-none hover:bg-white/10 transition-colors cursor-pointer"
+            class="appearance-none bg-slate-800/70 text-white text-[10px] font-black pl-4 pr-8 py-2 rounded-xl border border-slate-500/30 outline-none hover:bg-white/10 transition-colors cursor-pointer"
           >
             <option value="en" class="text-slate-900 font-sans">EN</option>
             <option value="am" class="text-slate-900 font-sans">AM (አማርኛ)</option>
@@ -91,7 +91,7 @@
     >
       <div 
         v-if="mobileMenuOpen" 
-        class="lg:hidden absolute top-full left-0 w-full bg-[#050505] border-t border-white/5 shadow-2xl p-6 space-y-4 overflow-y-auto max-h-[90vh]"
+        class="lg:hidden absolute top-full left-0 w-full bg-slate-950 border-t border-white/5 shadow-2xl p-6 space-y-4 overflow-y-auto max-h-[90vh]"
       >
         <div class="grid grid-cols-1 gap-2">
           <router-link 
