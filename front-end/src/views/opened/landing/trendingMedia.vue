@@ -1,5 +1,5 @@
 <template>
-  <section class="py-14 px-6 bg-black text-white">
+  <section class="py-14 px-6 bg-slate-900 text-white">
 
     <!-- HEADER -->
     <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-8 gap-4">
@@ -14,7 +14,7 @@
           class="px-3 py-1 rounded-full text-xs font-bold uppercase transition"
           :class="activeTab === tab
             ? 'bg-red-600 text-white'
-            : 'bg-gray-800 text-gray-300 hover:bg-gray-700'"
+            : 'bg-slate-700 text-slate-200 hover:bg-gray-700'"
         >
           {{ tab }}
         </button>
@@ -31,7 +31,7 @@
       <div
         v-for="item in filteredItems"
         :key="item.id"
-        class="group bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition duration-300"
+        class="group bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition duration-300"
       >
 
         <!-- IMAGE -->
@@ -42,7 +42,7 @@
           />
 
           <!-- TYPE BADGE -->
-          <span class="absolute top-2 left-2 bg-black/70 px-2 py-1 text-xs rounded">
+          <span class="absolute top-2 left-2 bg-slate-900/70 px-2 py-1 text-xs rounded">
             {{ item.content_type }}
           </span>
         </div>
@@ -50,7 +50,7 @@
         <!-- INFO -->
         <div class="p-3">
           <h4 class="font-bold text-sm">{{ item.title }}</h4>
-          <p class="text-xs text-gray-400 line-clamp-2">
+          <p class="text-xs text-slate-300 line-clamp-2">
             {{ item.description }}
           </p>
         </div>
@@ -73,7 +73,7 @@
             <div
               v-for="part in item.series.parts"
               :key="part.id"
-              class="text-xs bg-gray-800 p-2 mb-1 rounded cursor-pointer hover:bg-gray-700"
+              class="text-xs bg-slate-700 p-2 mb-1 rounded cursor-pointer hover:bg-gray-700"
               @click="requestPlay(part.video_url)"
             >
               ▶ {{ part.title }}
@@ -85,14 +85,14 @@
             <p class="text-xs text-blue-400 mb-1">Seasons</p>
 
             <div v-for="season in item.series.seasons" :key="season.id">
-              <p class="text-xs text-gray-300">
+              <p class="text-xs text-slate-200">
                 Season {{ season.season_number }}
               </p>
 
               <div
                 v-for="ep in season.episodes"
                 :key="ep.id"
-                class="text-xs bg-gray-800 p-2 mt-1 rounded cursor-pointer hover:bg-gray-700"
+                class="text-xs bg-slate-700 p-2 mt-1 rounded cursor-pointer hover:bg-gray-700"
                 @click="requestPlay(ep.video_url)"
               >
                 ▶ Ep {{ ep.episode_number }} - {{ ep.title }}
@@ -107,13 +107,13 @@
     </div>
 
     <!-- 🔒 TELEBIRR PAY MODAL -->
-    <div v-if="showPayModal" class="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+    <div v-if="showPayModal" class="fixed inset-0 bg-slate-900/80 flex items-center justify-center z-50">
 
-      <div class="bg-gray-900 p-8 rounded-2xl w-96 text-center shadow-2xl">
+      <div class="bg-slate-800 p-8 rounded-2xl w-96 text-center shadow-2xl">
 
         <h3 class="text-xl font-bold mb-4">🔒 Unlock Content</h3>
 
-        <p class="text-gray-400 mb-6">
+        <p class="text-slate-300 mb-6">
           Pay with Telebirr to watch this content
         </p>
 
@@ -127,7 +127,7 @@
 
         <button
           @click="closeModal"
-          class="text-gray-500 hover:text-white"
+          class="text-slate-400 hover:text-white"
         >
           Cancel
         </button>
