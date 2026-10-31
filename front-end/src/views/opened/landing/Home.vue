@@ -66,7 +66,7 @@
               Start Watching
             </router-link>
             <router-link to="/register?type=creator" class="border-2 border-white px-8 py-4 rounded-lg hover:bg-white hover:text-black transition font-semibold text-lg">
-              🚀 Become a Creator
+              Become a Creator
             </router-link>
             <router-link to="/register?type=creator" class="border-2 border-yellow-500 px-8 py-4 rounded-lg hover:bg-yellow-500 hover:text-black transition font-semibold text-lg">
               Train Talents
@@ -355,13 +355,13 @@
 
         <router-link to="/register?type=creator"
           class="bg-red-600 px-10 py-4 rounded-xl hover:bg-red-700 transition font-semibold text-lg inline-block">
-          🚀 Start Earning as a Creator
+          Start Earning as a Creator
         </router-link>
       </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="py-20 px-8 bg-gradient-to-r from-red-900/30 to-black">
+    <section class="py-20 px-8 bg-gradient-to-r from-red-900/30 to-slate-950">
       <div class="max-w-4xl mx-auto text-center">
         <h3 class="text-4xl font-bold mb-6">Ready to Join Alphaflix?</h3>
         <p class="text-slate-200 mb-10 text-lg">
@@ -390,7 +390,7 @@
         </div>
 
         <!-- Background -->
-        <div class="mb-16 bg-gradient-to-r from-red-900/20 to-black p-12 rounded-2xl border border-red-600/20">
+        <div class="mb-16 bg-gradient-to-r from-red-900/20 to-slate-950 p-12 rounded-2xl border border-red-600/20">
           <h3 class="text-3xl font-bold mb-4">Our Background</h3>
           <p class="text-slate-200 text-lg leading-relaxed">
             Alphaflix was founded with a vision to democratize entertainment and talent development. We believe that everyone deserves access to world-class content and the opportunity to showcase their talents. Our platform brings together viewers, creators, and trainers in a unified ecosystem where creativity is rewarded and talent is nurtured.
@@ -443,7 +443,7 @@
         </div>
 
         <!-- Why Alphaflix -->
-        <div class="bg-black border border-red-600/20 rounded-2xl p-12">
+        <div class="bg-slate-900 border border-red-600/20 rounded-2xl p-12">
           <h3 class="text-3xl font-bold mb-8 text-center">Why Alphaflix?</h3>
           <div class="grid md:grid-cols-2 gap-8">
             <div class="flex items-start space-x-4">
