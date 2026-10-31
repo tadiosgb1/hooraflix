@@ -5,7 +5,7 @@
     <header class="flex justify-between items-center px-8 py-4 bg-black/80 backdrop-blur-md fixed w-full z-50 border-b border-red-600/20">
       <div class="flex items-center space-x-2">
         <router-link to="/">
-          <h1 class="text-3xl font-bold text-red-600">🎬 HooraFlix</h1>
+          <h1 class="text-3xl font-black tracking-tight text-white">Alpha<span class="text-red-500">flix</span></h1>
         </router-link>
       </div>
 
