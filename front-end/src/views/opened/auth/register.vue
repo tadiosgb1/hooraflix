@@ -1,9 +1,9 @@
 <template>
-  <div class="min-h-screen bg-black text-white overflow-hidden">
-    <video autoplay muted loop playsinline class="absolute w-full h-full object-cover opacity-40">
+  <div class="min-h-screen bg-slate-900 text-white overflow-hidden">
+    <video autoplay muted loop playsinline class="absolute w-full h-full object-cover opacity-75">
       <source src="https://cdn.coverr.co/videos/coverr-watching-a-movie-while-eating-popcorn-5406/1080p.mp4" />
     </video>
-    <div class="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-slate-950/55 via-slate-950/40 to-slate-950/25"></div>
 
     <div class="relative z-10 min-h-screen flex items-center justify-center px-4 py-12">
       <div class="w-full max-w-md">
@@ -11,17 +11,17 @@
         <!-- Logo -->
         <div class="text-center mb-10">
           <router-link to="/"><h1 class="text-5xl font-black tracking-tight text-white mb-2">🎬 Alpha<span class="text-red-500">flix</span></h1></router-link>
-          <p class="text-gray-600">Stream. Create. Train. Earn.</p>
+          <p class="text-gray-400">Stream. Create. Train. Earn.</p>
         </div>
 
         <!-- Card -->
-        <div class="bg-white/95 text-gray-900 backdrop-blur-md border border-white rounded-2xl p-8 shadow-2xl shadow-black/40">
+        <div class="bg-black/80 text-white backdrop-blur-md border border-red-500/40 rounded-2xl p-8 shadow-2xl shadow-black/50">
 
           <!-- Title changes based on type -->
           <h2 class="text-2xl font-bold text-center mb-1">
             {{ isCreator ? '🎥 Join as Creator' : '🎬 Start Watching' }}
           </h2>
-          <p class="text-gray-600 text-center text-sm mb-7">
+          <p class="text-gray-400 text-center text-sm mb-7">
             {{ isCreator ? 'Upload content and earn through revenue sharing' : 'Create your free viewer account' }}
           </p>
 
@@ -33,32 +33,32 @@
           <form @submit.prevent="register" class="space-y-4">
             <div class="grid grid-cols-2 gap-3">
               <div>
-                <label class="block text-xs font-semibold mb-1 text-gray-600 uppercase tracking-wide">First Name</label>
+                <label class="block text-xs font-semibold mb-1 text-gray-400 uppercase tracking-wide">First Name</label>
                 <input v-model="form.first_name" type="text" required placeholder="Jane" class="field" />
               </div>
               <div>
-                <label class="block text-xs font-semibold mb-1 text-gray-600 uppercase tracking-wide">Last Name</label>
+                <label class="block text-xs font-semibold mb-1 text-gray-400 uppercase tracking-wide">Last Name</label>
                 <input v-model="form.last_name" type="text" required placeholder="Doe" class="field" />
               </div>
             </div>
 
             <div>
-              <label class="block text-xs font-semibold mb-1 text-gray-600 uppercase tracking-wide">Email</label>
+              <label class="block text-xs font-semibold mb-1 text-gray-400 uppercase tracking-wide">Email</label>
               <input v-model="form.email" type="email" required placeholder="you@example.com" class="field" />
             </div>
 
             <div>
-              <label class="block text-xs font-semibold mb-1 text-gray-600 uppercase tracking-wide">Phone Number</label>
+              <label class="block text-xs font-semibold mb-1 text-gray-400 uppercase tracking-wide">Phone Number</label>
               <input v-model="form.phone_number" type="tel" required placeholder="+1234567890" class="field" />
             </div>
 
             <div>
-              <label class="block text-xs font-semibold mb-1 text-gray-600 uppercase tracking-wide">Password</label>
+              <label class="block text-xs font-semibold mb-1 text-gray-400 uppercase tracking-wide">Password</label>
               <input v-model="form.password" type="password" required placeholder="••••••••" class="field" />
             </div>
 
             <div>
-              <label class="block text-xs font-semibold mb-1 text-gray-600 uppercase tracking-wide">Confirm Password</label>
+              <label class="block text-xs font-semibold mb-1 text-gray-400 uppercase tracking-wide">Confirm Password</label>
               <input v-model="confirmPassword" type="password" required placeholder="••••••••" class="field" />
             </div>
 
@@ -76,7 +76,7 @@
           </form>
 
           <!-- Switch type -->
-          <div class="mt-5 text-center text-sm text-gray-600">
+          <div class="mt-5 text-center text-sm text-gray-400">
             <span v-if="isCreator">
               Just want to watch?
               <router-link to="/register" class="text-red-400 hover:text-red-300 font-semibold">Sign up as Viewer</router-link>
@@ -87,7 +87,7 @@
             </span>
           </div>
 
-          <p class="text-center text-gray-600 text-sm mt-3">
+          <p class="text-center text-gray-400 text-sm mt-3">
             Already have an account?
             <router-link to="/login" class="text-red-500 hover:text-red-400 font-semibold">Sign In</router-link>
           </p>
@@ -100,7 +100,7 @@
 
 <style scoped>
 .field {
-  @apply w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900
+  @apply w-full px-4 py-3 rounded-lg bg-gray-900/70 border border-gray-600 text-white
          placeholder-gray-500 text-sm focus:outline-none focus:border-red-600 transition;
 }
 input:focus { box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1); }
