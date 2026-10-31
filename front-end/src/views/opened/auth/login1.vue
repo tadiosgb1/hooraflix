@@ -17,15 +17,15 @@
           
 
           <!-- Error Alert -->
-          <div v-if="error" class="mb-6 p-4 bg-red-500/20 border border-red-500/50 rounded-lg">
+          <div v-if="error" class="mb-3 p-3 bg-red-500/20 border border-red-500/50 rounded-lg">
             <p class="text-red-300 text-sm flex items-center">
-              <span class="mr-2">⚠️</span>
+              <span class="mr-2"></span>
               {{ error }}
             </p>
           </div>
 
           <!-- Login Form -->
-          <form @submit.prevent="login" class="space-y-3">
+          <form @submit.prevent="login" class="space-y-2.5">
             <!-- Email Input -->
             <div>
               <label class="block text-sm font-semibold mb-2 text-slate-200">Email Address</label>
@@ -34,19 +34,19 @@
                 v-model="form.email"
                 required
                 placeholder="you@example.com"
-                class="w-full px-3 py-2 rounded-lg bg-gray-900/70 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-red-600 transition"
+                class="w-full px-3 py-2 rounded-lg bg-slate-800 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:border-red-600 transition"
               />
             </div>
 
             <!-- Password Input -->
             <div>
-              <label class="block text-sm font-semibold mb-2 text-gray-300">Password</label>
+              <label class="block text-sm font-semibold mb-2 text-slate-200">Password</label>
               <input
                 type="password"
                 v-model="form.password"
                 required
                 placeholder="••••••••"
-                class="w-full px-3 py-2 rounded-lg bg-gray-900/70 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-red-600 transition"
+                class="w-full px-3 py-2 rounded-lg bg-slate-800 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:border-red-600 transition"
               />
             </div>
 
@@ -56,8 +56,7 @@
                 <input type="checkbox" v-model="rememberMe" class="w-4 h-4 rounded" />
                 <span class="text-slate-300">Remember me</span>
               </label>
-              <a href="#" class="text-red-500 hover:text-red-400 transition">Forgot password?</a>
-            </div>
+                </div>
 
             <!-- Login Button -->
             <button
@@ -77,7 +76,7 @@
           </form>
 
           <!-- Sign Up Link -->
-          <p class="text-center text-gray-400">
+          <p class="text-center text-slate-300">
             Don't have an account?
             <a href="/#pricing" class="text-red-500 hover:text-red-400 font-semibold transition cursor-pointer">
               Sign up
@@ -85,14 +84,6 @@
           </p>
         </div>
 
-        <!-- Footer Links -->
-        <div class="mt-4 text-center text-sm text-gray-400 space-y-2">
-          <p>
-            <a href="#" class="hover:text-gray-400 transition">Terms</a>
-            <span class="mx-2">•</span>
-            <a href="#" class="hover:text-gray-400 transition">Privacy</a>
-          </p>
-        </div>
       </div>
     </div>
   </div>
