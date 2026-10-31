@@ -13,7 +13,7 @@
       <div class="w-full max-w-sm">
         <!-- Login Card -->
         <div class="bg-slate-900/95 text-white backdrop-blur-xl border border-indigo-300/20 rounded-2xl p-5 shadow-2xl shadow-black/50">
-          <div class="text-center mb-4"><div class="text-2xl font-black tracking-tight">Alpha<span class="text-red-400">flix</span></div><p class="text-slate-300 text-xs mt-1">Stream. Create. Train. Earn.</p></div><h2 class="text-xl font-bold text-center mb-1">Sign in to your account</h2>
+          <div class="text-center mb-4"><div class="text-2xl font-black tracking-tight">Alpha<span class="text-red-400">flix</span></div></div><h2 class="text-xl font-bold text-center mb-1">Sign in to your account</h2>
           
 
           <!-- Error Alert -->
