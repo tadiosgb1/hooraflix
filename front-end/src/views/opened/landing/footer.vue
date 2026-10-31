@@ -1,5 +1,5 @@
 <template>
-  <footer class="relative bg-[#080808] text-white pt-20 pb-10 px-6 overflow-hidden border-t border-white/5">
+  <footer class="relative bg-slate-950 text-white pt-20 pb-10 px-6 overflow-hidden border-t border-slate-500/20">
     
     <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
     <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
@@ -14,13 +14,13 @@
            <span class="text-2xl font-black tracking-tighter uppercase italic">Alpha<span class="text-primary">flix</span></span>
         </div>
         
-        <p class="text-white/60 text-sm leading-relaxed max-w-sm font-medium">
+        <p class="text-slate-300 text-sm leading-relaxed max-w-sm font-medium">
           The ultimate digital ecosystem for African talent. We combine world-class streaming with a powerful creator economy to empower actors, models, and filmmakers across the continent.
         </p>
 
         <div class="flex space-x-5 mt-6">
           <a v-for="social in socials" :key="social.name" href="#" 
-             class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-300 group border border-white/10">
+             class="w-10 h-10 rounded-xl bg-slate-800/70 flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-300 group border border-slate-500/30">
             <i :class="[social.class, 'text-lg group-hover:text-white transition-colors']"></i>
           </a>
         </div>
@@ -30,7 +30,7 @@
         <h3 class="text-xs font-black uppercase tracking-[0.2em] text-primary mb-6">{{ group.title }}</h3>
         <ul class="space-y-4">
           <li v-for="link in group.links" :key="link.name">
-            <a :href="link.url" class="text-sm text-white/60 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">
+            <a :href="link.url" class="text-sm text-slate-300 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">
               {{ link.name }}
             </a>
           </li>
@@ -39,15 +39,15 @@
 
     </div>
 
-    <div class="mt-20 border-t border-white/5 pt-8 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
-      <div class="text-[10px] font-bold text-white/30 uppercase tracking-widest">
-        © 2026 ALPHAFLIX. Powered by <span class="text-white/50">Ant Technology PLC</span>, Addis Ababa.
+    <div class="mt-20 border-t border-slate-500/20 pt-8 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
+      <div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+        © 2026 ALPHAFLIX. Powered by <span class="text-slate-200">Ant Technology PLC</span>, Addis Ababa.
       </div>
       
       <div class="flex gap-8 mt-6 md:mt-0 text-[10px] font-black uppercase tracking-widest">
-        <a href="#" class="text-white/30 hover:text-primary transition-colors">Creator Terms</a>
-        <a href="#" class="text-white/30 hover:text-primary transition-colors">Privacy Policy</a>
-        <a href="#" class="text-white/30 hover:text-primary transition-colors">KYC Compliance</a>
+        <a href="#" class="text-slate-400 hover:text-primary transition-colors">Creator Terms</a>
+        <a href="#" class="text-slate-400 hover:text-primary transition-colors">Privacy Policy</a>
+        <a href="#" class="text-slate-400 hover:text-primary transition-colors">KYC Compliance</a>
       </div>
     </div>
   </footer>
