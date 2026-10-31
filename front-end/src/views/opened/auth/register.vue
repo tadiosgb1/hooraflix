@@ -39,22 +39,22 @@
             </div>
 
             <div>
-              <label class="block text-xs font-semibold mb-1 text-gray-400 uppercase tracking-wide">Email</label>
+              <label class="block text-xs font-semibold mb-1 text-slate-300 tracking-wide">Email</label>
               <input v-model="form.email" type="email" required placeholder="you@example.com" class="field" />
             </div>
 
             <div>
-              <label class="block text-xs font-semibold mb-1 text-gray-400 uppercase tracking-wide">Phone Number</label>
+              <label class="block text-xs font-semibold mb-1 text-slate-300 tracking-wide">Phone Number</label>
               <input v-model="form.phone_number" type="tel" required placeholder="+1234567890" class="field" />
             </div>
 
             <div>
-              <label class="block text-xs font-semibold mb-1 text-gray-400 uppercase tracking-wide">Password</label>
+              <label class="block text-xs font-semibold mb-1 text-slate-300 tracking-wide">Password</label>
               <input v-model="form.password" type="password" required placeholder="••••••••" class="field" />
             </div>
 
             <div>
-              <label class="block text-xs font-semibold mb-1 text-gray-400 uppercase tracking-wide">Confirm Password</label>
+              <label class="block text-xs font-semibold mb-1 text-slate-300 tracking-wide">Confirm Password</label>
               <input v-model="confirmPassword" type="password" required placeholder="••••••••" class="field" />
             </div>
 
@@ -72,7 +72,7 @@
           </form>
 
           <!-- Switch type -->
-          <div class="mt-3 text-center text-sm text-gray-400">
+          <div class="mt-3 text-center text-sm text-slate-300">
             <span v-if="isCreator">
               Just want to watch?
               <router-link to="/register" class="text-red-400 hover:text-red-300 font-semibold">Sign up as Viewer</router-link>
@@ -83,7 +83,7 @@
             </span>
           </div>
 
-          <p class="text-center text-gray-400 text-sm mt-2">
+          <p class="text-center text-slate-300 text-sm mt-2">
             Already have an account?
             <router-link to="/login" class="text-red-500 hover:text-red-400 font-semibold">Sign In</router-link>
           </p>
@@ -96,8 +96,8 @@
 
 <style scoped>
 .field {
-  @apply w-full px-3 py-2 rounded-lg bg-gray-900/70 border border-gray-600 text-white
-         placeholder-gray-500 text-sm focus:outline-none focus:border-red-600 transition;
+  @apply w-full px-3 py-2 rounded-lg bg-slate-800 border border-slate-600 text-white
+         placeholder-slate-400 text-sm focus:outline-none focus:border-red-600 transition;
 }
 input:focus { box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1); }
 </style>
