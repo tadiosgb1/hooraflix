@@ -1,7 +1,7 @@
 # Dashboard Theme & Dark/Light Mode Update
 
 ## Overview
-Updated the sidebar and dashboard with professional HooraFlix branding and added dark/light mode toggle functionality.
+Updated the sidebar and dashboard with professional Alphaflix branding and added dark/light mode toggle functionality.
 
 ---
 
