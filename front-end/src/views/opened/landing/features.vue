@@ -9,14 +9,14 @@
       <div class="max-w-4xl mb-24">
         <div class="flex items-center gap-4 mb-6">
           <span class="h-[1px] w-12 bg-primary"></span>
-          <span class="text-[10px] font-black tracking-[0.4em] text-primary uppercase">HooraFlix Ecosystem 2.0</span>
+          <span class="text-[10px] font-black tracking-[0.4em] text-primary uppercase">Alphaflix Ecosystem 2.0</span>
         </div>
         <h2 class="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter leading-none italic">
           Entertainment Meets <br/>
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Career Empowerment.</span>
         </h2>
         <p class="text-white/40 text-xl font-medium leading-relaxed max-w-2xl border-l-4 border-white/5 pl-8">
-          Beyond a streaming service—HooraFlix is a digital agency that turns viewers into fans and creators into entrepreneurs through 15 specialized core modules.
+          Beyond a streaming service—Alphaflix is a digital agency that turns viewers into fans and creators into entrepreneurs through 15 specialized core modules.
         </p>
       </div>
 
