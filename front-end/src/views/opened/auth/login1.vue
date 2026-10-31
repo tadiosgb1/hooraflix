@@ -19,7 +19,6 @@
           <!-- Error Alert -->
           <div v-if="error" class="mb-3 p-3 bg-red-500/20 border border-red-500/50 rounded-lg">
             <p class="text-red-300 text-sm flex items-center">
-              <span class="mr-2"></span>
               {{ error }}
             </p>
           </div>
