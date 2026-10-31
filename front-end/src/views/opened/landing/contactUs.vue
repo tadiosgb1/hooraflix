@@ -1,5 +1,5 @@
 <template>
-  <section id="contact" class="py-32 bg-[#050505] relative overflow-hidden">
+  <section id="contact" class="py-32 bg-slate-900 relative overflow-hidden">
     <div class="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none -z-0" 
          style="background-image: linear-gradient(#3d5afe 1px, transparent 1px), linear-gradient(90deg, #3d5afe 1px, transparent 1px); background-size: 50px 50px;">
     </div>
@@ -16,19 +16,19 @@
             <h2 class="text-6xl font-black text-white mb-8 tracking-tighter leading-[0.9] italic uppercase">
               Claim Your <br/> <span class="text-primary">Spotlight.</span>
             </h2>
-            <p class="text-white/40 text-lg font-medium leading-relaxed max-w-md">
+            <p class="text-slate-300 text-lg font-medium leading-relaxed max-w-md">
               Ready to take your creative career to the next level? Our talent agents and production team are ready to review your pitch.
             </p>
           </div>
 
           <div class="grid grid-cols-1 gap-4">
             <div v-for="info in contactInfo" :key="info.label" 
-                 class="group p-6 bg-white/5 border border-white/10 rounded-[2rem] hover:bg-primary hover:border-primary transition-all duration-500 flex items-center gap-6">
-              <div class="w-14 h-14 rounded-2xl bg-[#0a0a0a] shadow-xl flex items-center justify-center text-primary group-hover:bg-white group-hover:scale-110 transition-all">
+                 class="group p-6 bg-slate-700/60 border border-slate-500/30 rounded-[2rem] hover:bg-primary hover:border-primary transition-all duration-500 flex items-center gap-6">
+              <div class="w-14 h-14 rounded-2xl bg-slate-700 shadow-xl flex items-center justify-center text-primary group-hover:bg-white group-hover:scale-110 transition-all">
                 <i :class="info.icon" class="text-xl"></i>
               </div>
               <div>
-                <p class="text-[10px] font-black uppercase tracking-widest text-white/30 group-hover:text-white/60 mb-1">{{ info.label }}</p>
+                <p class="text-[10px] font-black uppercase tracking-widest text-slate-400 group-hover:text-slate-300 mb-1">{{ info.label }}</p>
                 <p class="text-md font-bold text-white">{{ info.value }}</p>
               </div>
             </div>
@@ -41,43 +41,43 @@
                 <span class="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
               </span>
             </div>
-            <p class="text-[10px] font-black uppercase tracking-[0.2em] text-white/60 mb-2">Streaming Infrastructure</p>
+            <p class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-300 mb-2">Streaming Infrastructure</p>
             <p class="text-sm font-bold">Global CDN & Payment Nodes Online</p>
           </div>
         </div>
 
         <div class="lg:col-span-7">
-          <div class="bg-[#0c0c0c] rounded-[3rem] p-10 md:p-16 shadow-2xl border border-white/5 relative">
+          <div class="bg-slate-800 rounded-[3rem] p-10 md:p-16 shadow-2xl border border-slate-500/20 relative">
             <div class="absolute -top-6 -right-6 w-24 h-24 bg-primary rounded-3xl -rotate-12 -z-10 opacity-20"></div>
             
             <form @submit.prevent="submitForm" class="space-y-8">
               <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="space-y-2">
-                  <label class="text-[10px] font-black uppercase tracking-widest text-white/30 ml-1">Full Name / Studio</label>
+                  <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Full Name / Studio</label>
                   <input type="text" v-model="form.org_name" required placeholder="Full Name" 
-                    class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-primary/20 transition-all font-bold text-white placeholder:text-white/10" />
+                    class="w-full bg-slate-700/60 border border-slate-500/30 rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-primary/20 transition-all font-bold text-white placeholder:text-slate-400" />
                 </div>
                 <div class="space-y-2">
-                  <label class="text-[10px] font-black uppercase tracking-widest text-white/30 ml-1">Contact Email</label>
+                  <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Contact Email</label>
                   <input type="email" v-model="form.email" required placeholder="contact@talent.com" 
-                    class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-primary/20 transition-all font-bold text-white placeholder:text-white/10" />
+                    class="w-full bg-slate-700/60 border border-slate-500/30 rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-primary/20 transition-all font-bold text-white placeholder:text-slate-400" />
                 </div>
               </div>
 
               <div class="space-y-2">
-                <label class="text-[10px] font-black uppercase tracking-widest text-white/30 ml-1">Inquiry Type</label>
-                <select v-model="form.subject" class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-primary/20 transition-all font-bold text-white appearance-none">
-                  <option value="talent" class="bg-[#0c0c0c]">Talent Verification Inquiry</option>
-                  <option value="content" class="bg-[#0c0c0c]">Content Distribution / Licensing</option>
-                  <option value="ads" class="bg-[#0c0c0c]">Ad Placement & Partnerships</option>
-                  <option value="referral" class="bg-[#0c0c0c]">Network Rank & Commission Help</option>
+                <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Inquiry Type</label>
+                <select v-model="form.subject" class="w-full bg-slate-700/60 border border-slate-500/30 rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-primary/20 transition-all font-bold text-white appearance-none">
+                  <option value="talent" class="bg-slate-800">Talent Verification Inquiry</option>
+                  <option value="content" class="bg-slate-800">Content Distribution / Licensing</option>
+                  <option value="ads" class="bg-slate-800">Ad Placement & Partnerships</option>
+                  <option value="referral" class="bg-slate-800">Network Rank & Commission Help</option>
                 </select>
               </div>
 
               <div class="space-y-2">
-                <label class="text-[10px] font-black uppercase tracking-widest text-white/30 ml-1">Message Details</label>
+                <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Message Details</label>
                 <textarea v-model="form.message" rows="4" placeholder="Tell us about your portfolio or content catalog..." 
-                  class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-primary/20 transition-all font-bold text-white resize-none placeholder:text-white/10"></textarea>
+                  class="w-full bg-slate-700/60 border border-slate-500/30 rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-primary/20 transition-all font-bold text-white resize-none placeholder:text-slate-400"></textarea>
               </div>
 
               <button
