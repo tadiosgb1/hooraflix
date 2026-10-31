@@ -11,7 +11,7 @@
            <div class="h-10 w-10 bg-primary rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(61,90,254,0.3)]">
              <i class="fas fa-play text-white text-sm"></i>
            </div>
-           <span class="text-2xl font-black tracking-tighter uppercase italic">Hoora<span class="text-primary">Flix</span></span>
+           <span class="text-2xl font-black tracking-tighter uppercase italic">Alpha<span class="text-primary">flix</span></span>
         </div>
         
         <p class="text-white/60 text-sm leading-relaxed max-w-sm font-medium">
@@ -41,7 +41,7 @@
 
     <div class="mt-20 border-t border-white/5 pt-8 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
       <div class="text-[10px] font-bold text-white/30 uppercase tracking-widest">
-        © 2026 HOORAFLIX. Powered by <span class="text-white/50">Ant Technology PLC</span>, Addis Ababa.
+        © 2026 ALPHAFLIX. Powered by <span class="text-white/50">Ant Technology PLC</span>, Addis Ababa.
       </div>
       
       <div class="flex gap-8 mt-6 md:mt-0 text-[10px] font-black uppercase tracking-widest">
