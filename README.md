@@ -28,8 +28,8 @@ Install the following before starting:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/tadiosgb1/hooraflix.git
-   cd hooraflix
+   git clone https://github.com/NGO-s-and-Others/AlpfaFlix-Frontend.git
+   cd AlpfaFlix-Frontend
    ```
 
 2. Move into the frontend project:
