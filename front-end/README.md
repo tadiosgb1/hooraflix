@@ -1,10 +1,27 @@
-# Vue 3 + Vite
+# HooraFlix frontend
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+The Vue 3 + Vite application lives in this directory.
 
-## Recommended IDE Setup
+For the complete setup guide—including prerequisites, installation, environment configuration, development, build, deployment, and troubleshooting—see the [repository README](../README.md).
 
-- [VS Code](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (previously Volar) and disable Vetur
+## Quick start
 
+```bash
+npm ci
+cp .env.example .env
+npm run dev
+```
 
-npx json-server --watch db.json --port 3000
+On Windows PowerShell, create the environment file with:
+
+```powershell
+Copy-Item .env.example .env
+```
+
+Edit `.env` with your own backend URLs before starting the app. The values in `.env.example` are safe placeholders only.
+
+## Scripts
+
+- `npm run dev` — start the development server.
+- `npm run build` — create the production bundle in `dist/`.
+- `npm run preview` — preview the production bundle.
